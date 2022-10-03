@@ -26,7 +26,6 @@
 @include('layouts.partials.modalcart')
 @include('layouts.partials.jsassets')
 
-
 </body>
 
 </html>
