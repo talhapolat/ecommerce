@@ -3,17 +3,17 @@ $ip		      = $_SERVER["REMOTE_ADDR"];
 $timeDamga    = time();
 $time         = date("Y/m/d", $timeDamga);
 
-if (isset($_SESSION["cart"])) {
+if (session('cart') != null) {
 
 } else {
-	$_SESSION['cart'] = array();
-	$_SESSION["carttotal"] = 0;
+    request()->session()->put('cart', array());
+    request()->session()->put('carttotal', 0);
 }
 
-if (isset($_SESSION['qty'])) {
+if (session('qty') != null) {
 
 } else {
-	$_SESSION['qty'] = array();
+    request()->session()->put('qty', array());
 }
 
 

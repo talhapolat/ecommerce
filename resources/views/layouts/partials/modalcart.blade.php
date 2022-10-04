@@ -1,9 +1,6 @@
-<?php
-$baskettotal = 0;
-foreach ($_SESSION["qty"] as $key => $qty) {
-    $baskettotal += $qty['qty']*$_SESSION['cart'][$key]['price'];
-}
-?>
+@php
+$baskettotal = session('carttotal');
+@endphp
 
 <!-- CART -->
 <div class="wrap-header-cart js-panel-cart">
@@ -25,9 +22,9 @@ foreach ($_SESSION["qty"] as $key => $qty) {
 
                 <?php
 
-                if (sizeof($_SESSION["cart"]) > 0) {
+                if (sizeof(session('cart')) > 0) {
 
-                foreach ($_SESSION["cart"] as $key => $pcart) { ?>
+                foreach (session('cart') as $key => $pcart) { ?>
 
                 <li class="header-cart-item flex-w flex-t m-b-12">
                     <div class="header-cart-item-img" onclick="deletecart(<?= $key ?>)">
@@ -40,7 +37,7 @@ foreach ($_SESSION["qty"] as $key => $qty) {
                         </a>
 
                         <span class="header-cart-item-info">
-									<span id="cartproductqty"><?= $_SESSION["qty"][$key]['qty'] ?></span> x <?= $pcart['price'] ?>₺
+									<span id="cartproductqty"><?= session('qty')[$key]['qty'] ?></span> x <?= $pcart['price'] ?>₺
 									<small style="float: right;">
 										<?php if ($pcart['option1'] != null and $pcart['option1'] != "0") {
                                             echo $pcart['option1'];
@@ -61,7 +58,7 @@ foreach ($_SESSION["qty"] as $key => $qty) {
             </ul>
 
             <?php
-            if (isset($_SESSION["carttotal"])) { ?>
+            if (session('carttotal') != null) { ?>
             <div class="w-full">
                 <div id="header-cart-totall" class="header-cart-total w-full p-tb-40">
                     Toplam:

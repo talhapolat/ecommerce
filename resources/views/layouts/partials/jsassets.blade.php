@@ -460,7 +460,7 @@
                     $("#modelpprice").html(result[1]);
                     $("#modelpdesc").html(result[2]);
 
-                    document.getElementById("modelpimage").src = '/storage/' + result[3];
+                    document.getElementById("modelpimage").src = '/storage/' + result[3] + '?rand=' + Math.random();
 
                     document.getElementById("addCartButton").setAttribute("data-id", result[4]);
                     document.getElementById("num-product").value = 1;
@@ -631,7 +631,7 @@
             gallerylist[0].children[0].children[0].children[5].children[0].children[0].src = '';
 
 
-            gallerylist[0].children[0].children[0].children[0].style.display = "none";
+            //gallerylist[0].children[0].children[0].children[0].style.display = "none";
             gallerylist[0].children[0].children[0].children[1].style.display = "none";
             gallerylist[0].children[0].children[0].children[2].style.display = "none";
             gallerylist[0].children[0].children[0].children[3].style.display = "none";
@@ -677,7 +677,7 @@
 
 
     function deletecart(key) {
-        window.location.href = "/app/deletecart.php?key=" + key;
+        window.location.href = "/deletecart?key=" + key;
     }
 
 

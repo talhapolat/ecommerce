@@ -31,7 +31,7 @@ require_once app_path('func.php');
 <html>
 
 <head>
-    <title> @php echo $_SESSION["carttotal"] @endphp {{ $product->title }}</title>
+    <title> @php echo session('carttotal') @endphp {{ $product->title }}</title>
     <link rel="stylesheet" type="text/css" href="/Template/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     @include('layouts.partials.head')
 </head>
@@ -749,7 +749,7 @@ require_once app_path('func.php');
 <!-- CONTENT END -->
 
 <!-- CART -->
-{{--@include('layouts.partials.modalcart')--}}
+@include('layouts.partials.modalcart')
 <!-- CART END -->
 
 @include('layouts.partials.jsassets')
@@ -759,4 +759,4 @@ require_once app_path('func.php');
 </body>
 
 </html>
-<?php $dbConnect = null ?>
+<?php //$dbConnect = null ?>

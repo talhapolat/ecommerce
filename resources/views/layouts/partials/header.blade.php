@@ -112,10 +112,9 @@
                             <i class="zmdi zmdi-search"></i>
                         </div>
 
-                        <div id="cartnoti" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php if (isset($_SESSION['cart'])) {
-                            echo array_sum(array_column($_SESSION['qty'], 'qty'));
-                        }
-                        ?>">
+                        <div id="cartnoti" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="
+                        @php if (session('qty')!=null) { echo array_sum(array_column(session('qty'), 'qty')); } else echo 0  @endphp
+                            ">
                             <i class="zmdi zmdi-shopping-cart"></i>
                         </div>
 
@@ -131,7 +130,7 @@
 //
 //                        ?>
 
-                        <a href="/favorites" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="9999">
+                        <a href="/favorites" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="99">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
                     </div>
@@ -156,10 +155,7 @@
 
             <div id="cartnotimobil"
                  class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart"
-                 data-notify="<?php if (isset($_SESSION['cart'])) {
-                     echo sizeof($_SESSION['cart']);
-                 }
-                 ?>">
+                 data-notify="50">
                 <i class="zmdi zmdi-shopping-cart"></i>
             </div>
 
@@ -237,7 +233,7 @@
     <div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
         <div class="container-search-header">
             <button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
-                <img src="/images/icons/icon-close2.png" alt="CLOSE">
+                <img src="{{asset('storage/template/images/icons/icon-close2.png')}}" alt="CLOSE">
             </button>
 
             <form action="/#collection" class="wrap-search-header flex-w p-l-15">

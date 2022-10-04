@@ -22,18 +22,17 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 
 Route::get('category/{category_slug}', 'App\Http\Controllers\CategoryController@index')->name('category');
 
-
 Route::get('getOption1', 'App\Http\Controllers\HomeController@getOption1')->name('getOption1');
 Route::get('getOption2', 'App\Http\Controllers\HomeController@getOption2')->name('getOption2');
 Route::get('getOption2first', 'App\Http\Controllers\HomeController@getOption2first')->name('getOption2first');
 
-
 Route::get('getProduct', 'App\Http\Controllers\HomeController@getProduct')->name('getProduct');
-
 Route::get('product/{product_slug}', 'App\Http\Controllers\ProductController@index')->name('productdetail');
 
-
+Route::get('basket', 'App\Http\Controllers\CartController@index')->name('basket');
 Route::get('addcart', 'App\Http\Controllers\CartController@addcart')->name('addcart');
+Route::get('deletecart', 'App\Http\Controllers\CartController@deletecart')->name('deletecart');
+Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->name('updatecart');
 
 
 
