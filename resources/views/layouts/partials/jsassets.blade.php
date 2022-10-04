@@ -1,4 +1,3 @@
-<meta name="csrf-token" content="{{ csrf_token() }}">
 
 
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
@@ -49,6 +48,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous"></script>
 <!--===============================================================================================-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous"></script>
+
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
 <script>
     $('.js-addwish-b2').on('click', function(e){
         e.preventDefault();
@@ -323,10 +325,16 @@
 
             $(document).ready(function() {
 
+                $.ajaxSetup({
+                    headers:{
+                        'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
                 $.ajax({
-                    type: "POST",
-                    url: '../app/addCart.php',
-                    data: ({
+                    type: "GET",
+                    url: '{{ route('addcart') }}',
+                    data: {
                         id: pid,
                         title: titleProduct,
                         image: imageProduct,
@@ -334,7 +342,7 @@
                         option1: option1,
                         option2: option2,
                         qty: qty
-                    }),
+                    },
                     dataType: 'json',
                     success:function(result) {
                         var ul = document.getElementById("cartlist");

@@ -1,15 +1,14 @@
 <?php
 session_start();
 ob_start();
-require_once 'C:\Users\talha\PhpstormProjects\larasoft\app\func.php';
+require_once app_path('func.php');
 ?>
-
 
     <!DOCTYPE html>
 <html>
 
 <head>
-    <title>AHLAT E-Ticaret Sitesi Yazılımı | KOLEKSİYON</title>
+    <title>BAŞLIK | KOLEKSİYON</title>
     @include('layouts.partials.head')
 </head>
 

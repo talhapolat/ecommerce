@@ -33,7 +33,7 @@ Route::get('getProduct', 'App\Http\Controllers\HomeController@getProduct')->name
 Route::get('product/{product_slug}', 'App\Http\Controllers\ProductController@index')->name('productdetail');
 
 
-
+Route::get('addcart', 'App\Http\Controllers\CartController@addcart')->name('addcart');
 
 
 

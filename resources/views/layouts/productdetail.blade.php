@@ -22,13 +22,16 @@ ob_start();
 //    $isFav = false;
 //}
 //
-//?>
+//
+require_once app_path('func.php');
+
+?>
 
     <!DOCTYPE html>
 <html>
 
 <head>
-    <title>{{ $product->title }}</title>
+    <title> @php echo $_SESSION["carttotal"] @endphp {{ $product->title }}</title>
     <link rel="stylesheet" type="text/css" href="/Template/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     @include('layouts.partials.head')
 </head>

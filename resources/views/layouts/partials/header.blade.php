@@ -112,10 +112,10 @@
                             <i class="zmdi zmdi-search"></i>
                         </div>
 
-{{--                        <div id="cartnoti" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php if (isset($_SESSION['cart'])) {--}}
-{{--                            echo array_sum(array_column($_SESSION['qty'], 'qty'));--}}
-{{--                        }--}}
-{{--                        ?>">--}}
+                        <div id="cartnoti" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php if (isset($_SESSION['cart'])) {
+                            echo array_sum(array_column($_SESSION['qty'], 'qty'));
+                        }
+                        ?>">
                             <i class="zmdi zmdi-shopping-cart"></i>
                         </div>
 

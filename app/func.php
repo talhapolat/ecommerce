@@ -1,17 +1,17 @@
-<?php 
+<?php
 $ip		      = $_SERVER["REMOTE_ADDR"];
 $timeDamga    = time();
 $time         = date("Y/m/d", $timeDamga);
 
 if (isset($_SESSION["cart"])) {
-	
+
 } else {
 	$_SESSION['cart'] = array();
 	$_SESSION["carttotal"] = 0;
 }
 
 if (isset($_SESSION['qty'])) {
-	
+
 } else {
 	$_SESSION['qty'] = array();
 }
@@ -27,7 +27,7 @@ function Security($var){
 
 function DonusumleriGeriDondur($var){
 	$back = htmlspecialchars_decode($var, ENT_QUOTES);
-	return $back;	
+	return $back;
 }
 
 if (isset($_SESSION["useremail"])) {
