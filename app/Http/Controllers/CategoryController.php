@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
-    public function index($category_slug){
+    public function index($category_slug, Request $request){
 
         $category = Category::where('slug', $category_slug)->first();
         $categories = Category::all();
@@ -21,6 +21,10 @@ class CategoryController extends Controller
         $productsnum = $products->count();
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
+
+        if ($request->input('search-product') != null) {
+            $products = Product::whereIn('id', $product_categories)->where('title', 'like', '%'.$request->input('search-product').'%')->get();
+        }
 
 //        return $productsnum;
         return view("layouts.category", compact('products', 'productsnum', 'category', 'categories', 'parentcategories','navigations', 'subnavigations'));

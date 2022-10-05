@@ -82,10 +82,10 @@ require_once app_path('func.php');
 
                         <div class="slick3 gallery-lb">
 
-                            <div class="item-slick3" data-thumb="{{asset('storage')}}/{{ $product->image }}" >
+                            <div class="item-slick3" data-thumb="/storage/{{ $product->image }}" >
                                 <div class="wrap-pic-w pos-relative">
-                                    <img id="modelpimage" src="{{asset('storage')}}/{{ $product->image }}" alt="IMG-PRODUCT">
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $product->image }}">
+                                    <img id="modelpimage" src="/storage/{{ $product->image }}" alt="IMG-PRODUCT">
+                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/{{ $product->image }}">
                                         <i class="fa fa-expand"></i>
                                     </a>
                                 </div>

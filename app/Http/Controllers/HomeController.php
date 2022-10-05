@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
         $sliders = Slider::all();
         $products = Product::all();
+        if ($request->input('search-product') != null) {
+            $products = Product::where('title', 'like', '%'.$request->input('search-product').'%')->get();
+        }
 
         return view('index', compact('navigations', 'subnavigations', 'sliders', 'products'));
     }
