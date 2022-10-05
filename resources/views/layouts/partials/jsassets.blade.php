@@ -460,7 +460,7 @@
                     $("#modelpprice").html(result[1]);
                     $("#modelpdesc").html(result[2]);
 
-                    document.getElementById("modelpimage").src = '/storage/' + result[3] + '?rand=' + Math.random();
+                    document.getElementById("modelpimage").src = '/storage/' + result[3];
 
                     document.getElementById("addCartButton").setAttribute("data-id", result[4]);
                     document.getElementById("num-product").value = 1;

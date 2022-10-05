@@ -12,7 +12,9 @@ class CartController extends Controller
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
 
-        return view('layouts.cartdetail', compact('navigations', 'subnavigations'));
+        return session('cart');
+
+        //return view('layouts.cartdetail', compact('navigations', 'subnavigations'));
     }
 
 
