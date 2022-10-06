@@ -495,8 +495,9 @@
 
         $(document).ready(function() {
             $.ajax({
-                type: "POST",
-                url: '../app/getProductGallery.php?pid='+ pid,
+                type: "GET",
+                url: '{{ route('getProductGallery') }}',
+                data: { pid: pid },
                 dataType: 'json',
                 success:function(resultt) {
                     $i=0;
@@ -522,15 +523,21 @@
                     while($i < $cnt) {
 
                         lis[0].children[$i].style.display = "block";
-                        lis[0].children[$i].children[0].src = '/images/products/' + resultt[$i];
+                        lis[0].children[$i].children[0].src = '/storage/' + resultt[$i];
 
                         gallerylist[0].children[0].children[0].children[$i].style.display = "block";
-                        gallerylist[0].children[0].children[0].children[$i].children[0].children[0].src = '/images/products/' + resultt[$i];
-                        gallerylist[0].children[0].children[0].children[$i].children[0].children[1].href = '/images/products/' + resultt[$i];
-
+                        gallerylist[0].children[0].children[0].children[$i].children[0].children[0].src = '/storage/' + resultt[$i];
+                        gallerylist[0].children[0].children[0].children[$i].children[0].children[1].href = '/storage/' + resultt[$i];
 
                         $i++;
                     }
+
+                    // while ($cnt < 6) {
+                    //     alert(lis[0].children[2].style.display);
+                    //     lis[0].children[2].style.display = "none";
+                    //     gallerylist[0].children[0].children[0].children[2].style.display = "none";
+                    //     $cnt++;
+                    // }
 
                     lis[0].children[0].click();
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gallery;
 use App\Navigation;
 use App\Option;
 use App\Product;
@@ -182,8 +183,30 @@ class HomeController extends Controller
 
         echo json_encode($modelproduct);
 
-
 }
 
+        public static function getProductGallery(Request $request){
+
+//        $pid = $_GET["pid"];
+//
+//        $getGalleryQuery = $dbConnect->prepare("SELECT * FROM gallery WHERE product_id = ?");
+//        $getGalleryQuery->execute([$pid]);
+//        $getGalleryNum = $getGalleryQuery->rowCount();
+//        $getGalleries = $getGalleryQuery->fetchAll(PDO::FETCH_ASSOC);
+
+        $product = Product::where('id', $request->input('pid'))->get('image');
+
+        $getGalleryQuery = Gallery::where('product_id', $request->input('pid'))->get();
+
+        $gallery = array();
+        $gallery[0] = $product[0]['image'];
+
+        foreach ($getGalleryQuery as $key => $getGallery) {
+            $gallery[$key+1] = $getGallery["image"];
+        };
+
+        echo json_encode($gallery);
+
+    }
 
 }
