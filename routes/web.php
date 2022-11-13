@@ -19,6 +19,8 @@ Route::group(['prefix' => '/admin'], function () {
 
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
+Route::get('login', 'App\Http\Controllers\LoginController@index')->name('login');
+Route::get('register', 'App\Http\Controllers\LoginController@register')->name('register');
 
 Route::get('category/{category_slug}', 'App\Http\Controllers\CategoryController@index')->name('category');
 
