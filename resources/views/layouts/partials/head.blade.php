@@ -39,6 +39,7 @@
 <!--===============================================================================================-->
 <link rel="preload" as="style" onload="this.rel='stylesheet'" type="text/css" href={{asset('storage/template/css/util.css')}}>
 <link rel="preload" as="style" onload="this.rel='stylesheet'" type="text/css" href={{asset('storage/template/css/main.css')}}>
+<link rel="preload" as="style" onload="this.rel='stylesheet'" type="text/css" href={{asset('storage/template/css/custom.css')}}>
 <!--===============================================================================================-->
 
 

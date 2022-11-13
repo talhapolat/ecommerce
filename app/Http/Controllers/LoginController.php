@@ -12,7 +12,14 @@ class LoginController extends Controller
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
 
-
         return view('layouts.login', compact('navigations', 'subnavigations'));
+    }
+
+
+    public function register(Request $request){
+        $navigations =  Navigation::where('parent',null)->get();
+        $subnavigations = Navigation::whereNotNull('parent')->get();
+
+        return view('layouts.register', compact('navigations', 'subnavigations'));
     }
 }

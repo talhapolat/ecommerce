@@ -60,7 +60,7 @@
                                                     <a href="/products">Koleksiyon</a>
                                                     <ul class="sub-menu">
                                                         <li><a href="/products">Tüm Ürünler</a></li>
-                                                        <li><a href="/collections/erkek-kis-koleksiyonu">Erkek Kış Koleksiyonu</a></li>
+                                                        <li><a href="/collections/erkek-kis-koleksiyonu">EErkek Kış Koleksiyonu</a></li>
                                                         <li><a href="/collections/unisex-vintage-koleksiyonu">Unisex Vintage Koleksiyonu</a></li>
                                                         <li>
                                                             <a style="margin:0px;padding: 0px;width: auto;height: auto; color: #deded2;">
@@ -94,7 +94,7 @@
 
                                     <ul class="sub-menu">
                                         @foreach($subnavigations as $subnav)
-                                            <li><a href="{{$subnav->slug}}">{{$subnav->title}}</a></li>
+                                            <li><a href="/{{$subnav->slug}}">{{$subnav->title}}</a></li>
                                         @endforeach
                                     </ul>
 
@@ -144,7 +144,7 @@
     <div class="wrap-header-mobile">
         <!-- Logo moblie -->
         <div class="logo-mobile">
-            <a href="/index"><img src="/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+            <a href="/"><img src="{{asset('storage/template/images/icons/logo-01.png')}}" alt="IMG-LOGO"></a>
         </div>
 
         <!-- Icon header -->

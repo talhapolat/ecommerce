@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Gallery;
+use App\Collection;
 use App\Navigation;
 use App\Option;
 use App\Product;
@@ -185,7 +186,7 @@ class HomeController extends Controller
 
 }
 
-        public static function getProductGallery(Request $request){
+    public static function getProductGallery(Request $request){
 
 //        $pid = $_GET["pid"];
 //
@@ -208,5 +209,31 @@ class HomeController extends Controller
         echo json_encode($gallery);
 
     }
+
+    public function collection($slug){
+
+        $collection = Collection::where('slug', $slug)->get('title')[0]['title'];
+        $navigations =  Navigation::where('parent',null)->get();
+        $subnavigations = Navigation::whereNotNull('parent')->get();
+        $products = Product::all();
+
+//        return $collection;
+
+        return view('layouts.collection', compact('navigations', 'subnavigations', 'products', 'collection'));
+
+    }
+
+
+    public function collections(Request $request){
+
+        $collections = Collection::where('statu', 1)->get();
+        $navigations =  Navigation::where('parent',null)->get();
+        $subnavigations = Navigation::whereNotNull('parent')->get();
+        $products = Product::all();
+
+        return view('layouts.collections', compact('navigations', 'subnavigations', 'products', 'collections'));
+
+    }
+
 
 }
