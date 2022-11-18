@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Gallery;
 use App\Collection;
 use App\Navigation;
@@ -12,6 +13,7 @@ use App\Slider;
 use App\Suboption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -19,12 +21,14 @@ class HomeController extends Controller
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
         $sliders = Slider::all();
+        $categories = Category::where('main_category_id', null)->where('statu',1)->get();
         $products = Product::all();
         if ($request->input('search-product') != null) {
-            $products = Product::where('title', 'like', '%'.$request->input('search-product').'%')->get();
+            return Redirect::route('search', $request->input('search-product'));
+//            $products = Product::where('title', 'like', '%'.$request->input('search-product').'%')->get();
         }
 
-        return view('index', compact('navigations', 'subnavigations', 'sliders', 'products'));
+        return view('index', compact('navigations', 'subnavigations', 'sliders', 'products', 'categories'));
     }
 
     public function getOption1(Request $request){
@@ -232,6 +236,18 @@ class HomeController extends Controller
         $products = Product::all();
 
         return view('layouts.collections', compact('navigations', 'subnavigations', 'products', 'collections'));
+
+    }
+
+
+    public function search($search){
+
+        $categories =  Category::where('main_category_id',null)->where('statu',1)->get();
+        $navigations =  Navigation::where('parent',null)->get();
+        $subnavigations = Navigation::whereNotNull('parent')->get();
+        $products = Product::where('title', 'like', '%'.$search.'%')->get();
+
+        return view('layouts.search', compact('navigations', 'subnavigations', 'search', 'products', 'categories'));
 
     }
 

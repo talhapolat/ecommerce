@@ -8,19 +8,15 @@
                 </h4>
 
                 <ul>
+                    @if($categories != null)
+                        @foreach($categories as $category)
                     <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Kadın
+                        <a href="/category/{{$category->slug}}" class="stext-107 cl7 hov-cl1 trans-04">
+                            {{$category->name}}
                         </a>
                     </li>
-
-                    <li class="p-b-10">
-                        <a href="#" class="stext-107 cl7 hov-cl1 trans-04">
-                            Erkek
-                        </a>
-                    </li>
-
-
+                        @endforeach
+                    @endif
                 </ul>
             </div>
 

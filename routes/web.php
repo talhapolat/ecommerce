@@ -23,6 +23,7 @@ Route::get('login', 'App\Http\Controllers\LoginController@index')->name('login')
 Route::get('register', 'App\Http\Controllers\LoginController@register')->name('register');
 Route::get('collection/{collection_slug}', 'App\Http\Controllers\HomeController@collection')->name('collection');
 Route::get('collections', 'App\Http\Controllers\HomeController@collections')->name('collections');
+Route::get('s/{search}', 'App\Http\Controllers\HomeController@search')->name('search');
 
 Route::get('category/{category_slug}', 'App\Http\Controllers\CategoryController@index')->name('category');
 

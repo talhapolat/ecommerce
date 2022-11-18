@@ -236,7 +236,7 @@
                 <img src="{{asset('storage/template/images/icons/icon-close2.png')}}" alt="CLOSE">
             </button>
 
-            <form action="/#collection" class="wrap-search-header flex-w p-l-15">
+            <form action="/" class="wrap-search-header flex-w p-l-15">
                 <button class="flex-c-m trans-04">
                     <i class="zmdi zmdi-search"></i>
                 </button>

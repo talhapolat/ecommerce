@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Navigation;
 use Illuminate\Http\Request;
 
@@ -11,9 +12,9 @@ class CartController extends Controller
     public function index(){
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
+        $categories = Category::where('statu',1)->get();
 
-
-        return view('layouts.cartdetail', compact('navigations', 'subnavigations'));
+        return view('layouts.cartdetail', compact('navigations', 'subnavigations', 'categories'));
     }
 
 

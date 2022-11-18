@@ -17,7 +17,7 @@ class ProductController extends Controller
     public function index($slug){
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
-
+        $categories = Category::where('statu',1)->get();
         $product = Product::where('slug', $slug)->first();
         $productcategories = ProductCategory::where('product_id', $product->id)->first();
         if ($productcategories != null){
@@ -45,6 +45,6 @@ class ProductController extends Controller
             $suboptions2 = null;
         }
 
-        return view('layouts.productdetail', compact('product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations'));
+        return view('layouts.productdetail', compact('categories','product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations'));
     }
 }
