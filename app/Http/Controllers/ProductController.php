@@ -35,6 +35,7 @@ class ProductController extends Controller
             $suboptions1 = Suboption::whereIn('id', $product_option_suboption1)->get();
 
             $product_option_suboption2 = ProductOption::where('product_id', $product->id)->where('suboption1', $suboptions1[0]['id'])->get('suboption2');
+
             $suboption2_mainoption = Suboption::whereIn('id', $product_option_suboption2)->get('option_id');
             $suboption2_mainoptions = Option::whereIn('id', $suboption2_mainoption)->first();
             $suboptions2 = Suboption::whereIn('id', $product_option_suboption2)->get();

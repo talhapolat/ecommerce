@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi.">
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/search.blade.php" afterDir="false" />
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Arama sistemmi güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/getOption1.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/getOption1.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +207,11 @@
       <workItem from="1664828920026" duration="287000" />
       <workItem from="1668337185930" duration="856000" />
       <workItem from="1668364588204" duration="12356000" />
-      <workItem from="1668801076501" duration="8959000" />
+      <workItem from="1668801076501" duration="9298000" />
+      <workItem from="1668857101787" duration="4461000" />
+      <workItem from="1668874692587" duration="4425000" />
+      <workItem from="1668937503072" duration="1977000" />
+      <workItem from="1668970343025" duration="2093000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -248,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668377820760</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Arama sistemmi güncellendi.">
+      <created>1668812067943</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668812067944</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,7 +284,8 @@
     <MESSAGE value="start project" />
     <MESSAGE value="Ürün önizleme ve sepet sistemi güncellendi." />
     <MESSAGE value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
+    <MESSAGE value="Arama sistemmi güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Arama sistemmi güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

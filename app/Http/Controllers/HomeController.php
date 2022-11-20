@@ -216,6 +216,7 @@ class HomeController extends Controller
 
     public function collection($slug){
 
+        $categories =  Category::where('main_category_id',null)->where('statu',1)->get();
         $collection = Collection::where('slug', $slug)->get('title')[0]['title'];
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
@@ -223,7 +224,7 @@ class HomeController extends Controller
 
 //        return $collection;
 
-        return view('layouts.collection', compact('navigations', 'subnavigations', 'products', 'collection'));
+        return view('layouts.collection', compact('navigations', 'subnavigations', 'products', 'collection', 'categories'));
 
     }
 
