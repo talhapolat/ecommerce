@@ -4,14 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Arama sistemmi güncellendi.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/getOption1.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/getOption1.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Koleksiyon sistemi güncellendi." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -211,7 +204,7 @@
       <workItem from="1668857101787" duration="4461000" />
       <workItem from="1668874692587" duration="4425000" />
       <workItem from="1668937503072" duration="1977000" />
-      <workItem from="1668970343025" duration="2093000" />
+      <workItem from="1668970343025" duration="2201000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -255,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668812067944</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Koleksiyon sistemi güncellendi.">
+      <created>1668982524494</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668982524494</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,7 +285,8 @@
     <MESSAGE value="Ürün önizleme ve sepet sistemi güncellendi." />
     <MESSAGE value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
     <MESSAGE value="Arama sistemmi güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arama sistemmi güncellendi." />
+    <MESSAGE value="Koleksiyon sistemi güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Koleksiyon sistemi güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
