@@ -276,7 +276,7 @@
                 var slug = location.pathname.split('/').slice(2);
             }
             if (document.getElementById("selectoption2") != null)
-            document.getElementById("selectoption2").innerHTML = "";
+                document.getElementById("selectoption2").innerHTML = "";
             //Selected value
             var inputValue = $(this).val();
 
@@ -504,10 +504,10 @@
                 data: { pid: pid },
                 dataType: 'json',
                 success:function(resultt) {
-                    $i=0;
+                    $i=1;
                     $cnt = resultt.length;
 
-                    var lis = document.querySelectorAll(".slick3-dots");
+
                     var gallerylist = document.querySelectorAll("#productgalery");
 
                     // lis[0].children[0].style.display = "none";
@@ -525,29 +525,47 @@
                     // gallerylist[0].children[0].children[0].children[4].style.display = "none";
                     // gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
-                    while($i+1 < $cnt) {
+
+
+
+
+                    while($i < $cnt) {
                         $('.slick3').slick('slickAdd','<div>' +
                             '<div class="wrap-pic-w pos-relative">' +
-                            '<img id="modelpimage" src="/storage/' + resultt[$i+1] + '" alt="IMG-PRODUCT">' +
+                            '<img src="/storage/'+resultt[$i]+'" alt="IMG-PRODUCT">' +
                             '<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">' +
                             '<i class="fa fa-expand"></i>' +
                             '</a>' +
                             '</div>' +
                             '</div>');
 
-                        // lis[0].children[$i].style.display = "block";
-                        lis[0].children[$i+1].children[0].src = '/storagem/' + resultt[$i+1];
-                        //
                         // gallerylist[0].children[0].children[0].children[$i].style.display = "block";
-                        gallerylist[0].children[0].children[0].children[$i+1].children[0].children[0].src = '/storage/' + resultt[$i+1];
-                        gallerylist[0].children[0].children[0].children[$i+1].children[0].children[1].href = '/storage/' + resultt[$i+1];
+                        // gallerylist[0].children[0].children[0].children[$i+1].children[0].children[0].src = '/storage/' + resultt[$i+1];
+                        // gallerylist[0].children[0].children[0].children[$i+1].children[0].children[1].href = '/storage/' + resultt[$i+1];
 
-                        $i++;
+                        $i = $i+1;
                     }
 
+                    //lis[0].children[0].style.display = "block";
+                    //lis[0].children[0].children[0].src = "http://127.0.0.1:8000/storage/template/images/icons/logo-01.png";
 
+                    //alert(lis[0].children[0].children[0].src);
 
-                    lis[0].children[0].click();
+                    var lis = document.querySelectorAll(".slick3-dots");
+                    $p = 1
+
+                    lis[0].children[0].style.display = "block";
+                    lis[0].children[0].children[0].src = "/storage/"+resultt[0];
+
+                    while ($p < $cnt) {
+
+                        lis[0].children[$p].style.display = "block";
+                        lis[0].children[$p].children[0].src = "/storage/"+resultt[$p];
+
+                        $p = $p+1;
+                    }
+
+                    //lis[0].children[0].click();
 
                 }
             });
@@ -622,36 +640,45 @@
             var lis = document.querySelectorAll(".slick3-dots");
             var gallerylist = document.querySelectorAll("#productgalery");
 
-            lis[0].children[0].children[0].src = '';
-            lis[0].children[1].children[0].src = '';
-            lis[0].children[2].children[0].src = '';
-            lis[0].children[3].children[0].src = '';
-            lis[0].children[4].children[0].src = '';
-            lis[0].children[5].children[0].src = '';
+            var lisl = $('.slick3-dots li').length
 
-            lis[0].children[0].style.display = "none";
-            lis[0].children[1].style.display = "none";
-            lis[0].children[2].style.display = "none";
-            lis[0].children[3].style.display = "none";
-            lis[0].children[4].style.display = "none";
-            lis[0].children[5].style.display = "none";
+            var l = 0;
+
+            while (lisl-1 > 0) {
+                $('.slick3').slick('slickRemove',lisl-1);
+                lisl--;
+            }
 
 
-
-            gallerylist[0].children[0].children[0].children[0].children[0].children[0].src = '';
-            gallerylist[0].children[0].children[0].children[1].children[0].children[0].src = '';
-            gallerylist[0].children[0].children[0].children[2].children[0].children[0].src = '';
-            gallerylist[0].children[0].children[0].children[3].children[0].children[0].src = '';
-            gallerylist[0].children[0].children[0].children[4].children[0].children[0].src = '';
-            gallerylist[0].children[0].children[0].children[5].children[0].children[0].src = '';
-
-
-            //gallerylist[0].children[0].children[0].children[0].style.display = "none";
-            gallerylist[0].children[0].children[0].children[1].style.display = "none";
-            gallerylist[0].children[0].children[0].children[2].style.display = "none";
-            gallerylist[0].children[0].children[0].children[3].style.display = "none";
-            gallerylist[0].children[0].children[0].children[4].style.display = "none";
-            gallerylist[0].children[0].children[0].children[5].style.display = "none";
+            // lis[0].children[0].children[0].src = '';
+            // lis[0].children[1].children[0].src = '';
+            // lis[0].children[2].children[0].src = '';
+            // lis[0].children[3].children[0].src = '';
+            // lis[0].children[4].children[0].src = '';
+            // lis[0].children[5].children[0].src = '';
+            //
+            // lis[0].children[0].style.display = "none";
+            // lis[0].children[1].style.display = "none";
+            // lis[0].children[2].style.display = "none";
+            // lis[0].children[3].style.display = "none";
+            // lis[0].children[4].style.display = "none";
+            // lis[0].children[5].style.display = "none";
+            //
+            //
+            //
+            // gallerylist[0].children[0].children[0].children[0].children[0].children[0].src = '';
+            // gallerylist[0].children[0].children[0].children[1].children[0].children[0].src = '';
+            // gallerylist[0].children[0].children[0].children[2].children[0].children[0].src = '';
+            // gallerylist[0].children[0].children[0].children[3].children[0].children[0].src = '';
+            // gallerylist[0].children[0].children[0].children[4].children[0].children[0].src = '';
+            // gallerylist[0].children[0].children[0].children[5].children[0].children[0].src = '';
+            //
+            //
+            // gallerylist[0].children[0].children[0].children[1].style.display = "none";
+            // gallerylist[0].children[0].children[0].children[2].style.display = "none";
+            // gallerylist[0].children[0].children[0].children[3].style.display = "none";
+            // gallerylist[0].children[0].children[0].children[4].style.display = "none";
+            // gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
             const element = document.getElementById("option1text").parentElement;
             const element2 = document.getElementById("option2text").parentElement;

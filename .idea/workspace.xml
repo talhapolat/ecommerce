@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Sepet sistemi güncellendi">
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Koleksiyon sistemi güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ahlatap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ahlatap.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/js/slick-custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/js/slick-custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/template/vendor/slick/slick.js" beforeDir="false" afterPath="$PROJECT_DIR$/template/vendor/slick/slick.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,17 +157,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../larasoft" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\talha\PhpstormProjects\ecommerce\public\storage\template\css" />
@@ -212,8 +209,7 @@
       <workItem from="1668857101787" duration="4461000" />
       <workItem from="1668874692587" duration="4425000" />
       <workItem from="1668937503072" duration="1977000" />
-      <workItem from="1668970343025" duration="2093000" />
-      <workItem from="1669272831929" duration="18125000" />
+      <workItem from="1668970343025" duration="2201000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -257,7 +253,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668812067944</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Koleksiyon sistemi güncellendi.">
+      <created>1668982524494</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668982524494</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,6 +276,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
@@ -286,7 +290,8 @@
     <MESSAGE value="Ürün önizleme ve sepet sistemi güncellendi." />
     <MESSAGE value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
     <MESSAGE value="Arama sistemmi güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Arama sistemmi güncellendi." />
+    <MESSAGE value="Koleksiyon sistemi güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Koleksiyon sistemi güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

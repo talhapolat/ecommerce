@@ -3,7 +3,7 @@
     //session(['modalproductg' => '5']);
 @endphp
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 
 <head>
