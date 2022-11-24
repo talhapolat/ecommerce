@@ -28,52 +28,6 @@
                                     </div>
                                 </div>
 
-                                <div id="productimage[1]" class="item-slick3" data-thumb="">
-                                    <div class="wrap-pic-w pos-relative">
-                                        <img src="" alt="IMG-PRODUCT">
-                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">
-                                            <i class="fa fa-expand"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                                <div id="productimage[2]" class="item-slick3" data-thumb="">
-                                    <div class="wrap-pic-w pos-relative">
-                                        <img src="" alt="IMG-PRODUCT">
-                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">
-                                            <i class="fa fa-expand"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div id="productimage[3]" class="item-slick3" data-thumb="">
-                                    <div class="wrap-pic-w pos-relative">
-                                        <img src="" alt="IMG-PRODUCT">
-                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">
-                                            <i class="fa fa-expand"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div id="productimage[4]" class="item-slick3" data-thumb="">
-                                    <div class="wrap-pic-w pos-relative">
-                                        <img src="" alt="IMG-PRODUCT">
-                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">
-                                            <i class="fa fa-expand"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <div id="productimage[5]" class="item-slick3" data-thumb="">
-                                    <div class="wrap-pic-w pos-relative">
-                                        <img src="" alt="IMG-PRODUCT">
-                                        <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">
-                                            <i class="fa fa-expand"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -179,3 +133,7 @@
 </div>
 
 
+<script>
+
+
+</script>

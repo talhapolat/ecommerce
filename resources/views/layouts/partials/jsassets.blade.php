@@ -456,6 +456,10 @@
                 dataType: 'json',
                 success:function(result) {
 
+                    var type = "{{ session(['modalproductg' => '2'])}}";
+
+
+
                     $("#modelptitle").html(result[0]);
                     $("#modelpprice").html(result[1]);
                     $("#modelpdesc").html(result[2]);
@@ -506,38 +510,42 @@
                     var lis = document.querySelectorAll(".slick3-dots");
                     var gallerylist = document.querySelectorAll("#productgalery");
 
-                    lis[0].children[0].style.display = "none";
-                    lis[0].children[1].style.display = "none";
-                    lis[0].children[2].style.display = "none";
-                    lis[0].children[3].style.display = "none";
-                    lis[0].children[4].style.display = "none";
-                    lis[0].children[5].style.display = "none";
+                    // lis[0].children[0].style.display = "none";
+                    // lis[0].children[1].style.display = "none";
+                    // lis[0].children[2].style.display = "none";
+                    // lis[0].children[3].style.display = "none";
+                    // lis[0].children[4].style.display = "none";
+                    // lis[0].children[5].style.display = "none";
 
-                    gallerylist[0].children[0].children[0].children[0].style.display = "none";
-                    gallerylist[0].children[0].children[0].children[1].style.display = "none";
-                    gallerylist[0].children[0].children[0].children[2].style.display = "none";
-                    gallerylist[0].children[0].children[0].children[3].style.display = "none";
-                    gallerylist[0].children[0].children[0].children[4].style.display = "none";
-                    gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
-                    while($i < $cnt) {
+                    // gallerylist[0].children[0].children[0].children[0].style.display = "none";
+                    // gallerylist[0].children[0].children[0].children[1].style.display = "none";
+                    // gallerylist[0].children[0].children[0].children[2].style.display = "none";
+                    // gallerylist[0].children[0].children[0].children[3].style.display = "none";
+                    // gallerylist[0].children[0].children[0].children[4].style.display = "none";
+                    // gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
-                        lis[0].children[$i].style.display = "block";
-                        lis[0].children[$i].children[0].src = '/storage/' + resultt[$i];
+                    while($i+1 < $cnt) {
+                        $('.slick3').slick('slickAdd','<div>' +
+                            '<div class="wrap-pic-w pos-relative">' +
+                            '<img id="modelpimage" src="/storage/' + resultt[$i+1] + '" alt="IMG-PRODUCT">' +
+                            '<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">' +
+                            '<i class="fa fa-expand"></i>' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>');
 
-                        gallerylist[0].children[0].children[0].children[$i].style.display = "block";
-                        gallerylist[0].children[0].children[0].children[$i].children[0].children[0].src = '/storage/' + resultt[$i];
-                        gallerylist[0].children[0].children[0].children[$i].children[0].children[1].href = '/storage/' + resultt[$i];
+                        // lis[0].children[$i].style.display = "block";
+                        lis[0].children[$i+1].children[0].src = '/storagem/' + resultt[$i+1];
+                        //
+                        // gallerylist[0].children[0].children[0].children[$i].style.display = "block";
+                        gallerylist[0].children[0].children[0].children[$i+1].children[0].children[0].src = '/storage/' + resultt[$i+1];
+                        gallerylist[0].children[0].children[0].children[$i+1].children[0].children[1].href = '/storage/' + resultt[$i+1];
 
                         $i++;
                     }
 
-                    // while ($cnt < 6) {
-                    //     alert(lis[0].children[2].style.display);
-                    //     lis[0].children[2].style.display = "none";
-                    //     gallerylist[0].children[0].children[0].children[2].style.display = "none";
-                    //     $cnt++;
-                    // }
+
 
                     lis[0].children[0].click();
 

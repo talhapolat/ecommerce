@@ -1,5 +1,6 @@
 @php
     require_once("../app/func.php");
+    //session(['modalproductg' => '5']);
 @endphp
 
 <!DOCTYPE html>
