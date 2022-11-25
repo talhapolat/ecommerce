@@ -24,9 +24,10 @@
 
 <!-- CONTENT -->
 @include('layouts.partials.header')
-
 @include('layouts.partials.slider')
+
 @include('layouts.partials.banner')
+
 @include('layouts.partials.products')
 @include('layouts.partials.footer')
 @include('layouts.partials.modalproduct')
@@ -34,7 +35,17 @@
 
 @include('layouts.partials.jsassets')
 
+<div class="loader-wrapper">
+    <span class="loader"><span class="loader-inner"></span></span>
+</div>
+
 
 </body>
+
+<script>
+    $(window).on("load", function (){
+        $(".loader-wrapper").fadeOut("slow");
+    })
+</script>
 
 </html>

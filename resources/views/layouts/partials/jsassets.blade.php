@@ -567,6 +567,9 @@
 
                     //lis[0].children[0].click();
 
+                    $('.js-modal1').addClass('opacity100');
+
+
                 }
             });
         });
@@ -640,14 +643,14 @@
             var lis = document.querySelectorAll(".slick3-dots");
             var gallerylist = document.querySelectorAll("#productgalery");
 
-            var lisl = $('.slick3-dots li').length
+            var lisl = $('.slick3-dots li').length;
 
             var l = 0;
 
             while (lisl-1 > 0) {
                 $('.slick3').slick('slickRemove',lisl-1);
                 lisl--;
-            }
+            };
 
 
             // lis[0].children[0].children[0].src = '';
@@ -689,6 +692,8 @@
         };
 
         // location.reload();
+
+        $('.js-modal1').removeClass('opacity100');
 
     });
 
