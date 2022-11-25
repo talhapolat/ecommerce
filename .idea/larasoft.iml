@@ -124,6 +124,25 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/http-client" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/galleries" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/pages" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/posts" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/products" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/settings" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/sliders" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/template" />
+      <excludeFolder url="file://$MODULE_DIR$/public/storage/users" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/galleries" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/pages" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/posts" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/products" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/settings" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/sliders" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/template" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/app/public/users" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/17" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/ad" />
+      <excludeFolder url="file://$MODULE_DIR$/storage/framework/cache/data/dd" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
