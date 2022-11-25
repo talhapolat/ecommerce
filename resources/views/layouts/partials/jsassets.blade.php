@@ -691,7 +691,6 @@
 
         };
 
-        // location.reload();
 
         $('.js-modal1').removeClass('opacity100');
 
