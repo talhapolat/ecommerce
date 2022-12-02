@@ -27,7 +27,7 @@ require_once app_path('func.php');
 
 <!-- Product -->
 <div class="bg0 m-t-23 p-b-140" style="margin-top: 6%">
-    <div class="container">
+    <div class="container p-list">
 
         <div class="flex-w flex-sb-m ">
 
@@ -341,7 +341,7 @@ require_once app_path('func.php');
 {{--            $pcategories = $pcategoryQuery->fetchAll(PDO::FETCH_ASSOC);--}}
 
 
-            <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item
+            <div class="col-6 col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item
 {{--						<?php foreach ($pcategories as $pcategory): ?>--}}
 {{--							<?= $pcategory["category_id"] ?>--}}
 {{--						<?php endforeach ?>--}}

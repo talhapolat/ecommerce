@@ -2,6 +2,42 @@
     .collection-products {
         padding-top: 4%;
     }
+
+    .p-d-container {
+        margin-top: 80px!important;
+    }
+
+}
+
+@media only screen and (max-width: 992px) {
+
+    .p-list {
+        padding-right: 2px;
+        padding-left: 2px;
+    }
+
+    .col-6 {
+        padding-right: 1px;
+        padding-left: 1px;
+    }
+
+    .isotope-grid {
+        margin-right: 0px!important;
+        margin-left: 0px!important;
+        width: 100%;
+    }
+
+    /*.wrap-slick3-dots {*/
+    /*    display: none;*/
+    /*}*/
+
+    .wrap-slick3 {
+        width: 100%;
+    }
+
+    .flex-sb {
+        content: normal;
+    }
 }
 
 .search-category-list {
@@ -96,8 +132,8 @@
     }
 }
 .opacity100{
-    opacity: 100%!important;
+    opacity: 1!important;
 }
-/*.js-modal1{*/
-/*    opacity: 0;*/
-/*}*/
+.js-modal1{
+    opacity: 0;
+}

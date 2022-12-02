@@ -22,7 +22,7 @@
 @include('layouts.partials.header')
 
 <section class="bg0 p-t-23 p-b-140 collection-products">
-    <div class="container">
+    <div class="container p-list">
         <div class="p-b-10">
 
         </div>
@@ -266,7 +266,7 @@
             @if($products != null)
 
                 @foreach($products as $key => $product)
-                    <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
+                    <div class="col-6 col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item">
                         <!-- Block2 -->
                         <div class="block2">
                             <div class="block2-pic hov-img0" style="background-color: #f6f6f6">

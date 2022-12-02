@@ -51,7 +51,7 @@ require_once app_path('func.php');
 
 
 <!-- breadcrumb -->
-<div class="container" style="margin-top: 80px">
+<div class="container p-d-container">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
         <a href="/" class="stext-109 cl8 hov-cl1 trans-04">
             Home
@@ -74,7 +74,7 @@ require_once app_path('func.php');
 <section class="sec-product-detail bg0 p-t-65 p-b-60">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-7 p-b-30">
+            <div class="col-12 col-md-6 col-lg-7 p-b-30">
                 <div class="p-l-25 p-r-30 p-lr-0-lg">
                     <div class="wrap-slick3 flex-sb flex-w">
                         <div class="wrap-slick3-dots"></div>
@@ -82,7 +82,7 @@ require_once app_path('func.php');
 
                         <div class="slick3 gallery-lb">
 
-                            <div class="item-slick3" data-thumb="/storage/{{ $product->image }}" >
+                            <div class="item-slick3 yeyeye" data-thumb="/storage/{{ $product->image }}" >
                                 <div class="wrap-pic-w pos-relative">
                                     <img id="modelpimage" src="/storage/{{ $product->image }}" alt="IMG-PRODUCT">
                                     <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/{{ $product->image }}">
@@ -91,20 +91,37 @@ require_once app_path('func.php');
                                 </div>
                             </div>
 
-                            @if($galleries!=null)
-                            @foreach ($galleries as $key => $gallery)
+{{--                            @if($galleries!=null)--}}
+{{--                            @foreach ($galleries as $key => $gallery)--}}
 
-                            <div class="item-slick3" data-thumb="{{asset('storage')}}/{{ $gallery->image }}" >
-                                <div class="wrap-pic-w pos-relative">
-                                    <img id="modelpimage" src="{{asset('storage')}}/{{ $gallery->image }}" alt="IMG-PRODUCT">
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $gallery->image }}">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                </div>
-                            </div>
+{{--                            <div class="item-slick3 yelloww" data-thumb="{{asset('storage')}}/{{ $gallery->image }}" >--}}
+{{--                                <div class="wrap-pic-w pos-relative">--}}
+{{--                                    <img id="modelpimage" src="{{asset('storage')}}/{{ $gallery->image }}" alt="IMG-PRODUCT">--}}
+{{--                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $gallery->image }}">--}}
+{{--                                        <i class="fa fa-expand"></i>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
-                            @endforeach
-                                @endif
+{{--                            @endforeach--}}
+{{--                                @endif--}}
+
+
+                            @if($product_media!=null)
+                                @foreach ($product_media as $key => $media)
+
+                                    <div class="item-slick3 {{$media->title}} " data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                        <div class="wrap-pic-w pos-relative">
+                                            <img id="modelpimage" src="{{asset('storage')}}/{{ $media->url }}" alt="IMG-PRODUCT">
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $media->url }}">
+                                                <i class="fa fa-expand"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                @endforeach
+                            @endif
+
 
                         </div>
                     </div>
@@ -756,6 +773,7 @@ require_once app_path('func.php');
 
 
 <script src={{asset('storage/template/vendor/select2/select2.min.js')}}></script>
+
 </body>
 
 </html>

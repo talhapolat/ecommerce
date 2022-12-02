@@ -84,15 +84,16 @@ class HomeController extends Controller
         }
 
         $s2options_id = Suboption::where('title', $request->input('dropdownValue'))->get('id');
-        $s2options = ProductOption::where('suboption1', $s2options_id[0]['id'])->where('product_id', $product[0]['id'])->get('suboption2');
-        $s2option = Suboption::whereIn('id', $s2options)->get();
-
+        $s2options = ProductOption::where('suboption1', $s2options_id[0]['id'])->where('product_id', $product[0]['id'])->orderBy('no')->get('suboption2');
+        $temp = ProductOption::where('suboption1', $s2options_id[0]['id'])->where('product_id', $product[0]['id'])->orderBy('no')->get()->pluck('suboption2')->toArray();
+        $tempStr = implode(',', $temp);
+        $s2option = Suboption::whereIn('id', $s2options)->orderByRaw(DB::raw("FIELD(id, $tempStr)"))->get();
 
         $array = array();
         foreach ($s2option as $key => $s2opt){
             array_push($array, $s2opt);
         }
-        echo json_encode($array);
+        return json_encode($array);
     }
 
 

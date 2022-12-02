@@ -264,12 +264,12 @@
     /*---------------------------------------------*/
 
     $(document).ready(function(){
-
-
-
-
+        $(".slick3").slick('slickFilter','.'+$('#selectoption1').val());
 
         $('#selectoption1').change(function(){
+            $(".slick3").slick('slickUnfilter');
+            var inputValue = $(this).val();
+            $(".slick3").slick('slickFilter','.'+inputValue);
             if (slug=="") {
                 var slug = "0";
             } else {
@@ -278,7 +278,7 @@
             if (document.getElementById("selectoption2") != null)
                 document.getElementById("selectoption2").innerHTML = "";
             //Selected value
-            var inputValue = $(this).val();
+
 
             //Ajax for calling php function
             $.get("{{ route('getOption2') }}", {
@@ -307,6 +307,9 @@
     $('.js-addcart-detail').each(function(){
         var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
         $(this).on('click', function(e){
+
+
+
             var titleProduct = document.getElementById("modelptitle").innerHTML;
             var imageProduct = document.getElementById("modelpimage").getAttribute('src');
             var priceProduct = document.getElementById("modelpprice").innerHTML;
@@ -410,7 +413,31 @@
                 timer: 2000
             });
             // swal(nameProduct, "Sepetinize Eklendi", "success");
+
+            const element = document.getElementById("option1text").parentElement;
+            const element2 = document.getElementById("option2text").parentElement;
+            element.style.display = "none";
+            element2.style.display = "none";
+
+            var lis = document.querySelectorAll(".slick3-dots");
+            var gallerylist = document.querySelectorAll("#productgalery");
+
+            var lisl = $('.slick3-dots li').length;
+
+            var l = 0;
+
+            while (lisl-1 > 0) {
+                $('.slick3').slick('slickRemove',lisl-1);
+                lisl--;
+            };
+
+            $('.js-modal1').removeClass('opacity100');
+
+
+
+
         });
+
     });
 
 
@@ -457,6 +484,11 @@
                 success:function(result) {
 
                     var type = "{{ session(['modalproductg' => '2'])}}";
+
+                    const element = document.getElementById("option1text").parentElement;
+                    const element2 = document.getElementById("option2text").parentElement;
+                    element.style.display = "block";
+                    element2.style.display = "block";
 
 
 
@@ -568,8 +600,6 @@
                     //lis[0].children[0].click();
 
                     $('.js-modal1').addClass('opacity100');
-
-
                 }
             });
         });
@@ -637,6 +667,8 @@
             $("#modelptitle").html("");
             $("#modelpprice").html("");
             $("#modelpdesc").html("");
+            $("#selectoption1").html("");
+            $("#selectoption2").html("");
             document.getElementById("modelpimage").src = '';
 
 
@@ -685,8 +717,8 @@
 
             const element = document.getElementById("option1text").parentElement;
             const element2 = document.getElementById("option2text").parentElement;
-            element.style.display = "block";
-            element2.style.display = "block";
+            element.style.display = "none";
+            element2.style.display = "none";
 
 
         };

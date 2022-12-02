@@ -8,9 +8,11 @@ use App\Navigation;
 use App\Option;
 use App\Product;
 use App\ProductCategory;
+use App\ProductMedia;
 use App\ProductOption;
 use App\Suboption;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
 {
@@ -28,11 +30,13 @@ class ProductController extends Controller
 
         $galleries = Gallery::where('product_id', $product->id)->get();
 
-        $product_option_suboption1 = ProductOption::where('product_id', $product->id)->get('suboption1');
+        $product_option_suboption1 = ProductOption::where('product_id', $product->id)->orderBy('no', 'ASC')->get('suboption1');
         if (sizeof($product_option_suboption1) > 0) {
             $suboption1_mainoption = Suboption::whereIn('id', $product_option_suboption1)->get('option_id');
             $suboption1_mainoptions = Option::whereIn('id', $suboption1_mainoption)->get();
-            $suboptions1 = Suboption::whereIn('id', $product_option_suboption1)->get();
+            $temp = ProductOption::where('product_id', $product->id)->orderBy('no', 'ASC')->get('suboption1')->pluck('suboption1')->toArray();
+            $tempStr = implode(',', $temp);
+            $suboptions1 = Suboption::whereIn('id', $temp)->orderByRaw(DB::raw("FIELD(id, $tempStr)"))->get();
 
             $product_option_suboption2 = ProductOption::where('product_id', $product->id)->where('suboption1', $suboptions1[0]['id'])->get('suboption2');
 
@@ -45,7 +49,22 @@ class ProductController extends Controller
             $suboptions1 = null;
             $suboptions2 = null;
         }
+        //return $suboptions1;
+        //return $product_option_suboption1;
 
-        return view('layouts.productdetail', compact('categories','product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations'));
+        $product_media = ProductMedia::select(
+            "product_media.product_id",
+            "product_media.no",
+            "media.url",
+            "suboptions.title"
+        )
+            ->join("media", "product_media.media_id", "=", "media.id")
+            ->join("suboptions", "product_media.option_id", "=", "suboptions.id")
+            ->where("product_media.product_id", $product->id)
+            ->orderBy("product_media.no")
+            ->get();
+        //return $sql;
+
+        return view('layouts.productdetail', compact('categories','product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations', 'product_media'));
     }
 }
