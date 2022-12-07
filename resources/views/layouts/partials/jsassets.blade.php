@@ -264,6 +264,7 @@
     /*---------------------------------------------*/
 
     $(document).ready(function(){
+        if ($('#selectoption1').val() != null)
         $(".slick3").slick('slickFilter','.'+$('#selectoption1').val());
 
         $('#selectoption1').change(function(){

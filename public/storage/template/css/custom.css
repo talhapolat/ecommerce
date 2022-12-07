@@ -137,3 +137,8 @@
 .js-modal1{
     opacity: 0;
 }
+
+.hov-img0 img{
+    aspect-ratio: 1;
+    object-fit: cover;
+}

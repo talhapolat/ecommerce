@@ -109,8 +109,11 @@ require_once app_path('func.php');
 
                             @if($product_media!=null)
                                 @foreach ($product_media as $key => $media)
-
-                                    <div class="item-slick3 {{$media->title}} " data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                    @if($media->title!=null)
+                                    <div class="item-slick3 {{$media->title}}" data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                        @else
+                                            <div class="item-slick3 noopt" data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                                @endif
                                         <div class="wrap-pic-w pos-relative">
                                             <img id="modelpimage" src="{{asset('storage')}}/{{ $media->url }}" alt="IMG-PRODUCT">
                                             <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $media->url }}">
@@ -159,8 +162,7 @@ require_once app_path('func.php');
                             <div class="size-204 respon6-next">
                                 <div class="rs1-select2 bor8 bg0">
                                     <select id="selectoption1" class="js-select2" name="option1">
-
-
+                                        
 {{--                                        <?php--}}
 {{--                                        $soptionQuery = $dbConnect->prepare("SELECT * FROM suboption WHERE id IN (SELECT suboption1 FROM product_option WHERE product_id = ?)");--}}
 {{--                                        $soptionQuery->execute([$product["id"]]);--}}
