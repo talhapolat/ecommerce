@@ -38,11 +38,11 @@
             <div class="col">
                 <ul class="search-category-list">
                     <li><a href="#home" style="font-weight: bold">Tümünü Keşfet ({{count($products)}})</a></li>
-                    @if($categories != null)
-                        @foreach($categories as $key => $category)
-                    <li><a href="#news">{{$category->name}} (19)</a></li>
-                        @endforeach
-                    @endif
+{{--                    @if($categories != null)--}}
+{{--                        @foreach($categories as $key => $category)--}}
+{{--                    <li><a href="#news">{{$category->name}} (19)</a></li>--}}
+{{--                        @endforeach--}}
+{{--                    @endif--}}
                 </ul>
             </div>
         </div>

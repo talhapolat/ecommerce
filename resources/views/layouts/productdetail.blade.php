@@ -162,7 +162,7 @@ require_once app_path('func.php');
                             <div class="size-204 respon6-next">
                                 <div class="rs1-select2 bor8 bg0">
                                     <select id="selectoption1" class="js-select2" name="option1">
-                                        
+
 {{--                                        <?php--}}
 {{--                                        $soptionQuery = $dbConnect->prepare("SELECT * FROM suboption WHERE id IN (SELECT suboption1 FROM product_option WHERE product_id = ?)");--}}
 {{--                                        $soptionQuery->execute([$product["id"]]);--}}

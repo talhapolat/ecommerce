@@ -42,3 +42,6 @@ Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->nam
 
 
 
+Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
+Route::get('manage/products', 'App\Http\Controllers\Manage\ManageProductController@index')->name('manageproducts');
+Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductController@newproduct')->name('manageproductsnew');
