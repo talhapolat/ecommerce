@@ -15,8 +15,8 @@
                 <div class="navbar-holder d-flex align-items-center justify-content-between w-100">
                     <!-- Navbar Header-->
                     <div class="navbar-header">
-                        <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block" href="index.html">
-                            <div class="brand-text d-none d-lg-inline-block"><span>Bootstrap </span><strong>Dashboard</strong></div>
+                        <!-- Navbar Brand --><a class="navbar-brand d-none d-sm-inline-block" href="/manage">
+                            <div class="brand-text d-none d-lg-inline-block"><span>Ahlat </span><strong>Manage</strong></div>
                             <div class="brand-text d-none d-sm-inline-block d-lg-none"><strong>BD</strong></div></a>
                         <!-- Toggle Button--><a class="menu-btn active" id="toggle-btn" href="#"><span></span><span></span><span></span></a>
                     </div>

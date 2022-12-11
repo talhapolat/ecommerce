@@ -40,8 +40,7 @@ Route::get('addcart', 'App\Http\Controllers\CartController@addcart')->name('addc
 Route::get('deletecart', 'App\Http\Controllers\CartController@deletecart')->name('deletecart');
 Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->name('updatecart');
 
-
-
 Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
 Route::get('manage/products', 'App\Http\Controllers\Manage\ManageProductController@index')->name('manageproducts');
 Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductController@newproduct')->name('manageproductsnew');
+Route::post('manage/products/create', 'App\Http\Controllers\Manage\ManageProductController@createproduct')->name('manageproductscreate');

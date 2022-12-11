@@ -10,6 +10,22 @@
 <script src="{{asset('storage/template/manage/vendor/simple-datatables/umd/simple-datatables.js')}}"></script>
 <script src="{{asset('storage/template/manage/js/tables-datatable.5bf1d2c4.js')}}"></script>
 
+<!-- Bootstrap No UI Slider-->
+<script src="{{asset('storage/template/manage/vendor/nouislider/nouislider.min.js')}}"></script>
+<!-- vanillajs DatePicker-->
+<script src="{{asset('storage/template/manage/vendor/vanillajs-datepicker/js/datepicker.min.js')}}"></script>
+<!-- Imask-->
+<script src="{{asset('storage/template/manage/vendor/imask/imask.min.js')}}"> </script>
+<!-- Mutli.js Multiselect-->
+<script src="{{asset('storage/template/manage/vendor/multi.js/multi.min.js')}}"> </script>
+<!-- Forms init-->
+<script src="{{asset('storage/template/manage/js/forms-advanced.4d07aee4.js')}}"></script>
+<!-- Main File-->
+<script src="{{asset('storage/template/manage/js/front.c39dfc0c.js')}}"></script>
+<script src="{{asset('storage/template/manage/js/custom.js')}}"></script>
+{{--<script src="{{asset('storage/template/manage/js/multi.js')}}"></script>--}}
+<script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
 <script>
     new window.simpleDatatables.DataTable("table");
 </script>

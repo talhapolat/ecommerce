@@ -23,7 +23,7 @@
                             <h2 class="mb-0 p-1">Ürünler</h2>
                         </div>
                         <div class="col justify-content-end" style="display: flex;">
-                            <button class="btn btn-primary"><a href="/manage/products/new">+ Yeni Ürün</a></button>
+                            <button class="btn btn-primary"><a href="/manage/products/new" style="color: white">+ Yeni Ürün</a></button>
                         </div>
                     </div>
 
