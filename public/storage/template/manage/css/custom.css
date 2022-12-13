@@ -1,0 +1,42 @@
+.manageproductable td{
+    vertical-align: middle!important;
+}
+
+.ql-container{
+    height: 80%!important;
+}
+
+.multi-wrapper .item{
+    text-decoration: none!important;
+}
+.multi-wrapper .item:hover{
+    background-color: #8058bd !important;
+}
+
+.sidebar-link{
+    text-decoration: none!important;
+}
+
+.sidebar-link:hover{
+    background-color: #8058bd !important;
+    border-left: 4px solid #502b81;
+}
+
+.sidebar-item.active>.sidebar-link{
+    background-color: #8058bd !important;
+    text-decoration: none;
+    border-left: 4px solid #502b81;
+}
+
+.choices__list--multiple .choices__item{
+    background-color: #8058bd !important;
+}
+
+.btn-custom{
+    background-color: #8058bd !important;
+    color: white!important;
+}
+
+.dropzone .dz-preview .dz-remove{
+    text-decoration: none!important;
+}
