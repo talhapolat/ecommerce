@@ -106,7 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-{{--                                    <input type="button" id="add_file" value="Add" class="btn btn-primary mt-3">--}}
+                                    <input type="button" id="add_file" value="Add" class="btn btn-primary mt-3">
                                 </div>
 {{--                                <hr class="my-5">--}}
                             </div>

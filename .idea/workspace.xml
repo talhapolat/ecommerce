@@ -4,17 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Ürün görsel sistemi güncellendi.">
-      <change afterPath="$PROJECT_DIR$/app/Models/Tags.php" afterDir="false" />
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/manageheader.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/manageheader.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -227,7 +220,8 @@
       <workItem from="1670666308256" duration="11469000" />
       <workItem from="1670679943290" duration="18209000" />
       <workItem from="1670759727269" duration="28539000" />
-      <workItem from="1670794408852" duration="3102000" />
+      <workItem from="1670794408852" duration="3195000" />
+      <workItem from="1670862415619" duration="2905000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -306,7 +300,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670537555586</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Yönetim sistemi güncellendi.">
+      <created>1670797922413</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1670797922413</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -338,7 +339,8 @@
     <MESSAGE value="Koleksiyon sistemi güncellendi." />
     <MESSAGE value="Ürün önizleme güncellendi." />
     <MESSAGE value="Ürün görsel sistemi güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ürün görsel sistemi güncellendi." />
+    <MESSAGE value="Yönetim sistemi güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Yönetim sistemi güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

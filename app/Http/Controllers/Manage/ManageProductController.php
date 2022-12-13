@@ -92,12 +92,19 @@ class ManageProductController extends Controller
             $cnt++;
         }
 
+        $cnt = 0;
         if ($optionscnt == 0)
-            return "0 ADET OPTİON VAR";
+            info('No option');
         elseif ($optionscnt == 1)
-            return "1 ADET OPTİON VAR";
+            while($cnt < count($suboptionarray[0])){
+                DB::table('product_options')->insert([
+                    'product_id' => $newid,
+                    'suboption1' => $suboptionarray[0][$cnt]['id'],
+                    'no' => $cnt
+                ]);
+                $cnt++;
+            }
         elseif ($optionscnt == 2) {
-            $cnt = 0;
             while($cnt < count($suboptionarray[0])){
                 $cntt = 0;
                 while ($cntt < count($suboptionarray[1])){
@@ -113,7 +120,7 @@ class ManageProductController extends Controller
             }
         }
         elseif ($optionscnt == 3)
-            return "3 ADET OPTİON VAR";
+            info('3 option');
 
 
         return response()->json("successss");
