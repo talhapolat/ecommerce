@@ -106,7 +106,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" id="add_file" value="Add" class="btn btn-primary mt-3">
+                                    <input hidden type="button" id="add_file" value="Add" class="btn btn-primary mt-3">
                                 </div>
 {{--                                <hr class="my-5">--}}
                             </div>
@@ -421,7 +421,7 @@
         /* Add Files Script*/
         myDropzone.on("success", function(file, message){
             $("#msg").html(message);
-            setTimeout(function(){window.location.href=""},200);
+            setTimeout(function(){window.location.href="#"},200);
         });
 
         myDropzone.on("error", function (data) {

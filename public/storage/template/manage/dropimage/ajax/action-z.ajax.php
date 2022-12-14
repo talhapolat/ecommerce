@@ -33,7 +33,7 @@ if(!empty($_FILES['files'])){
         $n++;
     }
     if($Sflag==1){
-        echo '{Images uploaded successfully!}';
+        echo '{Başarılı.}';
     }else if($Sflag==2){
         echo '{File not move to the destination.}';
     }else if($Sflag==3){
@@ -47,7 +47,29 @@ if(!empty($_FILES['files'])){
                             'img_name'=>$name,
                             'img_order'=>$count++,
                         );
-            $db->insert(TB_IMG,$data);
+           $db->insert(TB_IMG,$data);
+
+            $getProduct = $pdo->prepare("SELECT * FROM products ORDER BY ID DESC LIMIT 1");
+            $getProduct->execute();
+            $product = $getProduct->fetch();
+
+            $getMedia = $pdo->prepare("SELECT * FROM images ORDER BY ID DESC LIMIT 1");
+            $getMedia->execute();
+            $media = $getMedia->fetch();
+
+            $getOptions = $pdo->prepare("SELECT * FROM product_options WHERE product_id=?");
+            $getOptions->execute([$product['id']]);
+            $options = $getOptions->fetchAll();
+
+            foreach ($options as $option){
+                $dataa   =   array(
+                    'product_id'=>$product['id'],
+                    'option_id'=>$option['id'],
+                    'media_id'=>$media['id'],
+                    'no'=>$media['img_order']
+                );
+                $db->insert('product_media',$dataa);
+            }
         }
     }
 }

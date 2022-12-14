@@ -24,6 +24,7 @@ $(document).ready(function () {
         var product_keyword = document.getElementById('product-keyword').value;
         // var texteditor = document.getElementById('editor').text();
 
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -56,6 +57,8 @@ $(document).ready(function () {
                 alert("eroorrrr");
             }
         });
+
+        document.getElementById('add_file').click();
 
 
     });

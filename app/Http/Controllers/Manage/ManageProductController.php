@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Manage;
 use App\Category;
 use App\Gallery;
 use App\Http\Controllers\Controller;
+use App\Models\images;
 use App\Models\Tags;
 use App\Option;
 use App\Product;
 use App\ProductCategory;
+use App\ProductMedia;
+use App\ProductOption;
 use App\Suboption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -124,6 +127,24 @@ class ManageProductController extends Controller
 
 
         return response()->json("successss");
+
+    }
+
+
+    public static function insertnewproductimage(Request $request){
+
+        //$lastproduct = Product::all()->last()->get();
+        //$lastmedia = images::all()->last();
+        //$options = ProductOption::where('product_id', $lastproduct->id)->get();
+
+
+            DB::table('product_media')->insert([
+                'product_id' => '55',
+                'option_id' => '45',
+                'media_id' => '999',
+                'no' => '5',
+                'created_at' => now()
+            ]);
 
     }
 }

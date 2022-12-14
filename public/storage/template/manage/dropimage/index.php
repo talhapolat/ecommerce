@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="dropzone/dropzone.css" type="text/css">
 </head>
 <body>
-	
+
     <div class="container">
         <div class="dropzone dz-clickable" id="myDrop">
             <div class="dz-default dz-message" data-dz-message="">
@@ -43,7 +43,7 @@
             </ul>
         </div>
     </div>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
@@ -63,26 +63,26 @@
 						$(this).html('').prepend('<i class="fa fa-spin fa-spinner"></i>');
 						$("ul.nav").sortable('destroy');
 						$("#reorder-msg").html( "Reordering Photos - This could take a moment. Please don't navigate away from this page." ).removeClass('light_box').addClass('notice notice_error');
-			 
+
 						var h = [];
 						$("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
-						 
+
 						$.ajax({
 							type: "POST",
 							url: "ajax/update.php",
 							data: {ids: " " + h + ""},
 							success: function(data){
 								if(data==1 || parseInt(data)==1){
-									window.location.reload();
+                                    window.location.reload();
 								}
 							}
-						}); 
+						});
 						return false;
-					}       
-					e.preventDefault();     
+					}
+					e.preventDefault();
 				});
 			});
-			 
+
 			$(function() {
 			  $("#myDrop").sortable({
 				items: '.dz-preview',
@@ -92,15 +92,15 @@
 				distance: 20,
 				tolerance: 'pointer',
 			  });
-		 
+
 			  $("#myDrop").disableSelection();
 			});
-			 
+
 			//Dropzone script
 			Dropzone.autoDiscover = false;
-			 
-			var myDropzone = new Dropzone("div#myDrop", 
-			{ 
+
+			var myDropzone = new Dropzone("div#myDrop",
+			{
 				 paramName: "files", // The name that will be used to transfer the file
 				 addRemoveLinks: true,
 				 uploadMultiple: true,
@@ -110,37 +110,38 @@
 				 acceptedFiles: ".png, .jpeg, .jpg, .gif",
 				 url: "ajax/action-z.ajax.php",
 			});
-			 
+
 			myDropzone.on("sending", function(file, xhr, formData) {
 			  var filenames = [];
-			   
+
 			  $('.dz-preview .dz-filename').each(function() {
 				filenames.push($(this).find('span').text());
 			  });
-			 
+
 			  formData.append('filenames', filenames);
 			});
-			 
+
 			/* Add Files Script*/
 			myDropzone.on("success", function(file, message){
 				$("#msg").html(message);
-				//setTimeout(function(){window.location.href="index.php"},200);
+				setTimeout(function(){window.location.href="index.php"},500);
 			});
-			  
+
 			myDropzone.on("error", function (data) {
 				 $("#msg").html('<div class="alert alert-danger">There is some thing wrong, Please try again!</div>');
 			});
-			  
+
 			myDropzone.on("complete", function(file) {
 				myDropzone.removeFile(file);
 			});
-			  
+
 			$("#add_file").on("click",function (){
 				myDropzone.processQueue();
 			});
-			 
+
+
 		});
 	</script>
-    
+
 </body>
 </html>
