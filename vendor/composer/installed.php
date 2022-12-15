@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => '1.0.0+no-version-set',
-        'version' => '1.0.0.0',
-        'reference' => NULL,
+        'pretty_version' => 'dev-master',
+        'version' => 'dev-master',
+        'reference' => 'bbcffb5d98e906330b32b923081da90158e7e07e',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -409,6 +409,15 @@
                 0 => '*',
             ),
         ),
+        'laracasts/utilities' => array(
+            'pretty_version' => '3.2.1',
+            'version' => '3.2.1.0',
+            'reference' => 'cfcda21b2425652e869af253d385d78e2129e3a2',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laracasts/utilities',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'larapack/doctrine-support' => array(
             'pretty_version' => 'v0.1.9',
             'version' => '0.1.9.0',
@@ -428,9 +437,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => '1.0.0+no-version-set',
-            'version' => '1.0.0.0',
-            'reference' => NULL,
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => 'bbcffb5d98e906330b32b923081da90158e7e07e',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

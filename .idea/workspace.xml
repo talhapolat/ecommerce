@@ -5,20 +5,48 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
-      <change afterPath="$PROJECT_DIR$/app/Models/images.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/Brands.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Models/product_tags.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/.travis.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/composer.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/spec/Laracasts/Utilities/JavaScript/Transformers/TransformerSpec.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/JavaScriptFacade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/JavaScriptServiceProvider.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/LaravelViewBinder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/Transformers/DefaultTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/Transformers/ObjectTransformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/Transformers/Transformer.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/ViewBinder.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/config/javascript.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vendor/laracasts/utilities/src/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/larasoft.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/larasoft.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/Database.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/Database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/dropzone/dropzone.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/dropzone/dropzone.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12861670863817.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17291670863828.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24271670863817.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31681670863817.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/45771670863817.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/58291670863817.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_namespaces.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/composer/platform_check.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/platform_check.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,6 +186,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/psr/container" />
       <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/laracasts/utilities" />
     </include_path>
   </component>
   <component name="ProjectId" id="2FBZZsCKAz8qlKbEGS71uYELROm" />
@@ -168,18 +197,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\talha\PhpstormProjects\ecommerce\public\storage\template\css" />
@@ -236,7 +265,8 @@
       <workItem from="1670794408852" duration="3195000" />
       <workItem from="1670862415619" duration="2905000" />
       <workItem from="1670968026705" duration="844000" />
-      <workItem from="1671028372935" duration="16908000" />
+      <workItem from="1671028372935" duration="17012000" />
+      <workItem from="1671116612218" duration="18998000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -336,7 +366,14 @@
       <option name="project" value="LOCAL" />
       <updated>1670968399427</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Yönetim sistemi güncellendi.">
+      <created>1671059210586</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671059210587</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

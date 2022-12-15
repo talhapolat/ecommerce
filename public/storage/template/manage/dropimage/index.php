@@ -104,7 +104,7 @@
 				 paramName: "files", // The name that will be used to transfer the file
 				 addRemoveLinks: true,
 				 uploadMultiple: true,
-				 autoProcessQueue: false,
+				 autoProcessQueue: true,
 				 parallelUploads: 50,
 				 maxFilesize: 5, // MB
 				 acceptedFiles: ".png, .jpeg, .jpg, .gif",

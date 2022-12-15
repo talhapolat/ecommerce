@@ -33,7 +33,7 @@ if(!empty($_FILES['files'])){
         $n++;
     }
     if($Sflag==1){
-        echo '{Başarılı.}';
+        echo $fileName;
     }else if($Sflag==2){
         echo '{File not move to the destination.}';
     }else if($Sflag==3){
@@ -48,6 +48,8 @@ if(!empty($_FILES['files'])){
                             'img_order'=>$count++,
                         );
            $db->insert(TB_IMG,$data);
+
+           echo '#'.$db->lastInsertId();
 
             $getProduct = $pdo->prepare("SELECT * FROM products ORDER BY ID DESC LIMIT 1");
             $getProduct->execute();

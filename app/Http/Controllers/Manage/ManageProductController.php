@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Manage;
 use App\Category;
 use App\Gallery;
 use App\Http\Controllers\Controller;
+use App\Models\Brands;
 use App\Models\images;
+use App\Models\product_tags;
 use App\Models\Tags;
 use App\Option;
 use App\Product;
@@ -15,6 +17,7 @@ use App\ProductOption;
 use App\Suboption;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use JavaScript;
 
 class ManageProductController extends Controller
 {
@@ -137,7 +140,6 @@ class ManageProductController extends Controller
         //$lastmedia = images::all()->last();
         //$options = ProductOption::where('product_id', $lastproduct->id)->get();
 
-
             DB::table('product_media')->insert([
                 'product_id' => '55',
                 'option_id' => '45',
@@ -145,6 +147,40 @@ class ManageProductController extends Controller
                 'no' => '5',
                 'created_at' => now()
             ]);
+
+    }
+
+    public function editproduct($id){
+
+        $product = Product::where('id', $id)->first();
+
+        $product_media = ProductMedia::where('product_id', $id)->get('media_id');
+
+        $images = images::whereIn('id', $product_media)->get();
+
+        $product_options = ProductOption::where('product_id', $id)->get('suboption1')->pluck('suboption1')->toArray();
+        $product_options2 = ProductOption::where('product_id', $id)->get('suboption2')->pluck('suboption2')->toArray();
+
+        $options = Option::all();
+        $suboptions = Suboption::where('statu', 1)->get();
+        $psuboptions = Suboption::whereIn('id', $product_options)->orwhereIn('id', $product_options2)->get('id')->pluck('id')->toArray();
+
+        $categories = Category::where('statu', 1,'main_category_id', null)->get('id');
+        $pcategoriesid = ProductCategory::where('product_id', $id)->get()->pluck('category_id')->toArray();
+        $temp = implode('","', $pcategoriesid);
+        $pcategoriesidd = '["'.$temp .'"]';
+
+
+        $subcategories = Category::where('statu', 1)->whereNotNull('main_category_id')->get();
+        $tags = Tags::where('statu', 1)->get();
+
+        $ptagsid = product_tags::where('product', $id)->get()->pluck('tag')->toArray();
+
+        $brands = Brands::all();
+
+        //return $ptagsid;
+
+        return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid'));
 
     }
 }
