@@ -30,7 +30,7 @@
             <!-- Page Header-->
             <header class="bg-white shadow-sm px-4 py-3 z-index-20">
                 <div class="container-fluid px-0">
-                    <h4 class="mb-0 p-1">Yeni Ürün Oluştur</h4>
+                    <h4 class="mb-0 p-1">Düzenle</h4>
                 </div>
             </header>
 
@@ -110,7 +110,7 @@
                                 </div>
                                 {{--                                <hr class="my-5">--}}
 
-                                <div class="container">
+                                <div class="container" >
 {{--                                    <div id="msg" class="mb-3"></div>--}}
 {{--                                    <a href="javascript:void(0);" class="btn btn-outline-primary reorder" id="updateReorder">Reorder Imgaes</a>--}}
 {{--                                    <div id="reorder-msg" class="alert alert-warning mt-3" style="display:none;">--}}
@@ -128,7 +128,7 @@
                                             <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
                                                 <div>
                                                     <a href="javascript:void(0);" class="img-link">
-                                                        <img src="/storage/template/manage/dropimage/uploads/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200">
+                                                        <img src="/storage/template/manage/dropimage/uploads/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
                                                     </a>
                                                 </div>
                                             </li>
@@ -227,7 +227,7 @@
                                                 @foreach($subcategories as $subcategory)
 
                                                     @if($subcategory->main_category_id == $category->id)
-                                                        <option value="{{$subcategory->id}}" @if(in_array($subcategory->id, $pcategoriesid)) selected @endif >{{$subcategory->name}}</option>
+                                                        <option value="{{$subcategory->id}}" @if(in_array($subcategory->id, $pcategoriesid)) selected @endif >{{$category->name}} / {{$subcategory->name}}</option>
                                                     @endif
 
                                                 @endforeach
@@ -315,7 +315,7 @@
                                 <div class="container-fluid text-right">
 
                                     <button type="button" id="new-product-draft" class="btn btn-outline-info">Taslak Olarak Kaydet</button>
-                                    <button type="button" id="new-product-save" class="btn btn-custom">Kaydet</button>
+                                    <button type="button" id="new-product-save" value="{{$product->id}}" class="btn btn-custom">Kaydet</button>
 
                                 </div>
                             </div>
@@ -433,7 +433,7 @@
                 parallelUploads: 50,
                 maxFilesize: 5, // MB
                 acceptedFiles: ".png, .jpeg, .jpg, .gif",
-                url: "/storage/template/manage/dropimage/ajax/action-z.ajax.php",
+                url: "/storage/template/manage/dropimage/ajax/action-z.ajax.php?pid=" + document.getElementById('new-product-save').value,
             });
 
         myDropzone.on("sending", function(file, xhr, formData) {
@@ -452,11 +452,82 @@
             $("#msg").html(message);
             setTimeout(function(){window.location.href="#"},800);
 
+            //alert("aaa");
+            picarray = message.split("ppp");
+            picarraysize = picarray.length;
+
+            //delete picarray[0];
+            //alert(picarray[0]);
+
             const node = document.getElementById("navpills").lastElementChild;
-            const clone = node.cloneNode(true);
-            document.getElementById("navpills").appendChild(clone);
-            clone.id = "800";
-            node.firstElementChild.firstElementChild.firstElementChild.src = "/storage/template/manage/dropimage/uploads/"+message;
+
+            const galeryelement = document.createElement("li");
+            galeryelement.id = 888;
+            galeryelement.classList.add('ui-sortable-handle');
+            galeryelement.classList.add('mr-2');
+            galeryelement.classList.add('mt-2');
+
+
+            if (node == null) {
+                galeryelement.dataset.ord = "0";
+                galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                    '<img src="/storage/template/manage/dropimage/uploads/'+picarray[0]+'" alt="" class="img-thumbnail" width="200px" ' +
+                    'style="object-fit: contain!important; height: 200px"> </a> ' +
+                    '</div> '
+                ;
+            } else {
+                i = 0;
+                while(i<picarraysize-1){
+
+                    pictures = document.getElementById("navpills").innerHTML;
+
+                    if (pictures.search(picarray[i])<1){
+                        galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                            '<img src="/storage/template/manage/dropimage/uploads/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
+                            'style="object-fit: contain!important; height: 200px"> </a> ' +
+                            '</div> '
+                        ;
+                        i = 999;
+                    } else {
+                        //alert("girdi");
+                        i++;
+                    }
+
+
+
+                    // lastpic = document.getElementById("navpills").lastElementChild.firstElementChild.firstElementChild.firstElementChild.src.split("/");
+                    // alert(lastpic[lastpic.length-1]);
+                    // alert(picarray[i]);
+                    // if (lastpic[lastpic.length-1] != picarray[i]){
+                    //     galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                    //         '<img src="/storage/template/manage/dropimage/uploads/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
+                    //         'style="object-fit: contain!important; height: 200px"> </a> ' +
+                    //         '</div> '
+                    //     ;
+                    //     i = 999;
+                    // } else {
+                    //     //alert("girdi");
+                    //     i++;
+                    // }
+
+                }
+
+
+                // cnt = parseInt(node.dataset.ord);
+                // galeryelement.dataset.ord = cnt+1;
+                // galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                //     '<img src="/storage/template/manage/dropimage/uploads/'+picarray[cnt+1]+'" alt="" class="img-thumbnail" width="200px" ' +
+                //     'style="object-fit: contain!important; height: 200px"> </a> ' +
+                //     '</div> '
+                // ;
+            }
+
+            //const clone = node.cloneNode(true);
+            document.getElementById("navpills").appendChild(galeryelement);
+
+
+
+
 
 
 
@@ -468,6 +539,8 @@
 
         myDropzone.on("complete", function(file) {
             myDropzone.removeFile(file);
+
+            //alert("bbb");
 
         });
 

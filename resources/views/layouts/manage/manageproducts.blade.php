@@ -77,7 +77,7 @@
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <span><a href="#" style="color: #0b0b0b">Düzenle</a></span>
+                                                    <span><a href="{{route('manageproductsedit', $product->id)}}" style="color: #0b0b0b">Düzenle</a></span>
                                                     <span><a href="#" style="color: #0b0b0b">Sil</a></span>
                                                 </td>
                                             </tr>

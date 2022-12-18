@@ -67,24 +67,27 @@ class ManageProductController extends Controller
 
         $product_categories = $request->input('product_category');
 
-        foreach ($product_categories as $product_category){
-            DB::table('product_categories')->insert([
-                'product_id' => $newid,
-                'category_id' => $product_category,
-                'created_at' => now()
-            ]);
+        if ($product_categories != null){
+            foreach ($product_categories as $product_category){
+                DB::table('product_categories')->insert([
+                    'product_id' => $newid,
+                    'category_id' => $product_category,
+                    'created_at' => now()
+                ]);
+            }
         }
 
         $product_tags = $request->input('product_tag');
 
-        foreach ($product_tags as $product_tag){
-            DB::table('product_tags')->insert([
-                'product' => $newid,
-                'tag' => $product_tag,
-                'created_at' => now()
-            ]);
+        if ($product_tags != null){
+            foreach ($product_tags as $product_tag){
+                DB::table('product_tags')->insert([
+                    'product' => $newid,
+                    'tag' => $product_tag,
+                    'created_at' => now()
+                ]);
+            }
         }
-
 
         $var = $request->variations;
         $suboptions = Suboption::whereIn('id', $var)->get('option_id')->pluck('option_id')->toArray();
@@ -165,7 +168,7 @@ class ManageProductController extends Controller
         $suboptions = Suboption::where('statu', 1)->get();
         $psuboptions = Suboption::whereIn('id', $product_options)->orwhereIn('id', $product_options2)->get('id')->pluck('id')->toArray();
 
-        $categories = Category::where('statu', 1,'main_category_id', null)->get('id');
+        $categories = Category::where('statu', 1,'main_category_id', null)->get();
         $pcategoriesid = ProductCategory::where('product_id', $id)->get()->pluck('category_id')->toArray();
         $temp = implode('","', $pcategoriesid);
         $pcategoriesidd = '["'.$temp .'"]';

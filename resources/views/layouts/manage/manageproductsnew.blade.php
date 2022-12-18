@@ -257,7 +257,7 @@
                                             <label for="product-slug">Slug</label>
                                             <div class="input-group">
                                                 <div class="input-group-text">/</div>
-                                                <input class="form-control" id="product-slug" type="text" placeholder="Ürün Linki">
+                                                <input class="form-control" id="product-slug" type="text" placeholder="Ürün Linki" required>
                                             </div>
                                         </div>
 
