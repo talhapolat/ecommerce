@@ -18,7 +18,7 @@
 }
 
 .sidebar-link:hover{
-    background-color: #8058bd !important;
+    background-color: rgba(128, 88, 189, 0.83) !important;
     border-left: 4px solid #502b81;
 }
 

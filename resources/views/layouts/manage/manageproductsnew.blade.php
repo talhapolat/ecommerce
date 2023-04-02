@@ -15,12 +15,12 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 <body>
 <div class="page">
     <!-- Main Navbar-->
-    @include('layouts.manage.managepartials.manageheader')
+{{--    @include('layouts.manage.managepartials.manageheader')--}}
 
     <div class="page-content d-flex align-items-stretch">
 
@@ -511,6 +511,11 @@
     });
 
 
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
+<script>
+    document.getElementById('managenavbar').children.item(1).classList.add('active');
 </script>
 </body>
 </html>

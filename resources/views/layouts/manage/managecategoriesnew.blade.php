@@ -1,7 +1,7 @@
 @php
-    include_once('storage/template/manage/dropimage/config.php');
+include_once('storage/template/manage/dropimage/config.php');
 @endphp
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 
@@ -22,7 +22,7 @@
 
 <div class="page">
     <!-- Main Navbar-->
-{{--    @include('layouts.manage.managepartials.manageheader')--}}
+    {{--    @include('layouts.manage.managepartials.manageheader')--}}
 
     <div class="page-content d-flex align-items-stretch">
 
@@ -49,18 +49,18 @@
 
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <label class="form-label" for="product-title">Ürün Başlığı</label>
-                                        <input class="form-control" value="{{$product->title}}" id="product-title" type="text" required>
+                                        <label class="form-label" for="category-title">Kategori Başlığı</label>
+                                        <input class="form-control" value="{{$category->name}}" id="category-title" type="text" required>
                                     </div>
                                 </div>
 
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="product-type">Ürün Türü</label>
+                                        <label class="form-label" for="category-statu">Durumu</label>
                                         <div data-test-hook="basic">
-                                            <select class="form-control" name="product-type" id="product-type">
-                                                <option @if($product->product_type == 1) selected @endif value="1">Fiziksel Ürün</option>
-                                                <option @if($product->product_type == 2) selected @endif value="2">Dijital Ürün</option>
+                                            <select class="form-control" name="category-statu" id="category-statu">
+                                                <option selected value="1">Aktif</option>
+                                                <option value="2">Pasif</option>
                                             </select>
                                         </div>
                                     </div>
@@ -69,126 +69,12 @@
 
                             </div>
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="product-price">Satış Fiyatı (₺)</label>
-                                        <input class="form-control" value="{{$product->price}}" id="product-price" type="number" placeholder="">
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="product-sale-price">İndirimli Fiyat (₺)</label>
-                                        <input class="form-control" value="{{$product->sale_price}}" id="product-sale-price" type="number">
-                                    </div>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>
                 </div>
             </section>
-
-
-
-
-
-            <section class="pb-0">
-                <div class="container-fluid">
-                    <div class="card mb-0" style="width: 80%; margin: auto">
-                        <div class="card-body">
-                            <h5>Ürün Resimleri</h5>
-                            <div class="row gx-5 bg-white pt-2">
-                                <div class="container-fluid">
-                                    <div class="dropzone dz-clickable" id="myDrop">
-                                        <div class="dz-default dz-message" data-dz-message="">
-                                            <span>Drop files here to upload</span>
-                                            <div class="justify-content-center" style="padding-top: 30px">
-                                                <i class="fa-regular fa-images" style="font-size: 30px; color: #6f55ff"></i>
-                                                <br>
-                                                <a style="font-size: 14px">Medya yüklemek için tıklayın ya da bu alana sürükleyin</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <input hidden type="button" id="add_file" value="Add" class="btn btn-primary mt-3">
-                                </div>
-                                {{--                                <hr class="my-5">--}}
-
-                                <div class="container" >
-{{--                                    <div id="msg" class="mb-3"></div>--}}
-{{--                                    <a href="javascript:void(0);" class="btn btn-outline-primary reorder" id="updateReorder">Reorder Imgaes</a>--}}
-{{--                                    <div id="reorder-msg" class="alert alert-warning mt-3" style="display:none;">--}}
-{{--                                        <i class="fa fa-3x fa-exclamation-triangle float-right"></i> 1. Drag photos to reorder.<br>2. Click 'Save Reordering' when finished.--}}
-{{--                                    </div>--}}
-                                    <div class="gallery">
-                                        <ul class="nav nav-pills" id="navpills">
-                                            <?php
-                                            //Fetch all images from database
-//                                            $images = $db->getAllRecords(TB_IMG,'*','order by img_order ASC');
-                                            if(!empty($images)){
-                                            foreach($images as $row){
-                                                ?>
-
-                                            <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
-                                                <div>
-                                                    <a href="javascript:void(0);" class="img-link">
-                                                        <img src="/storage/template/manage/dropimage/uploads/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
-                                                    </a>
-                                                </div>
-                                            </li>
-                                                <?php
-                                            }
-                                            }
-                                            ?>
-                                        </ul>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-
-
-            <section class="pb-0">
-                <div class="container-fluid">
-                    <div class="card mb-0" style="width: 80%; margin: auto">
-                        <div class="card-body">
-                            <h5>Özelleştir</h5>
-                            <div class="row gx-5 bg-white pt-2">
-                                <div class="container-fluid">
-                                    <form>
-                                        <div class="form-group">
-                                            <label class="form-label">Ürün özelleştirmelerinizi seçiniz. Ürün kombinasyonları otomatik oluşacaktır.</label>
-                                            <select id="product-variation" multiple="multiple" name="product-variation">
-                                                @foreach($options as $option)
-                                                    <optgroup label="{{$option->title}}">
-                                                        @foreach($suboptions as $suboption)
-                                                            @if($suboption->option_id == $option->id)
-                                                                <option value="{{$suboption->id}}" @if(in_array($suboption->id, $psuboptions)) selected @endif >{{$suboption->title}}</option>
-                                                            @endif
-                                                        @endforeach
-                                                    </optgroup>
-                                                @endforeach
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-
-
-
 
 
             <section class="pb-0">
@@ -199,7 +85,7 @@
                             <div class="row gx-5 bg-white pt-2">
                                 <div class="container-fluid">
                                     <div id="editor">
-                                        {!! $product->longDesc !!}
+
                                     </div>
                                 </div>
                             </div>
@@ -214,62 +100,30 @@
                 <div class="container-fluid">
                     <div class="card mb-0" style="width: 80%; margin: auto;">
                         <div class="card-body">
-                            <h5>Ürün Detayları</h5>
+                            <h5>Kategori Detayları</h5>
                             <div class="row gx-5 bg-white pt-2">
 
                                 <div class="col-4">
-                                    <label for="product-category">Kategori</label>
-                                    <select
-                                        class="form-control"
-                                        name="product-category"
-                                        id="product-category"
-                                        multiple
-                                    >
-                                        @foreach($categories as $category)
-                                            <optgroup label="{{$category->name}}">
-
-                                                @foreach($subcategories as $subcategory)
-
-                                                    @if($subcategory->main_category_id == $category->id)
-                                                        <option value="{{$subcategory->id}}" @if(in_array($subcategory->id, $pcategoriesid)) selected @endif >{{$category->name}} / {{$subcategory->name}}</option>
-                                                    @endif
-
-                                                @endforeach
-
-                                            </optgroup>
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                                <div class="col-4">
-                                    <label for="product-tag">Etiket</label>
-                                    <select
-                                        class="form-control"
-                                        name="product-tag"
-                                        id="product-tag"
-                                        multiple
-                                    >
-                                        @foreach($tags as $tag)
-                                            <option value="{{$tag->id}}" @if(in_array($tag->id, $ptagsid)) selected @endif>{{$tag->title}}</option>
-                                        @endforeach
-
-                                    </select>
-                                </div>
-
-                                <div class="col-4">
-                                    <label for="product-brand">Marka</label>
+                                    <label for="main-category">Üst Kategori</label>
                                     <div data-test-hook="basic">
-                                        <select class="form-control" name="product-brand" id="product-brand">
-                                            <option value="0" selected>Marka Seçin</option>
-                                            @foreach($brands as $brand)
-                                            <option value="{{$brand->id}}" @if($brand->id == $product->brand_id) selected @endif>{{$brand->title}}</option>
+                                        <select class="form-control" name="main-category" id="main-category">
+                                            <option value="0" selected>Üst Kategori Seçin</option>
+
+                                            @foreach($maincategories as $maincategory)
+                                            @if($maincategory->id != $category->id)
+                                            <option value="{{$maincategory->id}}" >{{$maincategory->name}}</option>
+                                            @endif
+                                            @foreach($categories as $categori)
+                                            @if($categori->main_category_id == $maincategory->id)
+                                            <option value="{{$categori->id}}" >{{$maincategory->name}} / {{$categori->name}}</option>
+                                            @endif
                                             @endforeach
+                                            @endforeach
+
+
                                         </select>
                                     </div>
                                 </div>
-
-
 
                             </div>
                         </div>
@@ -287,19 +141,14 @@
                                 <div class="container-fluid">
                                     <div class="row">
                                         <div class="col-6">
-                                            <label for="product-slug">Slug</label>
+                                            <label for="category-slug">Slug</label>
                                             <div class="input-group">
                                                 <div class="input-group-text">/</div>
-                                                <input class="form-control" value="{{$product->slug}}" id="product-slug" type="text" placeholder="Ürün Linki">
+                                                <input class="form-control" id="category-slug" type="text" placeholder="Kategori Linki">
                                             </div>
                                         </div>
 
-                                        <div class="col-6">
-                                            <label for="product-keyword">Anahtar Kelimeler</label>
-                                            <div class="input-group">
-                                                <input class="form-control" id="product-keyword" value="{{$product->product_keyword}}" type="text" placeholder="Keywords">
-                                            </div>
-                                        </div>
+
                                     </div>
 
 
@@ -318,8 +167,8 @@
                             <div class="row gx-5 bg-white pt-2">
                                 <div class="container-fluid text-right">
 
-                                    <button type="button" id="new-product-draft" class="btn btn-outline-info">Taslak Olarak Kaydet</button>
-                                    <button type="button" id="new-product-edit-save" value="{{$product->id}}" class="btn btn-custom">Kaydet</button>
+                                    <button type="button" id="new-category-draft" class="btn btn-outline-info">Taslak Olarak Kaydet</button>
+                                    <button type="button" id="new-category-save" class="btn btn-custom">Kaydet</button>
 
                                 </div>
                             </div>
@@ -369,13 +218,13 @@
 <script src="{{asset('storage/template/manage/js/charts-home.36b080a8.js')}}"></script>
 <!-- Notifications  -->
 {{--<div class="toast-container position-fixed top-0 end-0 p-4">--}}
-{{--    <div class="toast hide bg-white" role="alert" aria-live="assertive" aria-atomic="true">--}}
-{{--        <div class="toast-header"><strong class="me-auto">Bootstrap</strong><small>11 mins ago</small>--}}
-{{--            <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>--}}
-{{--        </div>--}}
-{{--        <div class="toast-body">Hello, world! This is a toast message.</div>--}}
-{{--    </div>--}}
-{{--</div>--}}
+    {{--    <div class="toast hide bg-white" role="alert" aria-live="assertive" aria-atomic="true">--}}
+        {{--        <div class="toast-header"><strong class="me-auto">Bootstrap</strong><small>11 mins ago</small>--}}
+            {{--            <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>--}}
+            {{--        </div>--}}
+        {{--        <div class="toast-body">Hello, world! This is a toast message.</div>--}}
+        {{--    </div>--}}
+    {{--</div>--}}
 <script src="{{asset('storage/template/manage/js/home-premium.82d409ff.js')}}"> </script>
 <!-- Main File-->
 <script src="{{asset('storage/template/manage/js/front.c39dfc0c.js')}}"></script>
@@ -384,35 +233,35 @@
 <script>
     $(document).ready(function(){
 
-            $("ul.nav").sortable({ tolerance: 'pointer' });
-            $('.reorder').html('Save Reordering');
-            $('.reorder').attr("id","updateReorder");
-            $('#reorder-msg').slideDown('');
-            $('.img-link').attr("href","javascript:;");
-            $('.img-link').css("cursor","move");
-            $("#updateReorder").click(function( e ){
-                if(!$("#updateReorder i").length){
-                    $(this).html('').prepend('<i class="fa fa-spin fa-spinner"></i>');
-                    $("ul.nav").sortable('destroy');
-                    $("#reorder-msg").html( "Reordering Photos - This could take a moment. Please don't navigate away from this page." ).removeClass('light_box').addClass('notice notice_error');
+        $("ul.nav").sortable({ tolerance: 'pointer' });
+        $('.reorder').html('Save Reordering');
+        $('.reorder').attr("id","updateReorder");
+        $('#reorder-msg').slideDown('');
+        $('.img-link').attr("href","javascript:;");
+        $('.img-link').css("cursor","move");
+        $("#updateReorder").click(function( e ){
+            if(!$("#updateReorder i").length){
+                $(this).html('').prepend('<i class="fa fa-spin fa-spinner"></i>');
+                $("ul.nav").sortable('destroy');
+                $("#reorder-msg").html( "Reordering Photos - This could take a moment. Please don't navigate away from this page." ).removeClass('light_box').addClass('notice notice_error');
 
-                    var h = [];
-                    $("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
+                var h = [];
+                $("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
 
-                    $.ajax({
-                        type: "POST",
-                        url: "<?php echo HOME_AJAX; ?>update.php",
-                        data: {ids: " " + h + ""},
-                        success: function(data){
-                            if(data==1 || parseInt(data)==1){
-                                //window.location.reload();
-                            }
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo HOME_AJAX; ?>update.php",
+                    data: {ids: " " + h + ""},
+                    success: function(data){
+                        if(data==1 || parseInt(data)==1){
+                            //window.location.reload();
                         }
-                    });
-                    return false;
-                }
-                e.preventDefault();
-            });
+                    }
+                });
+                return false;
+            }
+            e.preventDefault();
+        });
 
         $(function() {
             $("#myDrop").sortable({
@@ -531,12 +380,6 @@
             //const clone = node.cloneNode(true);
             document.getElementById("navpills").appendChild(galeryelement);
 
-
-
-
-
-
-
         });
 
         myDropzone.on("error", function (data) {
@@ -601,37 +444,39 @@
 </script>
 
 <script>
-    var multipleCancelButton = new Choices(
-        '#product-category',
-        {
-            allowHTML: true,
-            removeItemButton: true,
-        }
-    );
 
-    var multipleCancelButton2 = new Choices(
-        '#product-tag',
-        {
-            allowHTML: true,
-            removeItemButton: true,
-        }
-    );
 
-    const choicesBasic3 = new Choices('#product-type', {
+    const choicesBasic3 = new Choices('#category-statu', {
         allowHTML: true,
         shouldSort: false,
         searchEnabled: false,
     });
 
-    const choicesBasic4 = new Choices('#product-brand', {
+    const choicesBasic4 = new Choices('#main-category', {
         allowHTML: true,
         shouldSort: false,
     });
 
+    // var multipleCancelButton = new Choices(
+    //     '#product-category',
+    //     {
+    //         allowHTML: true,
+    //         removeItemButton: true,
+    //     }
+    // );
+    //
+    // var multipleCancelButton2 = new Choices(
+    //     '#product-tag',
+    //     {
+    //         allowHTML: true,
+    //         removeItemButton: true,
+    //     }
+    // );
 
 </script>
 <script>
-    document.getElementById('managenavbar').children.item(1).classList.add('active');
+    document.getElementById('managenavbar').children.item(2).classList.add('active');
 </script>
 </body>
 </html>
+

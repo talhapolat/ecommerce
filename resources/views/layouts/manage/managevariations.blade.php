@@ -10,7 +10,7 @@
 
 <div class="page">
     <!-- Main Navbar-->
-{{--    @include('layouts.manage.managepartials.manageheader')--}}
+    {{--    @include('layouts.manage.managepartials.manageheader')--}}
 
     <div class="page-content d-flex align-items-stretch">
 
@@ -22,10 +22,10 @@
                 <div class="container-fluid px-0">
                     <div class="row">
                         <div class="col">
-                            <h2 class="mb-0 p-1">Ürünler</h2>
+                            <h2 class="mb-0 p-1">Varyantlar</h2>
                         </div>
                         <div class="col justify-content-end" style="display: flex;">
-                            <button class="btn btn-primary"><a href="/manage/products/new" style="color: white">+ Yeni Ürün</a></button>
+                            <button class="btn btn-primary"><a href="/manage/categories/new" style="color: white">+ Yeni Varyant</a></button>
                         </div>
                     </div>
 
@@ -43,46 +43,46 @@
 
                                 <div class="table-responsive">
 
-
-                                    <table class="table" id="datatable1" style="width: 100%;">
+                                    <table class="table" id="datatablecategory" style="width: 100%;">
                                         <thead>
                                         <tr>
-                                            <th>Resim</th>
-                                            <th>Ürün Adı</th>
-                                            <th>Fiyat</th>
-                                            <th>İndirimli Fiyat</th>
-                                            <th>Stok</th>
+                                            <th>Varyant Adı</th>
+                                            <th>Seçenekler</th>
                                             <th>Durum</th>
                                             <th>İşlemler</th>
                                         </tr>
                                         </thead>
                                         <tbody>
 
-
-                                        @foreach($products as $product)
+                                        @foreach($options as $option)
 
                                             <tr class="manageproductable">
-                                                <td><img src="{{asset('storage')}}/{{$product->image}}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: fill" alt=""></td>
-                                                <td><a href="{{route('manageproductsedit', $product->id)}}" class="text-muted">{{$product->title}}</a></td>
-                                                <td>{{$product->price}}₺</td>
-                                                <td>@if ($product->sale_price == null) - @else
-                                                    {{$product->sale_price}}₺ @endif </td>
-                                                <td>50</td>
+                                                <td><a href="{{route('managevariationsedit', $option->id)}}" class="text-muted">{{$option->title}}</a></td>
+                                                <td>
+                                            @foreach($suboptions as $suboption)
+                                                @if($suboption->option_id == $option->id)
+                                                        {{$suboption->title}},
+                                                    @endif
+                                                    @endforeach
+                                                </td>
                                                 <td style="align-items: center; ">
-                                                    @if($product->statu == 1)
-                                                       <div class="" style="background-color: #1eaa7c; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
-                                                        <span>Satışta</span>
+                                                    @if($option->statu == 1)
+                                                        <div class="" style="background-color: #1eaa7c; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
+                                                        <span>Aktif</span>
                                                     @else
                                                         <div class="" style="background-color: dimgrey; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
                                                         <span>Pasif</span>
                                                     @endif
                                                 </td>
                                                 <td>
-                                                    <span><a href="{{route('manageproductsedit', $product->id)}}" style="color: #0b0b0b">Düzenle</a></span>
+                                                    <span><a href="{{route('manageoptions', $option->id)}}" style="color: #0b0b0b">Seçenekler</a></span>
+                                                    <span style="margin-left: 10px"></span>
+                                                    <span><a href="{{route('managevariationsedit', $option->id)}}" style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
                                                     <span><a href="#" style="color: #0b0b0b">Sil</a></span>
                                                 </td>
                                             </tr>
+
 
 
                                         @endforeach
@@ -90,11 +90,7 @@
                                         </tbody>
                                     </table>
 
-
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -138,10 +134,12 @@
 
 @include('layouts.manage.managepartials.managefooter')
 
+
+
 </body>
 
 <script>
-    document.getElementById('managenavbar').children.item(1).classList.add('active');
+    document.getElementById('managenavbar').children.item(3).classList.add('active');
 </script>
 
 

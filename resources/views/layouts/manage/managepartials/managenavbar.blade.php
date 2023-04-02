@@ -10,8 +10,8 @@
         </div>
         <!-- Sidebar Navidation Menus-->
 {{--        <span class="text-uppercase text-gray-400 text-xs letter-spacing-0 mx-3 px-2 heading">Main</span>--}}
-        <ul class="list-unstyled py-4">
-            <li class="sidebar-item active"><a class="sidebar-link" href="/manage">
+        <ul id="managenavbar" class="list-unstyled py-4">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#real-estate-1"> </use>
                     </svg>Home </a></li>

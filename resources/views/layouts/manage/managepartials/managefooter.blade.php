@@ -7,8 +7,10 @@
 <script src="{{asset('storage/template/manage/js/js-cookie.0d5f0e08.js')}}"> </script>
 <script src="{{asset('storage/template/manage/js/demo.bbd40f0c.js')}}"> </script>
 <script src="{{asset('storage/template/manage/js/charts-home.36b080a8.js')}}"></script>
+
 <script src="{{asset('storage/template/manage/vendor/simple-datatables/umd/simple-datatables.js')}}"></script>
 <script src="{{asset('storage/template/manage/js/tables-datatable.5bf1d2c4.js')}}"></script>
+{{--<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/af-2.5.3/datatables.min.js"></script>--}}
 
 <!-- Bootstrap No UI Slider-->
 <script src="{{asset('storage/template/manage/vendor/nouislider/nouislider.min.js')}}"></script>
@@ -26,9 +28,25 @@
 {{--<script src="{{asset('storage/template/manage/js/multi.js')}}"></script>--}}
 <script src="//cdn.quilljs.com/1.3.6/quill.js"></script>
 <script src="//cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+
 <script>
     new window.simpleDatatables.DataTable("table");
 </script>
+
+<script>
+
+    // $(document).ready(function () {
+    //     $('#datatablecategory').DataTable({
+    //         search: {
+    //             return: true,
+    //         },
+    //     });
+    // });
+</script>
+
+
+
 <!-- Notifications  -->
 {{--<div class="toast-container position-fixed top-0 end-0 p-4">--}}
 {{--    <div class="toast hide bg-white" role="alert" aria-live="assertive" aria-atomic="true">--}}
@@ -61,15 +79,17 @@
         }
     }
 
-    $(document).ready( function () {
-        $('#datatable').DataTable();
-    } );
+
 
     // this is set to BootstrapTemple website as you cannot
     // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
     // while using file:// protocol
     // pls don't forget to change to your domain :)
     injectSvgSprite('https://bootstraptemple.com/files/icons/orion-svg-sprite.svg');
+
+    $(document).ready( function () {
+        $('#datatable').DataTable();
+    } );
 
 
 </script>

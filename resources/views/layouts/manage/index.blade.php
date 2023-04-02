@@ -27,7 +27,7 @@
         <div class="toast-header"><strong class="me-auto">Bootstrap</strong><small>11 mins ago</small>
             <button class="btn-close" type="button" data-bs-dismiss="toast" aria-label="Close"></button>
         </div>
-        <div class="toast-body">Hello, world! This is a toast message.</div>
+        <div class="toast-body">Hello, world! This is a toast messageee.</div>
     </div>
 </div>
 <script src="{{asset('storage/template/manage/js/home-premium.82d409ff.js')}}"> </script>
@@ -61,5 +61,8 @@
 </script>
 <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
 <link rel="stylesheet" href="{{asset('storage/template/manage/releases/v5.7.1/css/all.css')}}" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<script>
+    document.getElementById('managenavbar').children.item(0).classList.add('active');
+</script>
 </body>
 </html>
