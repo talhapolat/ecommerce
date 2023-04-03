@@ -16,6 +16,7 @@ use App\ProductMedia;
 use App\ProductOption;
 use App\Suboption;
 use Brian2694\Toastr\Facades\Toastr;
+use Doctrine\DBAL\Schema\Table;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -313,6 +314,18 @@ class ManageProductController extends Controller
         return response()->json('ok');
 
 
+    }
+
+    public function deleteproduct($id, Request $request){
+
+        $product = Product::all()->where('id', $id)->first();
+
+        if ($product == null) {
+            return response()->json('no');
+        } else {
+            DB::table('product')->where('id', $id)->first()->delete();
+            return response()->json('ok');
+        }
     }
 
 }

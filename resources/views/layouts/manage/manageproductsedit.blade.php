@@ -318,6 +318,7 @@
                             <div class="row gx-5 bg-white pt-2">
                                 <div class="container-fluid text-right">
 
+                                    <button type="button" id="new-product-delete" value="{{$product->id}}" class="btn btn-outline-danger">Sil</button>
                                     <button type="button" id="new-product-draft" class="btn btn-outline-info">Taslak Olarak Kaydet</button>
                                     <button type="button" id="new-product-edit-save" value="{{$product->id}}" class="btn btn-custom">Kaydet</button>
 

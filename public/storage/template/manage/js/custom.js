@@ -140,6 +140,42 @@ $(document).ready(function () {
 
     });
 
+    $('#new-product-delete').on('click', function (e) {
+        e.preventDefault();
+
+        var product_id = document.getElementById('new-product-delete').value;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/products/delete/"+product_id,
+            method: 'POST',
+            data: {
+                product_id : product_id
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Ürün silindi.', product_title, {
+                    timeOut: 1000,
+                    closeButton: true
+                })
+            },
+            error: function(response) {
+                alert("eroorrrr");
+            }
+        });
+
+        //document.getElementById('add_file').click();
+
+
+    });
+
     $('#new-category-save').on('click', function (e) {
         e.preventDefault();
 

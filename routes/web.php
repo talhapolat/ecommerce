@@ -47,6 +47,8 @@ Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductCont
 Route::post('manage/products/create', 'App\Http\Controllers\Manage\ManageProductController@createproduct')->name('manageproductscreate');
 Route::get('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@editproduct')->name('manageproductsedit');
 Route::post('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@updateproduct')->name('manageproductsupdate');
+Route::post('manage/products/delete/{id}', 'App\Http\Controllers\Manage\ManageProductController@deleteproduct')->name('manageproductsdelete');
+
 
 Route::get('manage/categories', 'App\Http\Controllers\Manage\ManageCategoryController@index')->name('managecategories');
 Route::get('manage/categories/new', 'App\Http\Controllers\Manage\ManageCategoryController@newcategory')->name('managecategoriesnew');
