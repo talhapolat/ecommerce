@@ -168,7 +168,6 @@
                                 <div class="container-fluid text-right">
 
                                     <button type="button" id="category-delete" value="{{$category->id}}" class="btn btn-outline-danger">Sil</button>
-                                    <button type="button" id="new-category-draft" class="btn btn-outline-info">Taslak Olarak Kaydet</button>
                                     <button type="button" id="new-category-edit-save" value="{{$category->id}}" class="btn btn-custom">Kaydet</button>
 
                                 </div>

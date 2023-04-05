@@ -352,5 +352,75 @@ $(document).ready(function () {
 
     });
 
+    $('#new-variant-save').on('click', function (e) {
+        e.preventDefault();
+
+        var variant_title = document.getElementById('variant-title').value;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/variations/create",
+            method: 'POST',
+            data: {
+                variant_title: variant_title
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success(variant_title+' eklendi.', "Varyant", {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                window.location.href = '/manage/variations/edit/'+response
+            },
+            error: function(response) {
+                toastr.error('Varyant oluşturulurken hata.', variant_title);
+            }
+        });
+
+    });
+
+    $('#variation-delete').on('click', function (e) {
+        e.preventDefault();
+
+        var variant_id = document.getElementById('variation-delete').value;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/variations/delete",
+            method: 'POST',
+            data: {
+                variant_id: variant_id
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Varyant silindi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                window.location.href = '/manage/variations'
+            },
+            error: function(response) {
+                toastr.error('Varyant silinirken hata.');
+            }
+        });
+
+    });
+
 
 });

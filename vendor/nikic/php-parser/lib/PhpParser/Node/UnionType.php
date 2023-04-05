@@ -4,7 +4,7 @@ namespace PhpParser\Node;
 
 class UnionType extends ComplexType
 {
-    /** @var (Identifier|Name)[] Types */
+    /** @var (Identifier|Name|IntersectionType)[] Types */
     public $types;
 
     /**
@@ -21,7 +21,7 @@ class UnionType extends ComplexType
     public function getSubNodeNames() : array {
         return ['types'];
     }
-    
+
     public function getType() : string {
         return 'UnionType';
     }

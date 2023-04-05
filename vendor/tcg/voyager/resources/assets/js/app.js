@@ -15,7 +15,6 @@ require('jquery-match-height');
 require('bootstrap-toggle');
 require('nestable2');
 require('bootstrap');
-require('bootstrap-switch');
 require('select2');
 require('eonasdan-bootstrap-datetimepicker/src/js/bootstrap-datetimepicker');
 var brace = require('brace');
@@ -61,11 +60,11 @@ $(document).ready(function () {
             tags: $(this).hasClass('taggable'),
             createTag: function(params) {
                 var term = $.trim(params.term);
-    
+
                 if (term === '') {
                     return null;
                 }
-    
+
                 return {
                     id: term,
                     text: term,
@@ -111,11 +110,11 @@ $(document).ready(function () {
             var label = $el.data('label');
             var errorMessage = $el.data('error-message');
             var newTag = e.params.args.data.newTag;
-    
+
             if (!newTag) return;
-    
+
             $el.select2('close');
-    
+
             $.post(route, {
                 [label]: e.params.args.data.text,
                 _tagging: true,
@@ -125,7 +124,7 @@ $(document).ready(function () {
             }).fail(function(error) {
                 toastr.error(errorMessage);
             });
-    
+
             return false;
         });
     });

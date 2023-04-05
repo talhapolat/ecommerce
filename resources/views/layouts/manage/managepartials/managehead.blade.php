@@ -31,6 +31,7 @@
 <!-- Custom stylesheet - for your changes-->
 <link href="//cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 <link href="//cdn.quilljs.com/1.3.6/quill.bubble.css" rel="stylesheet">
+<link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 
 
 <!-- Tweaks for older IEs--><!--[if lt IE 9]>

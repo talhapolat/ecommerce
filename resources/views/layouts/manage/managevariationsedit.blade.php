@@ -10,7 +10,6 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 <body>
 
@@ -110,8 +109,8 @@
                                                     @endif
                                                 </td>
                                                 <td style="text-align: right">
-                                                    <span><a href="{{route('manageproductsedit', $option->id)}}"
-                                                             style="color: #0b0b0b">Düzenle</a></span>
+{{--                                                    <span><a href="{{route('manageproductsedit', $option->id)}}"--}}
+{{--                                                             style="color: #0b0b0b">Düzenle</a></span>--}}
                                                     <span style="margin-left: 10px"></span>
                                                     <button type="button" class="btn btn-custom" onclick="OptionDelete({{$option->id}})" value="{{$option->id}}" >Sil</button>
                                                 </td>
@@ -205,7 +204,6 @@
 @include('layouts.manage.managepartials.managefooter')
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

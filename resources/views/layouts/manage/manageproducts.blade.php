@@ -53,7 +53,7 @@
                                             <th>İndirimli Fiyat</th>
                                             <th>Stok</th>
                                             <th>Durum</th>
-                                            <th>İşlemler</th>
+                                            <th style="text-align: right">İşlemler</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -77,10 +77,10 @@
                                                         <span>Pasif</span>
                                                     @endif
                                                 </td>
-                                                <td>
+                                                <td style="text-align: right">
                                                     <span><a href="{{route('manageproductsedit', $product->id)}}" style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
-                                                    <span><a href="#" style="color: #0b0b0b">Sil</a></span>
+                                                    <button type="button" class="btn btn-custom" >Sil</button>
                                                 </td>
                                             </tr>
 

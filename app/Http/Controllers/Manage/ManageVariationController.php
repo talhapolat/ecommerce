@@ -37,6 +37,30 @@ class ManageVariationController extends Controller
         return view('layouts.manage.managevariationsedit', compact('variation', 'options'));
     }
 
+    public function createvariation(Request $request) {
+
+        if ($request != null) {
+            DB::table('options')->updateOrInsert([
+                'title' => $request->input('variant_title')
+            ], [
+                'statu' => 1
+            ]);
+            $lastId = DB::table('options')->where('title', $request->input('variant_title'))->first();
+        }
+
+        return response()->json($lastId->id);
+    }
+
+    public function deletevariation(Request $request){
+
+        if ($request != null) {
+            DB::table('options')->where('id', $request->input('variant_id'))->delete();
+        }
+
+        return response()->json('ok');
+
+    }
+
     public function newoption($id) {
 
         $variation = Option::all()->where('id', $id)->first();

@@ -34,6 +34,7 @@ require_once app_path('func.php');
     <title> {{ $product->title }}</title>
     <link rel="stylesheet" type="text/css" href="/Template/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     @include('layouts.partials.head')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 </head>
 
 <body class="animsition">
@@ -775,6 +776,7 @@ require_once app_path('func.php');
 
 
 <script src={{asset('storage/template/vendor/select2/select2.min.js')}}></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
 </body>
 

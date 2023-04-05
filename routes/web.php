@@ -49,7 +49,6 @@ Route::get('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProdu
 Route::post('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@updateproduct')->name('manageproductsupdate');
 Route::post('manage/products/delete/{id}', 'App\Http\Controllers\Manage\ManageProductController@deleteproduct')->name('manageproductsdelete');
 
-
 Route::get('manage/categories', 'App\Http\Controllers\Manage\ManageCategoryController@index')->name('managecategories');
 Route::get('manage/categories/new', 'App\Http\Controllers\Manage\ManageCategoryController@newcategory')->name('managecategoriesnew');
 Route::post('manage/categories/create', 'App\Http\Controllers\Manage\ManageCategoryController@createcategory')->name('managecategoriescreate');
@@ -58,6 +57,8 @@ Route::post('manage/categories/edit/{id}', 'App\Http\Controllers\Manage\ManageCa
 Route::post('manage/categories/delete/{id}', 'App\Http\Controllers\Manage\ManageCategoryController@deletecategory')->name('managecategoriesdelete');
 
 Route::get('manage/variations', 'App\Http\Controllers\Manage\ManageVariationController@index')->name('managevariations');
+Route::post('manage/variations/create', 'App\Http\Controllers\Manage\ManageVariationController@createvariation')->name('managevariationscreate');
+Route::post('manage/variations/delete', 'App\Http\Controllers\Manage\ManageVariationController@deletevariation')->name('managevariationsdelete');
 Route::get('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVariationController@editvariation')->name('managevariationsedit');
 Route::post('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVariationController@updatevariation')->name('managevariationsupdate');
 
