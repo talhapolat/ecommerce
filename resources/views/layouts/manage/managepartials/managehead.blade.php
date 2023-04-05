@@ -21,7 +21,7 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
 {{--<link href="https://cdn.datatables.net/v/dt/dt-1.13.4/af-2.5.3/datatables.min.css" rel="stylesheet"/>--}}
 
-
+<link rel="stylesheet" href="{{asset('storage/template/manage/dropimage/dropzone/dropzone.css')}}" type="text/css">
 
 <link rel="stylesheet" href="{{asset('storage/template/manage/vendor/vanillajs-datepicker/css/datepicker-bs4.min.css')}}">
 <!-- Multi Js-->

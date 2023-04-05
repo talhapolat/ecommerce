@@ -6,14 +6,8 @@
 <head>
     <link rel="stylesheet" href="{{asset('storage/template/manage/vendor/simple-datatables/style.css')}}">
     @include('layouts.manage.managepartials.managehead')
-    <link rel="stylesheet" href="{{asset('storage/template/manage/dropimage/dropzone/dropzone.css')}}" type="text/css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script
-        src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
-        integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
-        crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
@@ -46,7 +40,8 @@
                                 <div class="col-8">
                                     <div class="mb-3">
                                         <label class="form-label" for="variation-title">Kategori Başlığı</label>
-                                        <input class="form-control" value="{{$variation->title}}" id="variation-title" type="text" required>
+                                        <input class="form-control" value="{{$variation->title}}" id="variation-title"
+                                               type="text" required>
                                     </div>
                                 </div>
                                 <div class="col-4">
@@ -54,8 +49,10 @@
                                         <label class="form-label" for="variation-statu">Durumu</label>
                                         <div data-test-hook="basic">
                                             <select class="form-control" name="variation-statu" id="variation-statu">
-                                                <option @if($variation->statu == 1) selected @endif value="1">Aktif</option>
-                                                <option @if($variation->statu == 2) selected @endif value="2">Pasif</option>
+                                                <option @if($variation->statu == 1) selected @endif value="1">Aktif
+                                                </option>
+                                                <option @if($variation->statu == 2) selected @endif value="2">Pasif
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -70,7 +67,17 @@
                 <div class="container-fluid">
                     <div class="card mb-0" style="width: 80%; margin: auto">
                         <div class="card-body">
-                            <h5>{{$variation->title}} Seçenekleri</h5>
+                            <div class="row">
+                                <div class="col-lg-2 col-4">
+                                    <h5 class="mb-0 p-1">{{$variation->title}} Seçenekleri</h5>
+                                </div>
+                                <div class="col justify-content-end" style="display: flex;">
+                                    <button class="btn btn-primary"><a href="/manage/options/new/{{$variation->id}}"
+                                                                       data-toggle="modal"
+                                                                       data-target="#exampleModalCenter"
+                                                                       style="color: white">+ {{$variation->title}} Ekle</a></button>
+                                </div>
+                            </div>
                             <div class="row gx-5 bg-white">
 
                                 <div class="table-responsive">
@@ -80,7 +87,7 @@
                                         <tr>
                                             <th>Seçenek Adı</th>
                                             <th>Durum</th>
-                                            <th>İşlemler</th>
+                                            <th style="text-align: right">İşlemler</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -88,25 +95,27 @@
                                         @foreach($options as $option)
 
                                             <tr class="manageproductable">
-                                                <td><a href="javascript:void(0)" class="text-muted">{{$option->title}}</a></td>
+                                                <td><a href="javascript:void(0)"
+                                                       class="text-muted">{{$option->title}}</a></td>
 
                                                 <td style="align-items: center; ">
                                                     @if($option->statu == 1)
-                                                        <div class="" style="background-color: #1eaa7c; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
+                                                        <div class=""
+                                                             style="background-color: #1eaa7c; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
                                                         <span>Aktif</span>
                                                     @else
-                                                        <div class="" style="background-color: dimgrey; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
+                                                        <div class=""
+                                                             style="background-color: dimgrey; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
                                                         <span>Pasif</span>
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    <span><a href="{{route('manageproductsedit', $option->id)}}" style="color: #0b0b0b">Düzenle</a></span>
+                                                <td style="text-align: right">
+                                                    <span><a href="{{route('manageproductsedit', $option->id)}}"
+                                                             style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
-                                                    <span><a href="#" style="color: #0b0b0b">Sil</a></span>
+                                                    <button type="button" class="btn btn-custom" onclick="OptionDelete({{$option->id}})" value="{{$option->id}}" >Sil</button>
                                                 </td>
                                             </tr>
-
-
 
                                         @endforeach
 
@@ -128,8 +137,12 @@
                             <div class="row gx-5 bg-white pt-2">
                                 <div class="container-fluid text-right">
 
-                                    <button type="button" id="variation-delete" value="{{$variation->id}}" class="btn btn-outline-danger">Sil</button>
-                                    <button type="button" id="new-variation-edit-save" value="{{$variation->id}}" class="btn btn-custom">Kaydet</button>
+                                    <button type="button" id="variation-delete" value="{{$variation->id}}"
+                                            class="btn btn-outline-danger">Sil
+                                    </button>
+                                    <button type="button" id="new-variation-edit-save" value="{{$variation->id}}"
+                                            class="btn btn-custom">Kaydet
+                                    </button>
 
                                 </div>
                             </div>
@@ -140,7 +153,8 @@
 
 
             <!-- Page Footer-->
-            <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs" id="footer">
+            <footer class="position-absolute bottom-0 bg-darkBlue text-white text-center py-3 w-100 text-xs"
+                    id="footer">
                 <div class="container-fluid">
                     <div class="row gy-2">
                         <div class="col-sm-6 text-sm-start">
@@ -158,7 +172,38 @@
 </div>
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">{{$variation->title}} Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <h5>{{$variation->title}}</h5>
+                    <div class="col-12 ">
+                        <div class="mb-3 ">
+                            <input class="form-control" id="option-title" type="text" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                <button type="button" class="btn btn-primary" id="new-option-save" value="{{$variation->id}}">Kaydet</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @include('layouts.manage.managepartials.managefooter')
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
@@ -174,8 +219,8 @@
 <script src="{{asset('storage/template/manage/vendor/chart.js/Chart.min.js')}}"></script>
 <script src="{{asset('storage/template/manage/vendor/just-validate/js/just-validate.min.js')}}"></script>
 <script src="{{asset('storage/template/manage/vendor/choices.js/public/assets/scripts/choices.min.js')}}"></script>
-<script src="{{asset('storage/template/manage/js/js-cookie.0d5f0e08.js')}}"> </script>
-<script src="{{asset('storage/template/manage/js/demo.bbd40f0c.js')}}"> </script>
+<script src="{{asset('storage/template/manage/js/js-cookie.0d5f0e08.js')}}"></script>
+<script src="{{asset('storage/template/manage/js/demo.bbd40f0c.js')}}"></script>
 <script src="{{asset('storage/template/manage/js/charts-home.36b080a8.js')}}"></script>
 <!-- Notifications  -->
 {{--<div class="toast-container position-fixed top-0 end-0 p-4">--}}
@@ -186,35 +231,73 @@
 {{--        <div class="toast-body">Hello, world! This is a toast message.</div>--}}
 {{--    </div>--}}
 {{--</div>--}}
-<script src="{{asset('storage/template/manage/js/home-premium.82d409ff.js')}}"> </script>
+<script src="{{asset('storage/template/manage/js/home-premium.82d409ff.js')}}"></script>
 <!-- Main File-->
 <script src="{{asset('storage/template/manage/js/front.c39dfc0c.js')}}"></script>
 
+<script>
+    function OptionDelete($option_id) {
+
+        var option_id = $option_id;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/options/delete",
+            method: 'POST',
+            data: {
+                option_id: option_id,
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Seçenek silindi.', response, {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                location.reload();
+            },
+            error: function(response) {
+                toastr.error('Seçenek silinirken hata.', response);
+            }
+        });
+
+    };
+</script>
+
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
 
-        $("ul.nav").sortable({ tolerance: 'pointer' });
+        $("ul.nav").sortable({tolerance: 'pointer'});
         $('.reorder').html('Save Reordering');
-        $('.reorder').attr("id","updateReorder");
+        $('.reorder').attr("id", "updateReorder");
         $('#reorder-msg').slideDown('');
-        $('.img-link').attr("href","javascript:;");
-        $('.img-link').css("cursor","move");
-        $("#updateReorder").click(function( e ){
-            if(!$("#updateReorder i").length){
+        $('.img-link').attr("href", "javascript:;");
+        $('.img-link').css("cursor", "move");
+        $("#updateReorder").click(function (e) {
+            if (!$("#updateReorder i").length) {
                 $(this).html('').prepend('<i class="fa fa-spin fa-spinner"></i>');
                 $("ul.nav").sortable('destroy');
-                $("#reorder-msg").html( "Reordering Photos - This could take a moment. Please don't navigate away from this page." ).removeClass('light_box').addClass('notice notice_error');
+                $("#reorder-msg").html("Reordering Photos - This could take a moment. Please don't navigate away from this page.").removeClass('light_box').addClass('notice notice_error');
 
                 var h = [];
-                $("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
+                $("ul.nav li").each(function () {
+                    h.push($(this).attr('id').substr(9));
+                });
 
                 $.ajax({
                     type: "POST",
                     url: "<?php echo HOME_AJAX; ?>update.php",
                     data: {ids: " " + h + ""},
-                    success: function(data){
-                        if(data==1 || parseInt(data)==1){
+                    success: function (data) {
+                        if (data == 1 || parseInt(data) == 1) {
                             //window.location.reload();
                         }
                     }
@@ -224,7 +307,7 @@
             e.preventDefault();
         });
 
-        $(function() {
+        $(function () {
             $("#myDrop").sortable({
                 items: '.dz-preview',
                 cursor: 'move',
@@ -252,10 +335,10 @@
                 url: "/storage/template/manage/dropimage/ajax/action-z.ajax.php?pid=" + document.getElementById('new-product-edit-save').value,
             });
 
-        myDropzone.on("sending", function(file, xhr, formData) {
+        myDropzone.on("sending", function (file, xhr, formData) {
             var filenames = [];
 
-            $('.dz-preview .dz-filename').each(function() {
+            $('.dz-preview .dz-filename').each(function () {
                 filenames.push($(this).find('span').text());
             });
 
@@ -264,9 +347,11 @@
         });
 
         /* Add Files Script*/
-        myDropzone.on("success", function(file, message){
+        myDropzone.on("success", function (file, message) {
             $("#msg").html(message);
-            setTimeout(function(){window.location.href="#"},800);
+            setTimeout(function () {
+                window.location.href = "#"
+            }, 800);
 
             //alert("aaa");
             picarray = message.split("ppp");
@@ -287,19 +372,19 @@
             if (node == null) {
                 galeryelement.dataset.ord = "0";
                 galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
-                    '<img src="/storage/template/manage/dropimage/uploads/'+picarray[0]+'" alt="" class="img-thumbnail" width="200px" ' +
+                    '<img src="/storage/template/manage/dropimage/uploads/' + picarray[0] + '" alt="" class="img-thumbnail" width="200px" ' +
                     'style="object-fit: contain!important; height: 200px"> </a> ' +
                     '</div> '
                 ;
             } else {
                 i = 0;
-                while(i<picarraysize-1){
+                while (i < picarraysize - 1) {
 
                     pictures = document.getElementById("navpills").innerHTML;
 
-                    if (pictures.search(picarray[i])<1){
+                    if (pictures.search(picarray[i]) < 1) {
                         galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
-                            '<img src="/storage/template/manage/dropimage/uploads/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
+                            '<img src="/storage/template/manage/dropimage/uploads/' + picarray[i] + '" alt="" class="img-thumbnail" width="200px" ' +
                             'style="object-fit: contain!important; height: 200px"> </a> ' +
                             '</div> '
                         ;
@@ -308,7 +393,6 @@
                         //alert("girdi");
                         i++;
                     }
-
 
 
                     // lastpic = document.getElementById("navpills").lastElementChild.firstElementChild.firstElementChild.firstElementChild.src.split("/");
@@ -342,25 +426,20 @@
             document.getElementById("navpills").appendChild(galeryelement);
 
 
-
-
-
-
-
         });
 
         myDropzone.on("error", function (data) {
             $("#msg").html('<div class="alert alert-danger">There is some thing wrong, Please try again!</div>');
         });
 
-        myDropzone.on("complete", function(file) {
+        myDropzone.on("complete", function (file) {
             myDropzone.removeFile(file);
 
             //alert("bbb");
 
         });
 
-        $("#add_file").on("click",function (){
+        $("#add_file").on("click", function () {
             myDropzone.processQueue();
         });
 
@@ -379,13 +458,14 @@
         var ajax = new XMLHttpRequest();
         ajax.open("GET", path, true);
         ajax.send();
-        ajax.onload = function(e) {
+        ajax.onload = function (e) {
             var div = document.createElement("div");
             div.className = 'd-none';
             div.innerHTML = ajax.responseText;
             document.body.insertBefore(div, document.body.childNodes[0]);
         }
     }
+
     // this is set to BootstrapTemple website as you cannot
     // inject local SVG sprite (using only 'icons/orion-svg-sprite.svg' path)
     // while using file:// protocol
@@ -395,7 +475,8 @@
 
 </script>
 <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
-<link rel="stylesheet" href="{{asset('storage/template/manage/releases/v5.7.1/css/all.css')}}" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="stylesheet" href="{{asset('storage/template/manage/releases/v5.7.1/css/all.css')}}"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
 <script>
     var select = document.getElementById("product-variation");

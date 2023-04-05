@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageoptionsnew.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageVariationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageVariationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -246,6 +249,8 @@
       <workItem from="1680434464032" duration="18942000" />
       <workItem from="1680466074001" duration="8365000" />
       <workItem from="1680552308616" duration="1675000" />
+      <workItem from="1680557643258" duration="24000" />
+      <workItem from="1680641504245" duration="8449000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -394,7 +399,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680552324853</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Yönetim sistemi güncellendi.">
+      <created>1680557654760</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680557654760</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

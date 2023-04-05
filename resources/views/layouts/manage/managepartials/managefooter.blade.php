@@ -1,5 +1,10 @@
 
 <!-- JavaScript files-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script
+    src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"
+    integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0="
+    crossorigin="anonymous"></script>
 <script src="{{asset('storage/template/manage/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('storage/template/manage/vendor/chart.js/Chart.min.js')}}"></script>
 <script src="{{asset('storage/template/manage/vendor/just-validate/js/just-validate.min.js')}}"></script>

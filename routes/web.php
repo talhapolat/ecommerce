@@ -62,4 +62,7 @@ Route::get('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVar
 Route::post('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVariationController@updatevariation')->name('managevariationsupdate');
 
 Route::get('manage/options/{id}', 'App\Http\Controllers\Manage\ManageVariationController@options')->name('manageoptions');
+Route::get('manage/options/new/{id}', 'App\Http\Controllers\Manage\ManageVariationController@newoption')->name('manageoptionsnew');
+Route::post('manage/options/create', 'App\Http\Controllers\Manage\ManageVariationController@createoption')->name('manageoptionscreate');
+Route::post('manage/options/delete', 'App\Http\Controllers\Manage\ManageVariationController@deleteoption')->name('manageoptionsdelete');
 

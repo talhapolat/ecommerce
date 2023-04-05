@@ -314,4 +314,43 @@ $(document).ready(function () {
 
 
     })
+
+    $('#new-option-save').on('click', function (e) {
+        e.preventDefault();
+
+        var option_title = document.getElementById('option-title').value;
+        var variation_id = document.getElementById('new-option-save').value;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/options/create",
+            method: 'POST',
+            data: {
+                option_title: option_title,
+                variation_id : variation_id
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success(option_title+' eklendi.', response, {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                location.reload();
+            },
+            error: function(response) {
+                toastr.error('Seçenek oluşturulurken hata.', response);
+            }
+        });
+
+    });
+
+
 });
