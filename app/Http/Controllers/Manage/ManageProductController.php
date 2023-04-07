@@ -64,7 +64,7 @@ class ManageProductController extends Controller
             'longDesc' => $request->input('editor'),
             'slug' => $request->input('product_slug'),
             'brand_id' => $request->input('product_brand'),
-            'product_keyword' => $request->input('product_keyword'),
+//            'product_keyword' => $request->input('product_keyword'),
             'product_type' => $request->input('product_type'),
             'statu' => 1,
             'created_at' => now()
@@ -76,8 +76,7 @@ class ManageProductController extends Controller
             foreach ($product_categories as $product_category){
                 DB::table('product_categories')->insert([
                     'product_id' => $newid,
-                    'category_id' => $product_category,
-                    'created_at' => now()
+                    'category_id' => $product_category
                 ]);
             }
         }
@@ -95,46 +94,50 @@ class ManageProductController extends Controller
         }
 
         $var = $request->variations;
-        $suboptions = Suboption::whereIn('id', $var)->get('option_id')->pluck('option_id')->toArray();
-        $options = Option::whereIn('id', $suboptions)->get('id')->pluck('id')->toArray();
-        $tempStr = implode(',', $options);
-        $optionscnt = count($options);
-        $cnt = 0;
 
-        while ($cnt < $optionscnt) {
-            $suboptionarray[$cnt] = Suboption::whereIn('id', $var)->where('option_id', $options[$cnt])->get();
-            $cnt++;
-        }
+        if ($var != null) {
+            $suboptions = Suboption::whereIn('id', $var)->get('option_id')->pluck('option_id')->toArray();
+            $options = Option::whereIn('id', $suboptions)->get('id')->pluck('id')->toArray();
+            $tempStr = implode(',', $options);
+            $optionscnt = count($options);
+            $cnt = 0;
 
-        $cnt = 0;
-        if ($optionscnt == 0)
-            info('No option');
-        elseif ($optionscnt == 1)
-            while($cnt < count($suboptionarray[0])){
-                DB::table('product_options')->insert([
-                    'product_id' => $newid,
-                    'suboption1' => $suboptionarray[0][$cnt]['id'],
-                    'no' => $cnt
-                ]);
+            while ($cnt < $optionscnt) {
+                $suboptionarray[$cnt] = Suboption::whereIn('id', $var)->where('option_id', $options[$cnt])->get();
                 $cnt++;
             }
-        elseif ($optionscnt == 2) {
-            while($cnt < count($suboptionarray[0])){
-                $cntt = 0;
-                while ($cntt < count($suboptionarray[1])){
+
+            $cnt = 0;
+            if ($optionscnt == 0)
+                info('No option');
+            elseif ($optionscnt == 1)
+                while($cnt < count($suboptionarray[0])){
                     DB::table('product_options')->insert([
                         'product_id' => $newid,
                         'suboption1' => $suboptionarray[0][$cnt]['id'],
-                        'suboption2' => $suboptionarray[1][$cntt]['id'],
-                        'no' => $cntt
+                        'no' => $cnt
                     ]);
-                    $cntt++;
+                    $cnt++;
                 }
-                $cnt++;
+            elseif ($optionscnt == 2) {
+                while($cnt < count($suboptionarray[0])){
+                    $cntt = 0;
+                    while ($cntt < count($suboptionarray[1])){
+                        DB::table('product_options')->insert([
+                            'product_id' => $newid,
+                            'suboption1' => $suboptionarray[0][$cnt]['id'],
+                            'suboption2' => $suboptionarray[1][$cntt]['id'],
+                            'no' => $cntt
+                        ]);
+                        $cntt++;
+                    }
+                    $cnt++;
+                }
             }
+            elseif ($optionscnt == 3)
+                info('3 option');
         }
-        elseif ($optionscnt == 3)
-            info('3 option');
+
 
 
         return response()->json($newid);
@@ -161,6 +164,9 @@ class ManageProductController extends Controller
 
         $product = Product::where('id', $id)->first();
 
+        if ($product == null)
+            return redirect()->route('manageproducts');
+
         $product_media = ProductMedia::where('product_id', $id)->get('media_id');
 
         $images = images::whereIn('id', $product_media)->get();
@@ -176,7 +182,6 @@ class ManageProductController extends Controller
         $pcategoriesid = ProductCategory::where('product_id', $id)->get()->pluck('category_id')->toArray();
         $temp = implode('","', $pcategoriesid);
         $pcategoriesidd = '["'.$temp .'"]';
-
 
         $subcategories = Category::where('statu', 1)->whereNotNull('main_category_id')->get();
         $tags = Tags::where('statu', 1)->get();
@@ -232,7 +237,7 @@ class ManageProductController extends Controller
             'slug' => $request->input('product_slug'),
             'brand_id' => $request->input('product_brand'),
             'product_type' => $request->input('product_type'),
-            'product_keyword' => $request->input('product_keyword'),
+//            'product_keyword' => $request->input('product_keyword'),
             'statu' => 1
         ]);
 
@@ -319,12 +324,17 @@ class ManageProductController extends Controller
     public function deleteproduct($id, Request $request){
 
         $product = Product::all()->where('id', $id)->first();
+        $product_title = $product->title;
 
         if ($product == null) {
             return response()->json('no');
         } else {
-            DB::table('product')->where('id', $id)->first()->delete();
-            return response()->json('ok');
+            DB::table('products')->where('id', $id)->delete();
+            DB::table('product_media')->where('product_id', $id)->delete();
+            DB::table('product_options')->where('product_id', $id)->delete();
+            DB::table('product_categories')->where('product_id', $id)->delete();
+            DB::table('product_tags')->where('product', $id)->delete();
+            return response()->json($product_title);
         }
     }
 

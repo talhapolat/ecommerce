@@ -4,18 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Ürün önizleme güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/InstalledVersions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_classmap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_files.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_files.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_psr4.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/composer/installed.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/img/avatar-1.ce912d90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/img/avatar-1.ce912d90.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesnew.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -257,7 +258,6 @@
       <workItem from="1680552308616" duration="1675000" />
       <workItem from="1680557643258" duration="24000" />
       <workItem from="1680641504245" duration="8449000" />
-      <workItem from="1680707473992" duration="1533000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -413,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680557654760</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Ürün önizleme güncellendi.">
+      <created>1680707020171</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680707020171</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,10 +450,10 @@
     <MESSAGE value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
     <MESSAGE value="Arama sistemmi güncellendi." />
     <MESSAGE value="Koleksiyon sistemi güncellendi." />
-    <MESSAGE value="Ürün önizleme güncellendi." />
     <MESSAGE value="Ürün görsel sistemi güncellendi." />
     <MESSAGE value="Yönetim sistemi güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Yönetim sistemi güncellendi." />
+    <MESSAGE value="Ürün önizleme güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ürün önizleme güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

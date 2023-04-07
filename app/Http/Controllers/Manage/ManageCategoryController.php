@@ -70,8 +70,6 @@ class ManageCategoryController extends Controller
         ]);
 
         return response()->json($newId);
-
-
     }
 
     public function deletecategory($id, Request $request){
@@ -83,6 +81,5 @@ class ManageCategoryController extends Controller
         } else {
             return response()->json('Kategori bulunamadı.');
         }
-
     }
 }

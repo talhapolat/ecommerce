@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="{{asset('storage/template/manage/vendor/simple-datatables/style.css')}}">
 
     @include('layouts.manage.managepartials.managehead')
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
 
@@ -58,7 +59,6 @@
                                         </thead>
                                         <tbody>
 
-
                                         @foreach($products as $product)
 
                                             <tr class="manageproductable">
@@ -80,10 +80,9 @@
                                                 <td style="text-align: right">
                                                     <span><a href="{{route('manageproductsedit', $product->id)}}" style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
-                                                    <button type="button" class="btn btn-custom" >Sil</button>
+                                                    <button type="button" onclick="deleteProduct({{$product->id}})" class="btn btn-custom" >Sil</button>
                                                 </td>
                                             </tr>
-
 
                                         @endforeach
 
@@ -139,6 +138,38 @@
 @include('layouts.manage.managepartials.managefooter')
 
 </body>
+
+<script>
+    function deleteProduct($product_id){
+        var product_id = $product_id;
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/products/delete/"+product_id,
+            method: 'POST',
+            data: {
+                product_id : product_id
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Ürün silindi.', response, {
+                    timeOut: 1000,
+                    closeButton: true
+                });
+                location.reload();
+            },
+            error: function(response) {
+                alert("hata");
+            }
+        });
+    }
+</script>
 
 <script>
     document.getElementById('managenavbar').children.item(1).classList.add('active');
