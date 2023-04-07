@@ -197,7 +197,7 @@
                                                 @foreach($subcategories as $subcategory)
 
                                                     @if($subcategory->main_category_id == $category->id)
-                                                        <option value="{{$subcategory->id}}">{{$subcategory->name}}</option>
+                                                        <option value="{{$subcategory->id}}">{{$category->name}} / {{$subcategory->name}}</option>
                                                     @endif
 
                                                 @endforeach

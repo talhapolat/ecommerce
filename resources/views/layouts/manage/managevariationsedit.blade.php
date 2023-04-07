@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{{asset('storage/template/manage/vendor/simple-datatables/style.css')}}">
     @include('layouts.manage.managepartials.managehead')
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
