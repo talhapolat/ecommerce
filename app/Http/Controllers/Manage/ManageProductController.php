@@ -208,6 +208,10 @@ class ManageProductController extends Controller
 
         $images = images::whereIn('id', $product_media)->get();
 
+        $firstpm = ProductMedia::where('product_id', $id)->where('no', 1)->first();
+
+        $firstimg = images::where('id', $firstpm->media_id)->first();
+
         $product_options = ProductOption::where('product_id', $id)->get('suboption1')->pluck('suboption1')->toArray();
         $product_options2 = ProductOption::where('product_id', $id)->get('suboption2')->pluck('suboption2')->toArray();
 
@@ -231,6 +235,7 @@ class ManageProductController extends Controller
 
         $newid = DB::table('products')->where('id', $product->id)->update([
             'title' => $request->input('product_title'),
+            'image' => $firstimg->img_name,
             'price' => $request->input('product_price'),
             'sale_price' => $request->input('product_sale_price'),
             'longDesc' => $request->input('editor'),

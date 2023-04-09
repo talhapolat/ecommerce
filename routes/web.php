@@ -41,6 +41,8 @@ Route::get('deletecart', 'App\Http\Controllers\CartController@deletecart')->name
 Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->name('updatecart');
 
 Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
+Route::get('manage/settings', 'App\Http\Controllers\Manage\ManageHomeController@settings')->name('managesettings');
+Route::post('manage/settings/update', 'App\Http\Controllers\Manage\ManageHomeController@updatesettings')->name('managesettingsupdate');
 
 Route::get('manage/products', 'App\Http\Controllers\Manage\ManageProductController@index')->name('manageproducts');
 Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductController@newproduct')->name('manageproductsnew');
@@ -60,10 +62,12 @@ Route::get('manage/variations', 'App\Http\Controllers\Manage\ManageVariationCont
 Route::post('manage/variations/create', 'App\Http\Controllers\Manage\ManageVariationController@createvariation')->name('managevariationscreate');
 Route::post('manage/variations/delete', 'App\Http\Controllers\Manage\ManageVariationController@deletevariation')->name('managevariationsdelete');
 Route::get('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVariationController@editvariation')->name('managevariationsedit');
-Route::post('manage/variations/edit/{id}', 'App\Http\Controllers\Manage\ManageVariationController@updatevariation')->name('managevariationsupdate');
+Route::post('manage/variations/update', 'App\Http\Controllers\Manage\ManageVariationController@updatevariation')->name('managevariationsupdate');
 
 Route::get('manage/options/{id}', 'App\Http\Controllers\Manage\ManageVariationController@options')->name('manageoptions');
 Route::get('manage/options/new/{id}', 'App\Http\Controllers\Manage\ManageVariationController@newoption')->name('manageoptionsnew');
 Route::post('manage/options/create', 'App\Http\Controllers\Manage\ManageVariationController@createoption')->name('manageoptionscreate');
 Route::post('manage/options/delete', 'App\Http\Controllers\Manage\ManageVariationController@deleteoption')->name('manageoptionsdelete');
+
+Route::get('manage/users', 'App\Http\Controllers\Manage\ManageUserController@index')->name('manageusers');
 

@@ -60,13 +60,14 @@ $(document).ready(function () {
                         window.location.href = '/manage/products/edit/'+response;
                     }
                 });
+                document.getElementById('add_file').click();
             },
             error: function(response) {
                 toastr.error('Ürün oluşturulurken hata.', product_title);
             }
         });
 
-        document.getElementById('add_file').click();
+
 
 
     });
@@ -388,10 +389,10 @@ $(document).ready(function () {
 
     });
 
-    $('#variation-delete').on('click', function (e) {
-        e.preventDefault();
+    $('#new-variation-edit-save').on('click', function (e) {
 
-        var variant_id = document.getElementById('variation-delete').value;
+        var variant_id = document.getElementById('new-variation-edit-save').value;
+        var variation_title = document.getElementById('variation-title').value;
 
         $.ajaxSetup({
             headers: {
@@ -400,24 +401,72 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: "/manage/variations/delete",
+            url: "/manage/variations/update",
             method: 'POST',
             data: {
-                variant_id: variant_id
+                variant_id: variant_id,
+                variation_title: variation_title
             },
 
             success:function(response)
             {
                 // $(form).trigger("reset");
-                toastr.success('Varyant silindi.', {
+                toastr.success('Varyant güncellendi.',response, {
                     timeOut: 1000,
                     preventDuplicates: true,
                     positionClass: 'toast-top-right',
                 });
-                window.location.href = '/manage/variations'
+                window.location.href = '/manage/variations/edit/'+variant_id
             },
             error: function(response) {
-                toastr.error('Varyant silinirken hata.');
+                toastr.error('Varyant güncelllenirken hata.', response);
+            }
+        });
+
+    });
+
+    $('#settings-update').on('click', function (e) {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/settings/update",
+            method: 'POST',
+            data: {
+                store_title: document.getElementById('store-title').value,
+                store_statu: document.getElementById('store-statu').value,
+                language: document.getElementById('language').value,
+                currency: document.getElementById('currency').value,
+                phone: document.getElementById('phone').value,
+                description: document.getElementById('editor').value,
+                address_name: document.getElementById('address-name').value,
+                address_surname: document.getElementById('address-surname').value,
+                company_title: document.getElementById('company-title').value,
+                tax_number: document.getElementById('tax-number').value,
+                tax_office: document.getElementById('tax-office').value,
+                address_country: document.getElementById('address-country').value,
+                address_city: document.getElementById('address-city').value,
+                address_district: document.getElementById('address-district').value,
+                full_address: document.getElementById('full-address').value,
+                postcode: document.getElementById('postcode').value
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Ayarlar güncellendi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                // window.location.href = '/manage/settings'
+            },
+            error: function(response) {
+                toastr.error('Ayarlar güncelllenirken hata.');
             }
         });
 

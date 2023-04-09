@@ -62,7 +62,7 @@
                                         @foreach($products as $product)
 
                                             <tr class="manageproductable">
-                                                <td><img src="{{asset('storage')}}/{{$product->image}}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: fill" alt=""></td>
+                                                <td><img src="{{asset('storage')}}/galleries/{{$product->image}}" style="width: 40px; height: 40px; border-radius: 50%; object-fit: fill" alt=""></td>
                                                 <td><a href="{{route('manageproductsedit', $product->id)}}" class="text-muted">{{$product->title}}</a></td>
                                                 <td>{{$product->price}}₺</td>
                                                 <td>@if ($product->sale_price == null) - @else

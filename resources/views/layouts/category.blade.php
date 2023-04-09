@@ -357,7 +357,7 @@ require_once app_path('func.php');
                 <!-- Block2 -->
                 <div class="block2">
                     <div class="block2-pic hov-img0">
-                        <img src="{{asset('storage')}}/{{$product->image}}" alt="IMG-PRODUCT">
+                        <img src="{{asset('storage')}}/galleries/{{$product->image}}" alt="IMG-PRODUCT">
 
                         <a href="#" data-id="{{$product["id"]}}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1" >
                             Hızlı Bakış

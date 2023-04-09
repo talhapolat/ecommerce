@@ -57,10 +57,10 @@ class ProductController extends Controller
             $product_media = ProductMedia::select(
                 "product_media.product_id",
                 "product_media.no",
-                "media.url",
+                "images.img_name",
                 "suboptions.title"
             )
-                ->join("media", "product_media.media_id", "=", "media.id")
+                ->join("images", "product_media.media_id", "=", "images.id")
                 ->join("suboptions", "product_media.option_id", "=", "suboptions.id")
                 ->where("product_media.product_id", $product->id)
                 ->orderBy("product_media.no")
@@ -76,9 +76,9 @@ class ProductController extends Controller
             $product_media = ProductMedia::select(
                 "product_media.product_id",
                 "product_media.no",
-                "media.url"
+                "images.img_name"
             )
-                ->join("media", "product_media.media_id", "=", "media.id")
+                ->join("images", "product_media.media_id", "=", "images.id")
                 ->where("product_media.product_id", $product->id)
                 ->orderBy("product_media.no")
                 ->get();

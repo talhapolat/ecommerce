@@ -36,37 +36,37 @@
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Siparişler </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/stock">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/stock">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Stok Durumu </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/customers">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/customers">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Müşteriler </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/users">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/users">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Kullanıcılar </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/campaigns">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/campaigns">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Kampanyalar </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/transfer">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/transfer">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Transfer </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/payment">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/payment">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Ödeme Yöntemleri </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="manage/settings">
+            <li class="sidebar-item"><a class="sidebar-link" href="/manage/settings">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Ayarlar </a></li>

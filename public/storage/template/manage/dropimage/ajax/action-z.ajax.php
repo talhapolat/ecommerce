@@ -13,7 +13,7 @@ if(!empty($_FILES['files'])){
         $File_Ext = substr($_FILES['files']['name'][$n], strrpos($_FILES['files']['name'][$n], '.'));
 
         if ($infoExt['mime'] == 'image/gif' || $infoExt['mime'] == 'image/jpeg' || $infoExt['mime'] == 'image/png') {
-            $srcPath = '../uploads/';
+            $srcPath = '../../../../galleries/';
             $fileName = $s . rand(0, 999) . time() . $File_Ext;
             $path = trim($srcPath . $fileName);
             if (move_uploaded_file($_FILES['files']['tmp_name'][$n], $path)) {
@@ -61,7 +61,7 @@ if(!empty($_FILES['files'])){
             $getMedia->execute();
             $media = $getMedia->fetch();
 
-            $getOptions = $pdo->prepare("SELECT * FROM product_options WHERE product_id=?");
+            $getOptions = $pdo->prepare("SELECT * FROM product_options WHERE product_id=? GROUP BY suboption1");
             $getOptions->execute([$product['id']]);
             $options = $getOptions->fetchAll();
 
@@ -69,7 +69,7 @@ if(!empty($_FILES['files'])){
                 foreach ($options as $option){
                     $dataa   =   array(
                         'product_id'=>$product['id'],
-                        'option_id'=>$option['id'],
+                        'option_id'=>$option['suboption1'],
                         'media_id'=>$media['id'],
                         'no'=>$media['img_order']
                     );

@@ -83,14 +83,14 @@ require_once app_path('func.php');
 
                         <div class="slick3 gallery-lb">
 
-                            <div class="item-slick3 yeyeye" data-thumb="/storage/{{ $product->image }}" >
-                                <div class="wrap-pic-w pos-relative">
-                                    <img id="modelpimage" src="/storage/{{ $product->image }}" alt="IMG-PRODUCT">
-                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/{{ $product->image }}">
-                                        <i class="fa fa-expand"></i>
-                                    </a>
-                                </div>
-                            </div>
+{{--                            <div class="item-slick3 yeyeye" data-thumb="/storage/{{ $product->image }}" >--}}
+{{--                                <div class="wrap-pic-w pos-relative">--}}
+{{--                                    <img id="modelpimage" src="/storage/{{ $product->image }}" alt="IMG-PRODUCT">--}}
+{{--                                    <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="/storage/{{ $product->image }}">--}}
+{{--                                        <i class="fa fa-expand"></i>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 {{--                            @if($galleries!=null)--}}
 {{--                            @foreach ($galleries as $key => $gallery)--}}
@@ -111,13 +111,13 @@ require_once app_path('func.php');
                             @if($product_media!=null)
                                 @foreach ($product_media as $key => $media)
                                     @if($media->title!=null)
-                                    <div class="item-slick3 {{$media->title}}" data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                    <div class="item-slick3 {{$media->title}}" data-thumb="{{asset('storage/galleries')}}/{{$media->img_name}}" >
                                         @else
-                                            <div class="item-slick3 noopt" data-thumb="{{asset('storage')}}/{{ $media->url }}" >
+                                            <div class="item-slick3 noopt" data-thumb="{{asset('storage/galleries')}}/{{$media->img_name}}" >
                                                 @endif
                                         <div class="wrap-pic-w pos-relative">
-                                            <img id="modelpimage" src="{{asset('storage')}}/{{ $media->url }}" alt="IMG-PRODUCT">
-                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage')}}/{{ $media->url }}">
+                                            <img id="modelpimage" src="{{asset('storage/galleries')}}/{{$media->img_name}}" alt="IMG-PRODUCT">
+                                            <a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="{{asset('storage/galleries')}}/{{$media->img_name}}">
                                                 <i class="fa fa-expand"></i>
                                             </a>
                                         </div>

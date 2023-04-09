@@ -132,7 +132,7 @@
                                             <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
                                                 <div>
                                                     <a href="javascript:void(0);" class="img-link">
-                                                        <img src="/storage/template/manage/dropimage/uploads/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
+                                                        <img src="/storage/galleries/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
                                                     </a>
                                                 </div>
                                             </li>
@@ -478,7 +478,7 @@
             if (node == null) {
                 galeryelement.dataset.ord = "0";
                 galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
-                    '<img src="/storage/template/manage/dropimage/uploads/'+picarray[0]+'" alt="" class="img-thumbnail" width="200px" ' +
+                    '<img src="/storage/galleries/'+picarray[0]+'" alt="" class="img-thumbnail" width="200px" ' +
                     'style="object-fit: contain!important; height: 200px"> </a> ' +
                     '</div> '
                 ;
@@ -490,7 +490,7 @@
 
                     if (pictures.search(picarray[i])<1){
                         galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
-                            '<img src="/storage/template/manage/dropimage/uploads/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
+                            '<img src="/storage/galleries/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
                             'style="object-fit: contain!important; height: 200px"> </a> ' +
                             '</div> '
                         ;

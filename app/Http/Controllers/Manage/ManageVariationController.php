@@ -55,6 +55,7 @@ class ManageVariationController extends Controller
 
         if ($request != null) {
             DB::table('options')->where('id', $request->input('variant_id'))->delete();
+            DB::table('suboptions')->where('option_id', $request->input('variant_id'))->delete();
         }
 
         return response()->json('ok');
@@ -94,5 +95,19 @@ class ManageVariationController extends Controller
         }
 
         return response()->json($suboption->title);
+    }
+
+    public function updatevariation(Request $request) {
+
+        $variation = Option::all()->where('id', $request->input('variant_id'))->first();
+
+        if ($variation != null) {
+            DB::table('options')->where('id', $request->input('variant_id'))->update([
+                'title' => $request->input('variation_title'),
+                'updated_at' => now()
+            ]);
+        }
+
+        return response()->json($request->input('variation_title'));
     }
 }

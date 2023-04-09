@@ -4,7 +4,6 @@
     <!DOCTYPE html>
 <html>
 <head>
-
     @include('layouts.manage.managepartials.managehead')
     <link rel="stylesheet" href="{{asset('storage/template/manage/dropimage/dropzone/dropzone.css')}}" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
@@ -200,6 +199,7 @@
 @include('layouts.manage.managepartials.managefooter')
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 {!! Toastr::message() !!}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

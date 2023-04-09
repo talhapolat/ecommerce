@@ -34,7 +34,7 @@
                     foreach($images as $row){
                 ?>
                 <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
-                    <div><a href="javascript:void(0);" class="img-link"><img src="uploads/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200"></a></div>
+                    <div><a href="javascript:void(0);" class="img-link"><img src="../../../galleries/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200"></a></div>
                 </li>
                 <?php
                     }

@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Gallery;
 use App\Collection;
+use App\Models\images;
 use App\Navigation;
 use App\Option;
 use App\Product;
+use App\ProductMedia;
 use App\ProductOption;
 use App\Slider;
 use App\Suboption;
@@ -202,13 +204,14 @@ class HomeController extends Controller
 
         $product = Product::where('id', $request->input('pid'))->get('image');
 
-        $getGalleryQuery = Gallery::where('product_id', $request->input('pid'))->get();
+        $productMedias = ProductMedia::where('product_id', $request->input('pid'))->get('media_id');
+        $productImages = images::whereIn('id', $productMedias)->get();
 
         $gallery = array();
         $gallery[0] = $product[0]['image'];
 
-        foreach ($getGalleryQuery as $key => $getGallery) {
-            $gallery[$key+1] = $getGallery["image"];
+        foreach ($productImages as $key => $productImage) {
+            $gallery[$key+1] = $productImage["img_name"];
         };
 
         echo json_encode($gallery);

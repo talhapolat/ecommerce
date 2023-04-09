@@ -4,19 +4,437 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Ürün önizleme güncellendi.">
+    <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageUserController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managesettings.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageCategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageCategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageHomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageHomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/img/avatar-1.ce912d90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/img/avatar-1.ce912d90.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageVariationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageVariationController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11071671313184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11081680284831.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11141671313266.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11381671139203.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11411671313259.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11491671318196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11501671320086.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1151671316294.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11561671320185.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11561671373139.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11571671316147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11661671312931.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1171671325839.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11721671325336.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11751671313270.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11811671291950.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11841671311822.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11871671316011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11961671312849.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11991671139078.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11991671313262.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12051671317112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12061671316710.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12101671312309.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12281671323384.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12301671314767.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12371671139784.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12371671323452.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12391671317313.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12411671322165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1241671313091.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12591671312752.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12651671324387.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12671680356035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12681671313781.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1271671373694.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12761671370066.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12841671317090.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12851671312148.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12901671324218.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12931671139791.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/12991671313281.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13051671325145.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13071671322868.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13071671373707.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13081671313937.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13111671313292.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13121671312280.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13121671313956.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13121671325319.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/131680355376.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13241671312734.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13271671313062.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13311671312737.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13321671317149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13361671316802.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13401671318413.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13431671292798.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13481671313189.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13481671320344.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13581671314927.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13651680285061.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13741671322557.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13741671372791.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13791671315306.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13911671138945.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13921671318498.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13931671312259.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13931671321725.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13961671312264.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13961671318509.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/13991671139384.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14051671317713.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14071671292055.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1411680356800.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14181671312796.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14221671314017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14221671321500.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14511671320188.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14541680305665.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14561671292694.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14661671324305.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14711671311603.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14711671320109.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14721671312160.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14751671322624.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14771671372780.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14871671324484.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/14961680298053.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15041671324394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15141671324437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15321671313159.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15411671315435.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15411671316060.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15421671139298.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15541671315196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15781671324267.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15791671139238.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15811671315297.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15841671139052.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15851671313043.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15861671139851.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/15991671324490.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16071671320416.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16111671139471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16141671370039.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16211671139388.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1621671314833.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16231671316594.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16231671325116.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16231671325359.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16251671291970.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16251671320193.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16261671324153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16261671325864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16381671324285.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16441671314883.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16491671321711.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16681671324209.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16741671313100.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16891671324574.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16901671324094.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16911671317184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1691671292517.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/16941671370072.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17041671318199.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17051671311520.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17071671321717.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17071680355678.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17101671315394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17101671323339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17121671369555.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17281671312304.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1731671323183.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17331671313171.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17341671317794.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17401671311701.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1741671316664.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17491671373311.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17511671320444.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17571671316242.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17581671289978.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17671671312731.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17691671225211.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17691671370097.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17721671313420.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17761671314998.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17781671323663.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17901671320081.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17921671321596.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/17981671318193.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1801671139473.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18091671316769.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1811671318446.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18161671313264.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18201671292531.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18201671369414.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18211671320392.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18251671322471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18261671315364.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18271671139475.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1831671372927.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18451671324458.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18691671139700.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18711671316508.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18711671322299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18721680357063.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18751671292775.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18751671322740.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18811671315939.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18871671224683.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18871671291958.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18901671313175.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18961671315390.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/18961671369234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19001671316625.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19071671324558.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19081671372950.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19101671321562.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19101671369708.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19121671291966.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/191671324237.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/191671324545.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19181671139046.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19211671139796.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19231671318566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19241671312253.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19381671324471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19381671324496.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19421671313193.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19431671311833.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19451671321488.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19521671312735.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19551671292564.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19561671317902.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19581680305735.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19671671324293.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19711671324247.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1971671138962.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19751671320368.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19761671316436.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19811671313299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19841671139634.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/19861671311566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/1991671313197.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/201671318509.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21011671315394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21061671289978.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21121671321717.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21221671318566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21281671370097.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21521671320193.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21641671325864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21671671315196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21741671324209.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21851671320392.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21871671324496.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/21921671316769.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22121671322557.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/221671313956.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22221671314927.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22381671373707.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2241671323384.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22511671316664.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2251671324267.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22641671316710.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22641671322471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22651671321596.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22731671324437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22931671315364.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/22961680355376.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23111671324574.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23211671291958.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23261671322165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2351671313281.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23521671369555.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23711671316436.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23741671321711.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23821671317313.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23881671316011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23941671316802.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23961671320416.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/23971671317090.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24001671369708.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24041671314883.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24061671324285.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24101671317112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24111671325336.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24171671316625.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24241671321725.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24291671313420.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24341671313781.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24381671292531.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24551671291950.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24631671316242.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24691671311520.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24711671320444.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/24891671320185.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25391671316508.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25441671317184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25641680285061.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25661671321488.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25711671321500.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25721671317149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25741671318498.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25781671324387.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25841671320344.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25851671314017.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25861671323663.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2591671313937.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/25951671316147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26091671314998.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26141671322740.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26321671318446.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26471671324153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26481671316060.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26541671322299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26611671313292.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/26751671314833.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2701671320081.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27071671323183.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27171680355678.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27181671322624.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27551671311566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27631671324094.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27671671324247.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27741671324394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27751671369234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/27891671323452.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28001671316294.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28111671321562.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28311671316594.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28311671370066.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28331671314767.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28371671313299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28451671323339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/28491671225211.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2891671320368.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2901671315435.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29061671313270.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29071671312264.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29151671324218.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29221671311603.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2931671318199.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/2951671317794.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29531671318413.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29811671317713.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29871671324237.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29961671322868.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/29991671324305.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31041671316060.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31041671316769.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31111671323663.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31151671325864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31331680355678.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31471671316710.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31611671369234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31661671322740.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/31791671316664.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32111680355376.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32191671320185.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32421671316294.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32541671316508.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32601671323452.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32681671369555.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32791671316011.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/32881671322868.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33111671317713.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33121671316625.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33281671316242.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33521671317313.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33521671320368.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/33561671325336.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34171671317112.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34191671313270.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34351671318446.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34361671322471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34401671312264.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/3441671316594.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34601671324574.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34611671322165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34611671324437.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34641671315196.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34681671316147.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34711671315435.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34811671316436.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34871671324153.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/34991671292531.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35351671324237.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35401671323183.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35401671324496.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35591671320416.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35681671317794.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35711671373707.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/35781671316802.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36051671311520.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36111671324305.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36471671314998.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36481671324387.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36511671324094.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36911671314927.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/36961671320344.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/37081671317184.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/37381671323339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/37451671318498.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/3771671323384.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/37951671291958.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/381671370066.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/38351671320081.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/38411671317149.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/38831671324394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39021671322624.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39031671317090.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39081671289978.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39141671320392.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39161671322299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39501671322557.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39551671318413.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39881671321725.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39881671370097.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39931671320444.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/39971671311566.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/41101671323452.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/41131671325864.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/41431671322624.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/42031671313270.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/42071671373707.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/42091671322165.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/42561671323663.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/42891671320081.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/44931671322557.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/45361671322471.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/45771671324237.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/46811671318498.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/47101671369234.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/47571671318446.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/47691671324305.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/48621671322299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/48721671323339.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/48731671321725.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/48901671324387.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4931671370097.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4971671324394.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/49851671324094.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4991671289978.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/56121671373707.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesnew.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/collection.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategoriesedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managenavbar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsnew.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managevariationsedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/products.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,6 +676,9 @@
       <workItem from="1680552308616" duration="1675000" />
       <workItem from="1680557643258" duration="24000" />
       <workItem from="1680641504245" duration="8449000" />
+      <workItem from="1680707473992" duration="1533000" />
+      <workItem from="1681055395745" duration="13008000" />
+      <workItem from="1681075622241" duration="4393000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -413,14 +834,7 @@
       <option name="project" value="LOCAL" />
       <updated>1680557654760</updated>
     </task>
-    <task id="LOCAL-00023" summary="Ürün önizleme güncellendi.">
-      <created>1680707020171</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1680707020171</updated>
-    </task>
-    <option name="localTasksCounter" value="24" />
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,10 +864,10 @@
     <MESSAGE value="Kullanıcı giriş sayfası ve koleksiyon sistemi güncellendi." />
     <MESSAGE value="Arama sistemmi güncellendi." />
     <MESSAGE value="Koleksiyon sistemi güncellendi." />
+    <MESSAGE value="Ürün önizleme güncellendi." />
     <MESSAGE value="Ürün görsel sistemi güncellendi." />
     <MESSAGE value="Yönetim sistemi güncellendi." />
-    <MESSAGE value="Ürün önizleme güncellendi." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ürün önizleme güncellendi." />
+    <option name="LAST_COMMIT_MESSAGE" value="Yönetim sistemi güncellendi." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

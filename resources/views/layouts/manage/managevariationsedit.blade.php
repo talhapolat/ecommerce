@@ -7,8 +7,6 @@
     <link rel="stylesheet" href="{{asset('storage/template/manage/vendor/simple-datatables/style.css')}}">
     @include('layouts.manage.managepartials.managehead')
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
-
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
@@ -72,7 +70,7 @@
                                     <h5 class="mb-0 p-1">{{$variation->title}} Seçenekleri</h5>
                                 </div>
                                 <div class="col justify-content-end" style="display: flex;">
-                                    <button class="btn btn-primary"><a href="/manage/options/new/{{$variation->id}}"
+                                    <button class="btn btn-primary"><a href="#"
                                                                        data-toggle="modal"
                                                                        data-target="#exampleModalCenter"
                                                                        style="color: white">+ {{$variation->title}} Ekle</a></button>

@@ -497,7 +497,7 @@
                     $("#modelpprice").html(result[1]);
                     $("#modelpdesc").html(result[2]);
 
-                    document.getElementById("modelpimage").src = '/storage/' + result[3];
+                    document.getElementById("modelpimage").src = '/storage/galleries/' + result[3];
 
                     document.getElementById("addCartButton").setAttribute("data-id", result[4]);
                     document.getElementById("num-product").value = 1;
@@ -565,7 +565,7 @@
                     while($i < $cnt) {
                         $('.slick3').slick('slickAdd','<div>' +
                             '<div class="wrap-pic-w pos-relative">' +
-                            '<img src="/storage/'+resultt[$i]+'" alt="IMG-PRODUCT">' +
+                            '<img src="/storage/galleries/'+resultt[$i]+'" alt="IMG-PRODUCT">' +
                             '<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">' +
                             '<i class="fa fa-expand"></i>' +
                             '</a>' +
@@ -588,12 +588,12 @@
                     $p = 1
 
                     lis[0].children[0].style.display = "block";
-                    lis[0].children[0].children[0].src = "/storage/"+resultt[0];
+                    lis[0].children[0].children[0].src = "/storage/galleries/"+resultt[0];
 
                     while ($p < $cnt) {
 
                         lis[0].children[$p].style.display = "block";
-                        lis[0].children[$p].children[0].src = "/storage/"+resultt[$p];
+                        lis[0].children[$p].children[0].src = "/storage/galleries/"+resultt[$p];
 
                         $p = $p+1;
                     }
