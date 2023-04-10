@@ -212,7 +212,17 @@ class HomeController extends Controller
 
         foreach ($productImages as $key => $productImage) {
             $gallery[$key+1] = $productImage["img_name"];
+
+            $imagess = images::all()->where('img_name', $productImage["img_name"])->first();
+            $pimagess = ProductMedia::all()->where('media_id', $imagess->id)->where('product_id', $request->input('pid'));
+            foreach ($pimagess as $pimages) {
+                $poption = Suboption::all()->where('id', $pimages->option_id)->first();
+                $gallery[$key+1] .= " " . $poption->title;
+            }
+
         };
+
+        //print_r(explode(' ',$gallery[$key+1], 2)[0]);
 
         echo json_encode($gallery);
 

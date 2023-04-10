@@ -280,7 +280,6 @@
                 document.getElementById("selectoption2").innerHTML = "";
             //Selected value
 
-
             //Ajax for calling php function
             $.get("{{ route('getOption2') }}", {
                 dropdownValue: inputValue,
@@ -292,7 +291,9 @@
 
                 var area = document.getElementById("selectoption2");
 
+
                 array = JSON.parse(data);
+
 
                 for (i = 0; i < array.length; i++) {
                     var section = document.createElement("option");
@@ -559,11 +560,8 @@
                     // gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
 
-
-
-
                     while($i < $cnt) {
-                        $('.slick3').slick('slickAdd','<div>' +
+                        $('.slick3').slick('slickAdd','<div class="Siyah" data-thumb="/storage/galleries/'+resultt[$i]+'">' +
                             '<div class="wrap-pic-w pos-relative">' +
                             '<img src="/storage/galleries/'+resultt[$i]+'" alt="IMG-PRODUCT">' +
                             '<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">' +
