@@ -264,8 +264,7 @@
     /*---------------------------------------------*/
 
     $(document).ready(function(){
-        if ($('#selectoption1').val() != null)
-        $(".slick3").slick('slickFilter','.'+$('#selectoption1').val());
+
 
         $('#selectoption1').change(function(){
             $(".slick3").slick('slickUnfilter');
@@ -485,6 +484,8 @@
                 dataType: 'json',
                 success:function(result) {
 
+
+
                     var type = "{{ session(['modalproductg' => '2'])}}";
 
                     const element = document.getElementById("option1text").parentElement;
@@ -526,6 +527,9 @@
                     }
 
 
+
+
+
                 }
             });
         });
@@ -538,6 +542,7 @@
                 data: { pid: pid },
                 dataType: 'json',
                 success:function(resultt) {
+
                     $i=1;
                     $cnt = resultt.length;
 
@@ -560,10 +565,18 @@
                     // gallerylist[0].children[0].children[0].children[5].style.display = "none";
 
 
+
                     while($i < $cnt) {
-                        $('.slick3').slick('slickAdd','<div class="Siyah" data-thumb="/storage/galleries/'+resultt[$i]+'">' +
+
+                        let text = resultt[$i];
+                        const myArray = text.split(" ");
+                        result = myArray.splice(0,1);
+                        result.push(myArray.join(' '));
+
+
+                        $('.slick3').slick('slickAdd','<div class="'+result[1]+'" data-thumb="/storage/galleries/'+result[0]+'">' +
                             '<div class="wrap-pic-w pos-relative">' +
-                            '<img src="/storage/galleries/'+resultt[$i]+'" alt="IMG-PRODUCT">' +
+                            '<img id="modelpimage" src="/storage/galleries/'+result[0]+'" alt="IMG-PRODUCT">' +
                             '<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="">' +
                             '<i class="fa fa-expand"></i>' +
                             '</a>' +
@@ -574,31 +587,50 @@
                         // gallerylist[0].children[0].children[0].children[$i+1].children[0].children[0].src = '/storage/' + resultt[$i+1];
                         // gallerylist[0].children[0].children[0].children[$i+1].children[0].children[1].href = '/storage/' + resultt[$i+1];
 
+
+
+                        var lis = document.querySelectorAll(".slick3-dots");
+                        $p = 1
+
+                        lis[0].children[0].style.display = "block";
+                        lis[0].children[0].children[0].src = "/storage/galleries/"+resultt[0];
+
+
+                            lis[0].children[$i].style.display = "block";
+                            lis[0].children[$i].children[0].src = "/storage/galleries/"+resultt[$i];
+
+
                         $i = $i+1;
                     }
+
+                    let text = resultt[$i-1];
+                    const myArray = text.split(" ");
+                    result = myArray.splice(0,1);
+                    result.push(myArray.join(' '));
+
+                    lis[0].children[$i-1].style.display = "block";
+                    lis[0].children[$i-1].children[0].src = "/storage/galleries/"+result[0];
+
 
                     //lis[0].children[0].style.display = "block";
                     //lis[0].children[0].children[0].src = "http://127.0.0.1:8000/storage/template/images/icons/logo-01.png";
 
                     //alert(lis[0].children[0].children[0].src);
 
-                    var lis = document.querySelectorAll(".slick3-dots");
-                    $p = 1
+                    // var lis = document.querySelectorAll(".slick3-dots");
+                    // $p = 1
+                    //
+                    // lis[0].children[0].style.display = "block";
+                    // lis[0].children[0].children[0].src = "/storage/galleries/"+resultt[0];
 
-                    lis[0].children[0].style.display = "block";
-                    lis[0].children[0].children[0].src = "/storage/galleries/"+resultt[0];
 
-                    while ($p < $cnt) {
-
-                        lis[0].children[$p].style.display = "block";
-                        lis[0].children[$p].children[0].src = "/storage/galleries/"+resultt[$p];
-
-                        $p = $p+1;
-                    }
 
                     //lis[0].children[0].click();
 
                     $('.js-modal1').addClass('opacity100');
+
+                    $(".slick3").slick('slickUnfilter');
+                    $(".slick3").slick('slickFilter','.'+'Beyaz');
                 }
             });
         });
