@@ -425,6 +425,8 @@ $(document).ready(function () {
 
     });
 
+
+
     $('#settings-update').on('click', function (e) {
 
         $.ajaxSetup({

@@ -7,6 +7,7 @@ use App\Gallery;
 use App\Http\Controllers\Controller;
 use App\Models\Brands;
 use App\Models\images;
+use App\Models\Medias;
 use App\Models\product_tags;
 use App\Models\Tags;
 use App\Option;
@@ -21,6 +22,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use JavaScript;
+use Nette\Utils\Image;
 
 class ManageProductController extends Controller
 {
@@ -317,6 +319,23 @@ class ManageProductController extends Controller
                 info('3 option');
         }
 
+        $productmainoptions = ProductOption::where('product_id', $product->id)->get('suboption1')->toArray();
+        $productmedias = ProductMedia::where('product_id', $product->id)->get('media_id')->toArray();
+        $productimages = Images::whereIn('id', $productmedias)->get('id')->toArray();
+
+        DB::table('product_media')->where('product_id', $product->id)->delete();
+
+        foreach ($productmainoptions as $productmainoption) {
+            foreach ($productimages as $productimage) {
+                DB::table('product_media')->updateOrInsert([
+                    'product_id' => $product->id,
+                    'option_id' => $productmainoption["suboption1"],
+                    'media_id' => $productimage["id"],
+                    'no' => 1
+                ]);
+            }
+        }
+
         //return $ptagsid;
 
         //return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid'));
@@ -324,6 +343,16 @@ class ManageProductController extends Controller
         return response()->json('ok');
 
 
+    }
+
+    public function deleteImage(Request $request){
+
+        $image = images::all()->where('id', $request->input('image_id'))->first();
+
+        DB::table('product_media')->where('media_id', $image->id)->delete();
+        DB::table('images')->where('id', $request->input('image_id'))->delete();
+
+        return response()->json('ok');
     }
 
     public function deleteproduct($id, Request $request){

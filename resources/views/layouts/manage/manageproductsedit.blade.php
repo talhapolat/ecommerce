@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 <body>
@@ -131,6 +131,9 @@
 
                                             <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
                                                 <div>
+                                                    <a onclick="deleteImage({{$row['id']}})" style="cursor: pointer;position: absolute; padding-left: 9px; padding-top: 5px; text-decoration: none; color: #0b0b0b" >
+                                                        <i class="fa-solid fa-x" ></i>
+                                                    </a>
                                                     <a href="javascript:void(0);" class="img-link">
                                                         <img src="/storage/galleries/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
                                                     </a>
@@ -351,9 +354,46 @@
 
 @include('layouts.manage.managepartials.managefooter')
 
+<script>
+    function deleteImage($productimageid){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/image/delete",
+            method: 'POST',
+            data: {
+                image_id: $productimageid
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Resim silindi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                document.getElementById('image_li_'+$productimageid).remove();
+                // window.location.href = '/manage/settings'
+            },
+            error: function(response) {
+                toastr.error('Resim silinirken hata.');
+            }
+        });
+
+
+    }
+
+
+</script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 {!! Toastr::message() !!}
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" integrity="sha512-fD9DI5bZwQxOi7MhYWnnNPlvXdp/2Pj3XSTRrFs5FQa4mizyGLnJcN6tuvUS6LbmgN1ut+XGSABKvjN0H6Aoow==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>

@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11071671313184.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11081680284831.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11141671313266.jpg" beforeDir="false" />
@@ -412,7 +414,9 @@
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/49851671324094.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4991671289978.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/56121671373707.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -659,7 +663,9 @@
       <workItem from="1681075622241" duration="4393000" />
       <workItem from="1681083453621" duration="126000" />
       <workItem from="1681149679457" duration="8921000" />
-      <workItem from="1681245267986" duration="5608000" />
+      <workItem from="1681245267986" duration="5630000" />
+      <workItem from="1681314724731" duration="4011000" />
+      <workItem from="1681418345839" duration="8976000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -836,7 +842,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681164321284</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Yönetim sistemi güncellendi.">
+      <created>1681253966056</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1681253966056</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
