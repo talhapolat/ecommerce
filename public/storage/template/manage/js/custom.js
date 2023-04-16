@@ -98,6 +98,9 @@ $(document).ready(function () {
         var product_id = document.getElementById('new-product-edit-save').value;
         // var texteditor = document.getElementById('editor').text();
 
+        var h = [];
+        $("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
+
 
         $.ajaxSetup({
             headers: {
@@ -121,6 +124,7 @@ $(document).ready(function () {
                 product_slug : product_slug,
                 product_id : product_id,
                 product_keyword : product_keyword,
+                image_order : h
             },
 
             success:function(response)

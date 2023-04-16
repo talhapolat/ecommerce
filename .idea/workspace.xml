@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11071671313184.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11081680284831.jpg" beforeDir="false" />
@@ -415,7 +418,15 @@
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4991671289978.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/56121671373707.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managesettings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managesettings.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -665,7 +676,9 @@
       <workItem from="1681149679457" duration="8921000" />
       <workItem from="1681245267986" duration="5630000" />
       <workItem from="1681314724731" duration="4011000" />
-      <workItem from="1681418345839" duration="8976000" />
+      <workItem from="1681418345839" duration="9012000" />
+      <workItem from="1681482477661" duration="27625000" />
+      <workItem from="1681648992222" duration="10390000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -849,7 +862,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681253966056</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Yönetim sistemi güncellendi.">
+      <created>1681429113968</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681429113968</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -883,16 +903,5 @@
     <MESSAGE value="Ürün görsel sistemi güncellendi." />
     <MESSAGE value="Yönetim sistemi güncellendi." />
     <option name="LAST_COMMIT_MESSAGE" value="Yönetim sistemi güncellendi." />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/layouts/register.blade.php</url>
-          <line>25</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

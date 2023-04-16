@@ -169,9 +169,7 @@ class ManageProductController extends Controller
         if ($product == null)
             return redirect()->route('manageproducts');
 
-        $product_media = ProductMedia::where('product_id', $id)->get('media_id');
-
-        $images = images::whereIn('id', $product_media)->get();
+        $images = ProductMedia::where('product_id', $id)->orderBy('no')->join('images', 'product_media.media_id', '=', 'images.id')->get();
 
         $product_options = ProductOption::where('product_id', $id)->get('suboption1')->pluck('suboption1')->toArray();
         $product_options2 = ProductOption::where('product_id', $id)->get('suboption2')->pluck('suboption2')->toArray();
@@ -194,6 +192,8 @@ class ManageProductController extends Controller
 
         //return $ptagsid;
 
+
+
         return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid'));
 
     }
@@ -210,9 +210,14 @@ class ManageProductController extends Controller
 
         $images = images::whereIn('id', $product_media)->get();
 
-        $firstpm = ProductMedia::where('product_id', $id)->where('no', 1)->first();
+        $firstpm = ProductMedia::where('product_id', $id)->orderBy('no')->first();
 
-        $firstimg = images::where('id', $firstpm->media_id)->first();
+
+        if ($firstpm != null){
+            $firstimgg = images::where('id', $firstpm->media_id)->first();
+            $firstimg = $firstimgg->img_name;
+        } else
+            $firstimg = null;
 
         $product_options = ProductOption::where('product_id', $id)->get('suboption1')->pluck('suboption1')->toArray();
         $product_options2 = ProductOption::where('product_id', $id)->get('suboption2')->pluck('suboption2')->toArray();
@@ -237,7 +242,7 @@ class ManageProductController extends Controller
 
         $newid = DB::table('products')->where('id', $product->id)->update([
             'title' => $request->input('product_title'),
-            'image' => $firstimg->img_name,
+            'image' => $firstimg,
             'price' => $request->input('product_price'),
             'sale_price' => $request->input('product_sale_price'),
             'longDesc' => $request->input('editor'),
@@ -317,6 +322,8 @@ class ManageProductController extends Controller
                 }
             } elseif ($optionscnt == 3)
                 info('3 option');
+        } else {
+            DB::table('product_options')->where('product_id', $product->id)->delete();
         }
 
         $productmainoptions = ProductOption::where('product_id', $product->id)->get('suboption1')->toArray();
@@ -325,14 +332,34 @@ class ManageProductController extends Controller
 
         DB::table('product_media')->where('product_id', $product->id)->delete();
 
-        foreach ($productmainoptions as $productmainoption) {
+        if ($productmainoptions != null) {
+            foreach ($productmainoptions as $productmainoption) {
+                foreach ($productimages as $productimage) {
+                    DB::table('product_media')->updateOrInsert([
+                        'product_id' => $product->id,
+                        'option_id' => $productmainoption["suboption1"],
+                        'media_id' => $productimage["id"],
+                        'no' => 1
+                    ]);
+                }
+            }
+        } else {
             foreach ($productimages as $productimage) {
                 DB::table('product_media')->updateOrInsert([
                     'product_id' => $product->id,
-                    'option_id' => $productmainoption["suboption1"],
-                    'media_id' => $productimage["id"],
-                    'no' => 1
+                    'media_id' => $productimage["id"]
                 ]);
+            }
+        }
+
+        $imageOrders = $request->input('image_order');
+        if ($imageOrders != null) {
+            $r = 1;
+            foreach ($imageOrders as $imageOrder) {
+                DB::table('product_media')->where('product_id', $product->id)->where('media_id', $imageOrder)->update([
+                    'no' => $r
+                ]);
+                $r = $r+1;
             }
         }
 
@@ -342,17 +369,23 @@ class ManageProductController extends Controller
 
         return response()->json('ok');
 
+    }
 
+    public function getimage(Request $request) {
+
+        $getimage = images::all()->where('img_name', $request->input('image_name'))->first();
+
+        return $getimage->id;
     }
 
     public function deleteImage(Request $request){
 
-        $image = images::all()->where('id', $request->input('image_id'))->first();
+        $image = images::where('img_name','LIKE', $request->input('image_id').'%')->first();
 
         DB::table('product_media')->where('media_id', $image->id)->delete();
         DB::table('images')->where('id', $request->input('image_id'))->delete();
 
-        return response()->json('ok');
+        return response()->json($image->id);
     }
 
     public function deleteproduct($id, Request $request){

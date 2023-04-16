@@ -141,7 +141,7 @@
                                                                         <span>Pasif</span>
                                                                     @endif
                                                                 </td>
-                                                                <td>
+                                                                <td style="text-align: right">
                                                                     <span><a
                                                                             href="{{route('managecategoriesedit', $subcategory->id)}}"
                                                                             style="color: #0b0b0b">Düzenle</a></span>

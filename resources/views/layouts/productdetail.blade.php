@@ -780,5 +780,14 @@ require_once app_path('func.php');
 
 </body>
 
+<script>
+    $(document).ready(function() {
+        var selected = $("#selectoption1 :selected").text();
+        if (selected !== "")
+        $(".slick-slider").slick('slickFilter','.'+selected);
+    });
+
+</script>
+
 </html>
 <?php //$dbConnect = null ?>

@@ -115,8 +115,7 @@
                                 {{--                                <hr class="my-5">--}}
 
                                 <div class="container" >
-{{--                                    <div id="msg" class="mb-3"></div>--}}
-{{--                                    <a href="javascript:void(0);" class="btn btn-outline-primary reorder" id="updateReorder">Reorder Imgaes</a>--}}
+
 {{--                                    <div id="reorder-msg" class="alert alert-warning mt-3" style="display:none;">--}}
 {{--                                        <i class="fa fa-3x fa-exclamation-triangle float-right"></i> 1. Drag photos to reorder.<br>2. Click 'Save Reordering' when finished.--}}
 {{--                                    </div>--}}
@@ -126,13 +125,15 @@
                                             //Fetch all images from database
 //                                            $images = $db->getAllRecords(TB_IMG,'*','order by img_order ASC');
                                             if(!empty($images)){
-                                            foreach($images as $row){
+                                            foreach($images as $key => $row){
+                                                if($images[$key-1]['img_name'] != $row['img_name']) {
+                                                $imgrw = explode(".", $row['img_name']);
                                                 ?>
 
                                             <li id="image_li_<?php echo $row['id']; ?>" class="ui-sortable-handle mr-2 mt-2">
                                                 <div>
-                                                    <a onclick="deleteImage({{$row['id']}})" style="cursor: pointer;position: absolute; padding-left: 9px; padding-top: 5px; text-decoration: none; color: #0b0b0b" >
-                                                        <i class="fa-solid fa-x" ></i>
+                                                    <a onclick="deleteImage({{$imgrw[0]}})" style="cursor: pointer;position: absolute; padding-left: 9px; padding-top: 5px; text-decoration: none; color: #0b0b0b" >
+                                                        <i class="fa-solid fa-x" > </i>
                                                     </a>
                                                     <a href="javascript:void(0);" class="img-link">
                                                         <img src="/storage/galleries/<?php echo $row['img_name']; ?>" alt="" class="img-thumbnail" width="200px" style="object-fit: contain!important; height: 200px">
@@ -140,6 +141,7 @@
                                                 </div>
                                             </li>
                                                 <?php
+                                            }
                                             }
                                             }
                                             ?>
@@ -356,6 +358,7 @@
 
 <script>
     function deleteImage($productimageid){
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -377,7 +380,7 @@
                     preventDuplicates: true,
                     positionClass: 'toast-top-right',
                 });
-                document.getElementById('image_li_'+$productimageid).remove();
+                document.getElementById('image_li_'+response).remove();
                 // window.location.href = '/manage/settings'
             },
             error: function(response) {
@@ -426,7 +429,7 @@
     $(document).ready(function(){
 
             $("ul.nav").sortable({ tolerance: 'pointer' });
-            $('.reorder').html('Save Reordering');
+            $('.reorder').html('Sırayı Kaydet');
             $('.reorder').attr("id","updateReorder");
             $('#reorder-msg').slideDown('');
             $('.img-link').attr("href","javascript:;");
@@ -439,6 +442,8 @@
 
                     var h = [];
                     $("ul.nav li").each(function() {  h.push($(this).attr('id').substr(9));  });
+
+                    alert(h);
 
                     $.ajax({
                         type: "POST",
@@ -509,15 +514,40 @@
             const node = document.getElementById("navpills").lastElementChild;
 
             const galeryelement = document.createElement("li");
-            galeryelement.id = 888;
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                url: "/manage/product/getimage",
+                method: 'POST',
+                data: {
+                    image_name: picarray[0]
+                },
+
+                success:function(response)
+                {
+                    galeryelement.id = 'image_li_'+response;
+                },
+                error: function(response) {
+                    toastr.error('Resimler yüklenirken hata.');
+                }
+            });
+
             galeryelement.classList.add('ui-sortable-handle');
             galeryelement.classList.add('mr-2');
             galeryelement.classList.add('mt-2');
 
-
+            imgnm = picarray[0].split(".");
             if (node == null) {
                 galeryelement.dataset.ord = "0";
-                galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                galeryelement.innerHTML = '<div> ' +
+                    '<a onclick="deleteImage('+imgnm[0]+')" style="cursor: pointer;position: absolute; padding-left: 9px; padding-top: 5px; text-decoration: none; color: #0b0b0b" >' +
+                    '<i class="fa-solid fa-x" ></i></a>' +
+                    '<a href="javascript:;" class="img-link" style="cursor: move;"> ' +
                     '<img src="/storage/galleries/'+picarray[0]+'" alt="" class="img-thumbnail" width="200px" ' +
                     'style="object-fit: contain!important; height: 200px"> </a> ' +
                     '</div> '
@@ -525,11 +555,14 @@
             } else {
                 i = 0;
                 while(i<picarraysize-1){
-
+                    imgnm = picarray[i].split(".");
                     pictures = document.getElementById("navpills").innerHTML;
 
                     if (pictures.search(picarray[i])<1){
-                        galeryelement.innerHTML = '<div> <a href="javascript:;" class="img-link" style="cursor: move;"> ' +
+                        galeryelement.innerHTML = '<div> ' +
+                            '<a onclick="deleteImage('+imgnm[0]+')" style="cursor: pointer;position: absolute; padding-left: 9px; padding-top: 5px; text-decoration: none; color: #0b0b0b" >' +
+                            '<i class="fa-solid fa-x" ></i></a>' +
+                            '<a href="javascript:;" class="img-link" style="cursor: move;"> ' +
                             '<img src="/storage/galleries/'+picarray[i]+'" alt="" class="img-thumbnail" width="200px" ' +
                             'style="object-fit: contain!important; height: 200px"> </a> ' +
                             '</div> '
@@ -539,8 +572,6 @@
                         //alert("girdi");
                         i++;
                     }
-
-
 
                     // lastpic = document.getElementById("navpills").lastElementChild.firstElementChild.firstElementChild.firstElementChild.src.split("/");
                     // alert(lastpic[lastpic.length-1]);

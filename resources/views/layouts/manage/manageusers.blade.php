@@ -61,8 +61,8 @@
                                         @foreach($users as $user)
 
                                             <tr class="manageproductable">
-                                                <td><a href="{{route('managevariationsedit', $user->id)}}"
-                                                       class="text-muted">{{$user->name}}</a></td>
+                                                <td><a href="{{route('manageusersedit', $user->id)}}"
+                                                       class="text-muted">{{$user->name}} {{$user->surname}}</a></td>
                                                 <td>
                                                     {{$user->email}}
                                                 </td>
@@ -86,7 +86,7 @@
                                                 <td style="text-align: right">
 
                                                     <span style="margin-left: 10px"></span>
-                                                    <span><a href="{{route('managevariationsedit', $user->id)}}"
+                                                    <span><a href="{{route('manageusersedit', $user->id)}}"
                                                              style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
                                                     <button type="button" class="btn btn-custom" onclick="deleteUser({{$user->id}})" value="{{$user->id}}" >Sil</button>

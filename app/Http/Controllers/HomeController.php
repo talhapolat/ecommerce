@@ -204,7 +204,7 @@ class HomeController extends Controller
 
         $product = Product::where('id', $request->input('pid'))->get('image');
 
-        $productMedias = ProductMedia::where('product_id', $request->input('pid'))->get('media_id');
+        $productMedias = ProductMedia::where('product_id', $request->input('pid'))->orderBy('no')->get('media_id');
         $productImages = images::whereIn('id', $productMedias)->get();
 
         $gallery = array();

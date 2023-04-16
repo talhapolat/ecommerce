@@ -5,6 +5,7 @@
     @include('layouts.partials.head')
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body class="animsition">
@@ -33,7 +34,7 @@
                 echo $_SESSION["error"];
             } ?>
             <small></small>
-            <form action="registercont.php" method="POST">
+            <form action="javascript:void(0);" method="POST">
                 <div class="mb-3">
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="İsim" name="username" required="required">
                 </div>
@@ -84,7 +85,7 @@
 
 
 
-                <button type="submit" class="btn" style="background-color: #116c7f; color: #f2f1e9; border: none; width: 100%; height: 40px; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 18px; text-decoration: none">AHLAT'A KAYIT OL</button>
+                <button type="submit" class="btn" id="registeruser" style="background-color: #116c7f; color: #f2f1e9; border: none; width: 100%; height: 40px; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 18px; text-decoration: none">AHLAT'A KAYIT OL</button>
             </form>
 
 
@@ -115,5 +116,8 @@
 @include('layouts.partials.jsassets')
 
 </body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+{!! Toastr::message() !!}
 
 </html>

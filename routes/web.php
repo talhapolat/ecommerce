@@ -21,6 +21,7 @@ Route::group(['prefix' => '/admin'], function () {
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('login', 'App\Http\Controllers\LoginController@index')->name('login');
 Route::get('register', 'App\Http\Controllers\LoginController@register')->name('register');
+Route::post('signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
 Route::get('collection/{collection_slug}', 'App\Http\Controllers\HomeController@collection')->name('collection');
 Route::get('collections', 'App\Http\Controllers\HomeController@collections')->name('collections');
 Route::get('s/{search}', 'App\Http\Controllers\HomeController@search')->name('search');
@@ -50,7 +51,7 @@ Route::post('manage/products/create', 'App\Http\Controllers\Manage\ManageProduct
 Route::get('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@editproduct')->name('manageproductsedit');
 Route::post('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@updateproduct')->name('manageproductsupdate');
 Route::post('manage/products/delete/{id}', 'App\Http\Controllers\Manage\ManageProductController@deleteproduct')->name('manageproductsdelete');
-
+Route::post('manage/product/getimage', 'App\Http\Controllers\Manage\ManageProductController@getimage')->name('productgetimage');
 Route::post('manage/image/delete', 'App\Http\Controllers\Manage\ManageProductController@deleteimage')->name('manageimagesdelete');
 
 Route::get('manage/categories', 'App\Http\Controllers\Manage\ManageCategoryController@index')->name('managecategories');
@@ -72,4 +73,5 @@ Route::post('manage/options/create', 'App\Http\Controllers\Manage\ManageVariatio
 Route::post('manage/options/delete', 'App\Http\Controllers\Manage\ManageVariationController@deleteoption')->name('manageoptionsdelete');
 
 Route::get('manage/users', 'App\Http\Controllers\Manage\ManageUserController@index')->name('manageusers');
+Route::get('manage/users/{id}', 'App\Http\Controllers\Manage\ManageUserController@edituser')->name('manageusersedit');
 

@@ -265,7 +265,6 @@
 
     $(document).ready(function(){
 
-
         $('#selectoption1').change(function(){
             $(".slick3").slick('slickUnfilter');
             var inputValue = $(this).val();
@@ -464,6 +463,84 @@
     });
 
 
+    $('#registeruser').on('click',function(){
+        document.getElementById('exampleInputPassword4').classList.remove('border-danger');
+        document.getElementById('exampleInputPassword5').classList.remove('border-danger');
+        document.getElementById('exampleFormControlInput3').classList.remove('border-danger');
+
+        username = document.getElementById("exampleFormControlInput1").value;
+        usersurname = document.getElementById("exampleFormControlInput2").value;
+        // usergender = document.getElementById("usergender").value;
+        useremail = document.getElementById("exampleFormControlInput3").value;
+        userpassword = document.getElementById("exampleInputPassword4").value;
+        userrepassword = document.getElementById("exampleInputPassword5").value;
+
+        if(username !== '' && usersurname !== '' && useremail !== '' && userpassword !== '' && userrepassword !== '' && userpassword !== userrepassword) {
+            document.getElementById('exampleInputPassword4').classList.add('border-danger');
+            document.getElementById('exampleInputPassword5').classList.add('border-danger');
+            toastr.error('Girilen parolalar eşleşmiyor.', {
+                timeOut: 1000,
+                preventDuplicates: true,
+                positionClass: 'toast-top-right',
+                // Redirect
+            });
+        }else if (username !== '' && usersurname !== '' && useremail !== '' && userpassword !== '' && userrepassword !== '' && userpassword === userrepassword) {
+            $.ajaxSetup({
+                headers:{
+                    'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+                type: 'POST',
+                url: '/signup',
+                data: ({
+                    username: username,
+                    usersurname: usersurname,
+                    // usergender: document.getElementById("usergender").value,
+                    useremail: useremail,
+                    userpassword: userpassword
+                }),
+
+                success:function(response) {
+                    if (response === "alemail") {
+                        document.getElementById('exampleFormControlInput3').classList.add('border-danger');
+                        toastr.error('E-posta adresi zaten kayıtlı.', {
+                            timeOut: 1000,
+                            preventDuplicates: true,
+                            positionClass: 'toast-top-right',
+                            // Redirect
+                        });
+                    } else if(response === 'ok') {
+                        toastr.success('Üyeliğiniz oluşturuldu. Giriş sayfasına yönlendiriliyorsunuz.', {
+                            timeOut: 1000,
+                            preventDuplicates: true,
+                            positionClass: 'toast-top-right',
+                            // Redirect
+                            // onHidden: function() {
+                            //     window.location.href = '/login';
+                            // }
+                        });
+                        //window.location.href = '/login';
+                    }
+                },
+                error: function(response) {
+
+                    toastr.error('Üyelik oluşturulurken hata ile karşılaşıldı', {
+                        timeOut: 1000,
+                        preventDuplicates: true,
+                        positionClass: 'toast-top-right',
+                        // Redirect
+                    });
+                }
+            });
+        }
+
+
+
+    });
+
+
 
     /*==================================================================
 [ Show modal1 ]*/
@@ -484,16 +561,12 @@
                 dataType: 'json',
                 success:function(result) {
 
-
-
                     var type = "{{ session(['modalproductg' => '2'])}}";
 
                     const element = document.getElementById("option1text").parentElement;
                     const element2 = document.getElementById("option2text").parentElement;
                     element.style.display = "block";
                     element2.style.display = "block";
-
-
 
                     $("#modelptitle").html(result[0]);
                     $("#modelpprice").html(result[1]);
@@ -597,8 +670,7 @@
 
 
                             lis[0].children[$i].style.display = "block";
-                            lis[0].children[$i].children[0].src = "/storage/galleries/"+resultt[$i];
-
+                            lis[0].children[$i].children[0].src = "/storage/galleries/"+result[0];
 
                         $i = $i+1;
                     }
@@ -629,8 +701,7 @@
 
                     $('.js-modal1').addClass('opacity100');
 
-                    $(".slick3").slick('slickUnfilter');
-                    $(".slick3").slick('slickFilter','.'+'Beyaz');
+
                 }
             });
         });

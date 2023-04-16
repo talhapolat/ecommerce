@@ -121,9 +121,9 @@
                                         <label class="form-label" for="language">Varsayılan Dil</label>
                                         <div data-test-hook="basic">
                                             <select class="form-control" name="language" id="language">
-                                                <option @if($settings[4]->value == 1) selected @endif value="1">Aktif
+                                                <option @if($settings[4]->value == 1) selected @endif value="1">Türkçe
                                                 </option>
-                                                <option @if($settings[4]->value == 2) selected @endif value="2">Pasif
+                                                <option @if($settings[4]->value == 2) selected @endif value="2">English
                                                 </option>
                                             </select>
                                         </div>
@@ -134,9 +134,9 @@
                                         <label class="form-label" for="currency">Para Birimi</label>
                                         <div data-test-hook="basic">
                                             <select class="form-control" name="currency" id="currency">
-                                                <option @if($settings[5]->value == 1) selected @endif value="1">Aktif
+                                                <option @if($settings[5]->value == 1) selected @endif value="1">TL (₺)
                                                 </option>
-                                                <option @if($settings[5]->value == 2) selected @endif value="2">Pasif
+                                                <option @if($settings[5]->value == 2) selected @endif value="2">USD ($)
                                                 </option>
                                             </select>
                                         </div>
