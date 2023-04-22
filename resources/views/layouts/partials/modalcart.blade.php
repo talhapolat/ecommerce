@@ -1,8 +1,8 @@
 @php
-$baskettotal = session('carttotal');
+    $baskettotal = session('carttotal');
 @endphp
 
-<!-- CART -->
+    <!-- CART -->
 <div class="wrap-header-cart js-panel-cart">
     <div class="s-full js-hide-cart"></div>
 
@@ -17,12 +17,12 @@ $baskettotal = session('carttotal');
             </div>
         </div>
 
-        <div class="header-cart-content flex-w js-pscroll w-full">
+        <div class="header-cart-content flex-w js-pscroll w-full" id="cartcontent">
             <ul id="cartlist" class="header-cart-wrapitem w-full">
 
                 <?php
 
-                if (sizeof(session('cart')) > 0) {
+                if (session('cart') !== null) {
 
                 foreach (session('cart') as $key => $pcart) { ?>
 
@@ -33,25 +33,26 @@ $baskettotal = session('carttotal');
 
                     <div class="header-cart-item-txt p-t-8">
                         <a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-                            <?= $pcart['title'] ?>
+                                <?= $pcart['title'] ?>
                         </a>
 
                         <span class="header-cart-item-info">
-									<span id="cartproductqty"><?= session('qty')[$key]['qty'] ?></span> x <?= $pcart['price'] ?>₺
+									<span
+                                        id="cartproductqty"><?= session('qty')[$key]['qty'] ?></span> x <?= $pcart['price'] ?>₺
 									<small style="float: right;">
 										<?php if ($pcart['option1'] != null and $pcart['option1'] != "0") {
                                             echo $pcart['option1'];
                                         }
-                                        if ($pcart['option2'] != null and $pcart['option2'] != "0") {
-                                            echo " | " . $pcart['option2'];
-                                        }
-                                        ?>
+                                            if ($pcart['option2'] != null and $pcart['option2'] != "0") {
+                                                echo " | " . $pcart['option2'];
+                                            }
+                                            ?>
 									</small>
 								</span>
                     </div>
                 </li>
 
-                <?php
+                    <?php
                 }
                 }
                 ?>
@@ -62,17 +63,18 @@ $baskettotal = session('carttotal');
             <div class="w-full">
                 <div id="header-cart-totall" class="header-cart-total w-full p-tb-40">
                     Toplam:
-                    <?php if (isset($baskettotal)) {
+                        <?php if (isset($baskettotal)) {
                         echo $baskettotal;
                     } else {
-                    ?>
+                        ?>
                     0
-                    <?php
-                    }  ?>₺
+                        <?php
+                    } ?>₺
                 </div>
 
                 <div class="header-cart-buttons flex-w w-full">
-                    <a href="/basket" class="flex-c-m stext-101 cl0 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" style="width: 100%; height: 45px;" >
+                    <a href="/basket" class="flex-c-m stext-101 cl0 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10"
+                       style="width: 100%; height: 45px;">
                         Sepete Git
                     </a>
 
@@ -81,7 +83,7 @@ $baskettotal = session('carttotal');
                     </a> -->
                 </div>
             </div>
-            <?php
+                <?php
             }
             ?>
         </div>

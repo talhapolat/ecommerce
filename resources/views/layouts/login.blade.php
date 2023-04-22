@@ -29,10 +29,11 @@
                 Giriş Yap
             </h3>
 
-            <form action="logincont.php" method="POST">
+            <form action="/signin" method="POST">
+                @csrf
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">E-posta</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-posta adresinizi giriniz" aria-describedby="emailHelp" name="useremail" required="required">
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="E-posta adresinizi giriniz" aria-describedby="emailHelp" name="email" required="required">
                     <!--     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                     -->
                 </div>
@@ -40,7 +41,7 @@
                     <label for="exampleInputPassword1" class="form-label">
                         Şifre <a style="float: right; font-size: 12px; padding-top: 5px">Şifremi Unuttum</a></label>
 
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifrenizi giriniz" name="userpassword" required="required">
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Şifrenizi giriniz" name="password" required="required">
                 </div>
                 <div class="mb-3 form-check">
                     <div class="row ml-1">
@@ -62,9 +63,9 @@
                     ">
 
                 <button type="submit" class="btn" style="background-color: #116c7f; color: #f2f1e9; border: none; width: 100%; height: 40px; font-family: 'Poppins', sans-serif; font-size: 16px; line-height: 18px; text-decoration: none">GİRİŞ YAP</button>
-                <?php if (isset($_SESSION["error"])) { ?>
-                <small style="color: red"> <?php echo $_SESSION["error"] ?> </small>
-                <?php } ?>
+                @if(Session::has('fail'))
+                <small style="color: red"> {{Session::get('fail')}} </small>
+                @endif
             </form>
         </div>
 

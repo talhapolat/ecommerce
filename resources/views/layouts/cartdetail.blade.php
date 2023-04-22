@@ -261,8 +261,9 @@ if ($carttotal - $discount >= 200) {
         </div>
 
 
-        <div class="col-sm-10 col-lg-7 col-xl-5 m-lr-auto m-b-50" style="min-height: 500px">
-            <form action="paymentcont.php" method="POST">
+        <div class="col-lg-10 col-xl-5 m-lr-auto m-b-50" style="min-height: 500px">
+            <form action="checkoutcontrol/1" method="POST">
+                @csrf
                 <div class="bor10 p-lr-40 p-t-30 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                     <h4 class="mtext-109 cl2 p-b-30">
                         Sepet Toplamı
@@ -331,27 +332,27 @@ if ($carttotal - $discount >= 200) {
 										</span>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="username" placeholder="Ad" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressname" placeholder="Ad" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="usersurname" placeholder="Soyad" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresssurname" placeholder="Soyad" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="email" placeholder="E-posta" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="addressemail" placeholder="E-posta" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="phone" placeholder="Telefon" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressphone" placeholder="Telefon" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="city" placeholder="Şehir" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresscity" placeholder="Şehir" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" placeholder="İlçe" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressdistrict" placeholder="İlçe" required>
                         </div>
 
                         <div class="bor8 bg0 m-b-12">

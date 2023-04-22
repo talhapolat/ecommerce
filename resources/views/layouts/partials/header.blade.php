@@ -12,7 +12,7 @@
 
                 <div class="right-top-bar flex-w h-full">
                     <?php
-                    if (isset($_SESSION["useremail"])) {
+                    if (auth()->check()) {
                     ?>
                     <a href="/account" class="flex-c-m trans-04 p-lr-25">
                         HESABIM

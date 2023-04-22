@@ -35,6 +35,7 @@
             } ?>
             <small></small>
             <form action="javascript:void(0);" method="POST">
+                @csrf
                 <div class="mb-3">
                     <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="İsim" name="username" required="required">
                 </div>

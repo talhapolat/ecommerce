@@ -396,6 +396,23 @@
 
                         }
 
+
+
+                        if (document.getElementById('header-cart-totall') === null) {
+                            $carttotalarea = document.createElement("div");
+                            $carttotalarea.innerHTML =
+                                '<div id="header-cart-totall" class="header-cart-total w-full p-tb-40">' +
+                                'Toplam:₺' +
+                                '</div>' +
+                                '<div class="header-cart-buttons flex-w w-full">' +
+                                '<a href="/basket" class="flex-c-m stext-101 cl0 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10" style="width: 100%; height: 45px;"> Sepete Git </a>' +
+                                '</div>';
+                            $carttotalarea.classList.add('w-full');
+                            document.getElementById('cartcontent').appendChild($carttotalarea);
+                        }
+
+
+
                         var cn = parseInt(document.getElementById("cartnoti").getAttribute("data-notify"));
                         document.getElementById("cartnoti").setAttribute("data-notify", cn + parseInt(qty));
                         document.getElementById("cartnotimobil").setAttribute("data-notify", cn + parseInt(qty));
@@ -474,8 +491,10 @@
         useremail = document.getElementById("exampleFormControlInput3").value;
         userpassword = document.getElementById("exampleInputPassword4").value;
         userrepassword = document.getElementById("exampleInputPassword5").value;
+        check1 = document.getElementById("flexCheckDefault");
+        check2 = document.getElementById("flexCheckDefault2");
 
-        if(username !== '' && usersurname !== '' && useremail !== '' && userpassword !== '' && userrepassword !== '' && userpassword !== userrepassword) {
+        if(username !== '' && usersurname !== '' && useremail !== '' && check1.checked !== 'false' && check2.checked !== 'false' && userpassword !== '' && userrepassword !== '' && userpassword !== userrepassword) {
             document.getElementById('exampleInputPassword4').classList.add('border-danger');
             document.getElementById('exampleInputPassword5').classList.add('border-danger');
             toastr.error('Girilen parolalar eşleşmiyor.', {
@@ -484,7 +503,7 @@
                 positionClass: 'toast-top-right',
                 // Redirect
             });
-        }else if (username !== '' && usersurname !== '' && useremail !== '' && userpassword !== '' && userrepassword !== '' && userpassword === userrepassword) {
+        }else if (username !== '' && usersurname !== '' && useremail !== '' && check1.checked === true && check2.checked === true && userpassword !== '' && userrepassword !== '' && userpassword === userrepassword) {
             $.ajaxSetup({
                 headers:{
                     'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
@@ -521,7 +540,7 @@
                             //     window.location.href = '/login';
                             // }
                         });
-                        //window.location.href = '/login';
+                        window.location.href = '/login';
                     }
                 },
                 error: function(response) {

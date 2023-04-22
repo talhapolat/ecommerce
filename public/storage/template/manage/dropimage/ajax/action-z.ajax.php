@@ -1,11 +1,10 @@
 <?php
 include_once('../config.php');
-
-if(!empty($_FILES['files'])){
-    $n=0;
-    $s=0;
-    $prepareNames   =   array();
-    foreach($_FILES['files']['name'] as $val) {
+if (!empty($_FILES['files'])) {
+    $n = 0;
+    $s = 0;
+    $prepareNames = array();
+    foreach ($_FILES['files']['name'] as $val) {
         $infoExt = getimagesize($_FILES['files']['tmp_name'][$n]);
         $s++;
         $filesName = str_replace(" ", "", trim($_FILES['files']['name'][$n]));
@@ -28,7 +27,7 @@ if(!empty($_FILES['files'])){
         $n++;
 
         if ($Sflag == 1) {
-            echo $fileName.'ppp';
+            echo $fileName . 'ppp';
         } else if ($Sflag == 2) {
             echo '{File not move to the destination.}';
         } else if ($Sflag == 3) {
@@ -36,26 +35,26 @@ if(!empty($_FILES['files'])){
         }
     }
 
-    if(!empty($prepareNames)){
-        $count  =   1;
-        foreach($prepareNames as $name){
-            $data   =   array(
-                            'img_name'=>$name,
-                            'img_order'=>$count++,
-                        );
-           $db->insert(TB_IMG,$data);
+    if (!empty($prepareNames)) {
+        $count = 1;
+        foreach ($prepareNames as $name) {
+            $data = array(
+                'img_name' => $name,
+                'img_order' => $count++,
+            );
+            $db->insert(TB_IMG, $data);
 
-           echo $db->lastInsertId().'#';
+            echo $db->lastInsertId() . '#';
 
-           if ($_GET['pid'] != null){
-               $getProduct = $pdo->prepare("SELECT * FROM products WHERE id=?");
-               $getProduct->execute([$_GET['pid']]);
-               $product = $getProduct->fetch();
-           } else {
-               $getProduct = $pdo->prepare("SELECT * FROM products ORDER BY ID DESC LIMIT 1");
-               $getProduct->execute();
-               $product = $getProduct->fetch();
-           }
+            if ($_GET['pid'] != null) {
+                $getProduct = $pdo->prepare("SELECT * FROM products WHERE id=?");
+                $getProduct->execute([$_GET['pid']]);
+                $product = $getProduct->fetch();
+            } else {
+                $getProduct = $pdo->prepare("SELECT * FROM products ORDER BY ID DESC LIMIT 1");
+                $getProduct->execute();
+                $product = $getProduct->fetch();
+            }
 
             $getMedia = $pdo->prepare("SELECT * FROM images ORDER BY ID DESC LIMIT 1");
             $getMedia->execute();
@@ -66,25 +65,51 @@ if(!empty($_FILES['files'])){
             $options = $getOptions->fetchAll();
 
             if ($options != null) {
-                foreach ($options as $option){
-                    $dataa   =   array(
-                        'product_id'=>$product['id'],
-                        'option_id'=>$option['suboption1'],
-                        'media_id'=>$media['id'],
-                        'no'=>$media['img_order']
+                foreach ($options as $option) {
+                    $dataa = array(
+                        'product_id' => $product['id'],
+                        'option_id' => $option['suboption1'],
+                        'media_id' => $media['id'],
+                        'no' => $media['img_order']
                     );
-                    $db->insert('product_media',$dataa);
+                    $db->insert('product_media', $dataa);
                 }
             } else {
-                $dataa   =   array(
-                    'product_id'=>$product['id'],
-                    'media_id'=>$media['id'],
-                    'no'=>$media['img_order']
+                $dataa = array(
+                    'product_id' => $product['id'],
+                    'media_id' => $media['id'],
+                    'no' => $media['img_order']
                 );
-                $db->insert('product_media',$dataa);
+                $db->insert('product_media', $dataa);
             }
 
         }
+
+        $getfimage = $pdo->prepare("SELECT * FROM product_media WHERE product_id=? and no=1 LIMIT 1");
+        $getfimage->execute([$product['id']]);
+        $getfimg = $getfimage->fetchAll();
+
+        $getpmedia = $pdo->prepare("SELECT * FROM images WHERE id=?");
+        $getpmedia->execute([$getfimg['media_id']]);
+        $getpmd = $getpmedia->fetchAll();
+
+        $updateimg = $pdo->prepare("UPDATE products SET image=? WHERE id=?");
+        $updateimg->execute([$getpmd['img_name'], $product['id']]);
+        $updatei = $updateimg->fetchAll();
+
+
     }
 }
+//$getfimage = $pdo->prepare("SELECT media_id FROM product_media WHERE product_id=? and no=1 LIMIT 1");
+//$getfimage->execute([$_GET['pid']]);
+//$getfimg = $getfimage->fetchAll();
+//
+//$getpmedia = $pdo->prepare("SELECT img_name FROM images WHERE id=?");
+//$getpmedia->execute([$getfimg[0][0]]);
+//$getpmd = $getpmedia->fetchAll();
+//
+//$updateimg = $pdo->prepare("UPDATE products SET image=? WHERE id=?");
+//$updateimg->execute([$getpmd[0][0], $product['id']]);
+//$updatei = $updateimg->fetchAll();
+
 ?>

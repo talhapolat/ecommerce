@@ -22,6 +22,9 @@ Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home');
 Route::get('login', 'App\Http\Controllers\LoginController@index')->name('login');
 Route::get('register', 'App\Http\Controllers\LoginController@register')->name('register');
 Route::post('signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
+Route::post('signin', 'App\Http\Controllers\LoginController@signin')->name('signin');
+Route::get('account', 'App\Http\Controllers\LoginController@useraccount')->name('useraccount');
+Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('userlogout');
 Route::get('collection/{collection_slug}', 'App\Http\Controllers\HomeController@collection')->name('collection');
 Route::get('collections', 'App\Http\Controllers\HomeController@collections')->name('collections');
 Route::get('s/{search}', 'App\Http\Controllers\HomeController@search')->name('search');
@@ -40,6 +43,12 @@ Route::get('basket', 'App\Http\Controllers\CartController@index')->name('basket'
 Route::get('addcart', 'App\Http\Controllers\CartController@addcart')->name('addcart');
 Route::get('deletecart', 'App\Http\Controllers\CartController@deletecart')->name('deletecart');
 Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->name('updatecart');
+
+Route::post('checkoutcontrol/{step}', 'App\Http\Controllers\OrderController@checkoutcontrol')->name('checkoutcontrol');
+Route::get('checkout', 'App\Http\Controllers\OrderController@checkout')->name('checkout');
+Route::post('createorder', 'App\Http\Controllers\OrderController@createorder')->name('createorder');
+
+
 
 Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
 Route::get('manage/settings', 'App\Http\Controllers\Manage\ManageHomeController@settings')->name('managesettings');

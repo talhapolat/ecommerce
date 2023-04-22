@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/account.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/checkout.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/partials/accountsidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/ajax/action-z.ajax.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/dropimage/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/11071671313184.jpg" beforeDir="false" />
@@ -417,15 +421,11 @@
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/49851671324094.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/4991671289978.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/storage/template/manage/dropimage/uploads/56121671373707.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproductsedit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managesettings.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managesettings.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/modalcart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/modalcart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/layouts/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/register.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -678,7 +678,11 @@
       <workItem from="1681314724731" duration="4011000" />
       <workItem from="1681418345839" duration="9012000" />
       <workItem from="1681482477661" duration="27625000" />
-      <workItem from="1681648992222" duration="10390000" />
+      <workItem from="1681648992222" duration="10442000" />
+      <workItem from="1681767168778" duration="653000" />
+      <workItem from="1681984353528" duration="2643000" />
+      <workItem from="1682062004529" duration="18275000" />
+      <workItem from="1682146872446" duration="25477000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -869,7 +873,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681429113968</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Yönetim sistemi güncellendi.">
+      <created>1681688887575</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1681688887575</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
