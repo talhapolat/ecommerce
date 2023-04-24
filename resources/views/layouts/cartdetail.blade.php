@@ -332,31 +332,31 @@ if ($carttotal - $discount >= 200) {
 										</span>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressname" placeholder="Ad" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressname" placeholder="Ad" required value="{{session('addressname')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresssurname" placeholder="Soyad" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresssurname" placeholder="Soyad" required value="{{session('addresssurname')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="addressemail" placeholder="E-posta" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="addressemail" placeholder="E-posta" required value="{{session('addressemail')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressphone" placeholder="Telefon" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressphone" placeholder="Telefon" required value="{{session('addressphone')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresscity" placeholder="Şehir" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresscity" placeholder="Şehir" required value="{{session('addresscity')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressdistrict" placeholder="İlçe" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressdistrict" placeholder="İlçe" required value="{{session('addressdistrict')}}">
                         </div>
 
                         <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Adresiniz" required>
+                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Adresiniz" required value="{{session('address')}}">
                         </div>
 
 

@@ -7,6 +7,18 @@
         margin-top: 80px!important;
     }
 
+    .checkoutlogo {
+        margin-top: 2%;
+    }
+
+    .checkoutlogobottom {
+        margin-bottom: 50px;
+    }
+
+    .ordersummarymobile {
+        display: none;
+    }
+
 }
 
 @media only screen and (max-width: 992px) {
@@ -38,7 +50,34 @@
     .flex-sb {
         content: normal;
     }
+
+    .checkoutlogo {
+        margin-top: 8%;
+    }
+
+    .ordersummary {
+        display: none;
+    }
 }
+
+
+@media only screen and (max-width: 576px) {
+    .col-6-5 {
+        width: 54.166%;
+        flex: 0 0 54.166%;
+        max-width: 54.166%;
+    }
+    .col-2-5 {
+        width: 20.833%;
+        flex: 0 0 20.833%;
+        max-width: 20.833%;
+    }
+    .ordersummary {
+        display: none;
+    }
+}
+
+
 
 .search-category-list {
     list-style-type: none;
@@ -142,3 +181,4 @@
     aspect-ratio: 1;
     object-fit: cover;
 }
+
