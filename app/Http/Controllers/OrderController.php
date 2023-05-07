@@ -25,8 +25,7 @@ class OrderController extends Controller
         } elseif ($step == 2) {
             session()->put('shiptype', $request->input('shiptype'));
         } elseif ($step == 3) {
-
-
+            return redirect()->route('createorder', [$request]);
         }
 
         return redirect()->route('checkout', ['step' => $step+1]);
@@ -53,6 +52,10 @@ class OrderController extends Controller
     public function createorder(Request $request) {
 
         $user = User::all()->where('email', session('loginId'))->where('statu', 1)->first();
+        if ($user != null)
+        $userid = $user->id;
+        else
+            $userid = '99999';
 
         $carttotal = 0;
 
@@ -64,16 +67,16 @@ class OrderController extends Controller
 
         $neworderid = DB::table('orders')->insertGetId([
             'order_number' => self::generateon(),
-            'user_id' => $user->id,
+            'user_id' => $userid,
             'order_amount' => $total,
             'order_tax' => 0,
-            'order_ship_name' => $request->input('name'),
-            'order_ship_surname' => $request->input('surname'),
-            'order_ship_email' => $request->input('email'),
-            'order_ship_phone' => $request->input('phone'),
-            'order_ship_city' => $request->input('city'),
-            'order_ship_district' => $request->input('district'),
-            'order_ship_address' => $request->input('address'),
+            'order_ship_name' => session('addressname'),
+            'order_ship_surname' => session('addresssurname'),
+            'order_ship_email' => session('addressemail'),
+            'order_ship_phone' => session('addressphone'),
+            'order_ship_city' => session('addresscity'),
+            'order_ship_district' => session('addressdistrict'),
+            'order_ship_address' => session('address'),
             'order_ship_type' => $request->input('1'),
             'order_ship_tracking_number' => $request->input('order_ship_tracking_number'),
             'order_ship_price' => $request->input('order_ship_price'),

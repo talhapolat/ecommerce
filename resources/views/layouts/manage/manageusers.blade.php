@@ -200,6 +200,8 @@
     };
 </script>
 
+<script src="{{asset('storage/template/manage/vendor/simple-datatables/umd/simple-datatables.js')}}"></script>
+
 @include('layouts.manage.managepartials.managefooter')
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>

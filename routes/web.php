@@ -46,7 +46,7 @@ Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->nam
 
 Route::post('checkoutcontrol/{step}', 'App\Http\Controllers\OrderController@checkoutcontrol')->name('checkoutcontrol');
 Route::get('checkout', 'App\Http\Controllers\OrderController@checkout')->name('checkout');
-Route::post('createorder', 'App\Http\Controllers\OrderController@createorder')->name('createorder');
+Route::get('createorder', 'App\Http\Controllers\OrderController@createorder')->name('createorder');
 
 
 
@@ -83,4 +83,7 @@ Route::post('manage/options/delete', 'App\Http\Controllers\Manage\ManageVariatio
 
 Route::get('manage/users', 'App\Http\Controllers\Manage\ManageUserController@index')->name('manageusers');
 Route::get('manage/users/{id}', 'App\Http\Controllers\Manage\ManageUserController@edituser')->name('manageusersedit');
+
+Route::get('manage/orders', 'App\Http\Controllers\Manage\ManageOrderController@orders')->name('manageorders');
+Route::get('manage/orders/{id}', 'App\Http\Controllers\Manage\ManageOrderController@editorder')->name('manageordersedit');
 

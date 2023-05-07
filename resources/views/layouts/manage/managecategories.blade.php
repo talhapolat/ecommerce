@@ -239,6 +239,7 @@
 
     }
 </script>
+<script src="{{asset('storage/template/manage/vendor/simple-datatables/umd/simple-datatables.js')}}"></script>
 
 @include('layouts.manage.managepartials.managefooter')
 

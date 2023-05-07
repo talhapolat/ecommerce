@@ -5,12 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
+      <change afterPath="$PROJECT_DIR$/app/Http/Controllers/Manage/ManageOrderController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageorders.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageordersedit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ahlatap.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ahlatap.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/css/custom.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/storage/template/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/checkout.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/storage/template/manage/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/storage/template/manage/css/custom.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managecategories.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managefooter.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/managepartials/managehead.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageproducts.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/manage/manageusers.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -267,7 +273,10 @@
       <workItem from="1682062004529" duration="18275000" />
       <workItem from="1682146872446" duration="30698000" />
       <workItem from="1682245315362" duration="1746000" />
-      <workItem from="1682355621185" duration="6658000" />
+      <workItem from="1682355621185" duration="6746000" />
+      <workItem from="1682712748115" duration="649000" />
+      <workItem from="1682891237648" duration="24347000" />
+      <workItem from="1682967423211" duration="6089000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -472,7 +481,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682180618084</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Yönetim sistemi güncellendi.">
+      <created>1682376211766</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1682376211766</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

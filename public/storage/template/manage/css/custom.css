@@ -40,3 +40,9 @@
 .dropzone .dz-preview .dz-remove{
     text-decoration: none!important;
 }
+
+@media only screen and (max-width: 576px) {
+    .orderdetailcontent {
+        width: 100%!important;
+    }
+}

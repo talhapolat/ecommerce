@@ -13,8 +13,7 @@
 <script src="{{asset('storage/template/manage/js/demo.bbd40f0c.js')}}"> </script>
 <script src="{{asset('storage/template/manage/js/charts-home.36b080a8.js')}}"></script>
 
-<script src="{{asset('storage/template/manage/vendor/simple-datatables/umd/simple-datatables.js')}}"></script>
-<script src="{{asset('storage/template/manage/js/tables-datatable.5bf1d2c4.js')}}"></script>
+{{--<script src="{{asset('storage/template/manage/js/tables-datatable.5bf1d2c4.js')}}"></script>--}}
 {{--<script src="https://cdn.datatables.net/v/dt/dt-1.13.4/af-2.5.3/datatables.min.js"></script>--}}
 
 <!-- Bootstrap No UI Slider-->
