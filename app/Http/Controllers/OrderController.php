@@ -77,10 +77,12 @@ class OrderController extends Controller
             'order_ship_city' => session('addresscity'),
             'order_ship_district' => session('addressdistrict'),
             'order_ship_address' => session('address'),
+            'order_billing_address' => session('address'),
             'order_ship_type' => $request->input('1'),
             'order_ship_tracking_number' => $request->input('order_ship_tracking_number'),
             'order_ship_price' => $request->input('order_ship_price'),
-            'order_statu' => 0
+            'order_statu' => 0,
+            'payment_statu' => 0
         ]);
 
         $neworder = DB::table('orders')->where('id', $neworderid)->first();

@@ -145,17 +145,17 @@
                                         <h5>Sipariş Özeti</h5>
                                         <div class="pt-2">
                                             {{date_format($order->created_at, "d/m/Y, H:i")}}
-                                            <hr>
+                                            <hr style="border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
                                                 <p class="float-start">Ara Toplam</p>
                                                 <p class="float-right">₺ {{$order->order_amount - $order->order_tax}}</p>
                                             </div>
-                                            <hr style="margin-top: 0">
+                                            <hr style="margin-top: 0;border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
                                                 <p class="float-start">Vergiler</p>
                                                 <p class="float-right">₺ @if($order->order_tax == null) 0.00 @else {{$order->order_tax}} @endif</p>
                                             </div>
-                                            <hr style="margin-top: 0">
+                                            <hr style="margin-top: 0;border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
                                                 <p class="float-start">Toplam</p>
                                                 <p class="float-right">₺ {{$order->order_amount}}</p>
