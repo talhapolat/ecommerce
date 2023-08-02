@@ -174,6 +174,8 @@ class ManageProductController extends Controller
         $product_options = ProductOption::where('product_id', $id)->get('suboption1')->pluck('suboption1')->toArray();
         $product_options2 = ProductOption::where('product_id', $id)->get('suboption2')->pluck('suboption2')->toArray();
 
+        $product_options_uniq = array_unique($product_options);
+
         $options = Option::all();
         $suboptions = Suboption::where('statu', 1)->get();
         $psuboptions = Suboption::whereIn('id', $product_options)->orwhereIn('id', $product_options2)->get('id')->pluck('id')->toArray();
@@ -190,11 +192,11 @@ class ManageProductController extends Controller
 
         $brands = Brands::all();
 
-        //return $ptagsid;
+        //return $images;
 
 
 
-        return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid'));
+        return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid', 'product_options_uniq'));
 
     }
 
