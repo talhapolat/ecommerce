@@ -158,15 +158,22 @@
                                                     @php($isopt = false)
                                                     @foreach($images as $ky => $opti)
                                                         @if($images[$ky]['img_name'] == $row['img_name'] and $pou == $images[$ky]['option_id'])
-                                                            <a style="cursor: pointer;position: relative;  text-decoration: none; color: #0b0b0b; font-size: 12px">
-                                                                    <?php echo $pou ?>
+                                                            <a class="badge badge-info" style="background-color: #677cdb;cursor: pointer;position: relative; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
+                                                            onclick="deleteOptionImage(<?= $pou ?>)">
+                                                                    <?php
+                                                                    $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
+                                                                    ?>
+                                                                    <?php echo $optionTitle ?>
                                                             </a>
                                                         @php($isopt = true)
                                                         @endif
                                                     @endforeach
                                                         @if($isopt != true)
-                                                            <a style="cursor: pointer;position: relative;  text-decoration: line-through; color: #0b0b0b; font-size: 12px">
-                                                                    <?php echo $pou ?>
+                                                            <a class="badge badge-info" style="background-color: #677cdb;opacity: 0.4;border:none; cursor: pointer;position: relative;  text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter">
+                                                                    <?php
+                                                                    $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
+                                                                    ?>
+                                                                    <?php echo $optionTitle ?>
                                                             </a>
                                                         @endif
                                                 @endforeach
@@ -666,6 +673,13 @@
     });
 </script>
 
+<script>
+    function deleteOptionImage($id) {
+
+        alert("yess");
+
+    }
+</script>
 
 <script>
     // ------------------------------------------------------- //

@@ -407,4 +407,11 @@ class ManageProductController extends Controller
         }
     }
 
+    public static function getOptionTitle($option){
+
+        $option = Suboption::all()->where('id', $option)->first();
+
+        return $option->title;
+    }
+
 }
