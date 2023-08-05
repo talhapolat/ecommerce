@@ -158,8 +158,8 @@
                                                     @php($isopt = false)
                                                     @foreach($images as $ky => $opti)
                                                         @if($images[$ky]['img_name'] == $row['img_name'] and $pou == $images[$ky]['option_id'])
-                                                            <a class="badge badge-info" style="background-color: #677cdb;cursor: pointer;position: relative; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
-                                                            onclick="deleteOptionImage(<?= $pou ?>)">
+                                                            <a class="badge badge-info optionimagebutton" style="background-color: #677cdb;cursor: pointer;position: relative; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
+                                                            onclick="deleteOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
                                                                     <?php
                                                                     $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
                                                                     ?>
@@ -169,7 +169,8 @@
                                                         @endif
                                                     @endforeach
                                                         @if($isopt != true)
-                                                            <a class="badge badge-info" style="background-color: #677cdb;opacity: 0.4;border:none; cursor: pointer;position: relative;  text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter">
+                                                            <a class="badge badge-info optionimagebuttoninsert" style="background-color: #677cdb;opacity: 0.4;border:none; cursor: pointer;position: relative;  text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
+                                                               onclick="insertOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
                                                                     <?php
                                                                     $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
                                                                     ?>
@@ -674,9 +675,78 @@
 </script>
 
 <script>
-    function deleteOptionImage($id) {
+    $(window).load(function(){
+        $(function() {
+            $(".optionimagebutton").click(function(){
+                $(this).css("opacity", "0.4");
+            });
+            $(".optionimagebuttoninsert").click(function(){
+                $(this).css("opacity", "1");
+            });
+        });
+    });
+</script>
 
-        alert("yess");
+<script>
+    function deleteOptionImage($product, $option, $media) {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/products/deleteoptionimage",
+            method: 'POST',
+            data: {
+                product_id: $product,
+                option_id: $option,
+                media_id: $media,
+            },
+
+            success: function (response) {
+                toastr.success('Güncellendi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+            },
+            error: function (response) {
+                toastr.error('Resimler yüklenirken hata.');
+            }
+        });
+
+    }
+
+    function insertOptionImage($product, $option, $media) {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/products/insertOptionImage",
+            method: 'POST',
+            data: {
+                product_id: $product,
+                option_id: $option,
+                media_id: $media,
+            },
+
+            success: function (response) {
+                toastr.success('Güncellendi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+            },
+            error: function (response) {
+                toastr.error('Resimler yüklenirken hata.');
+            }
+        });
 
     }
 </script>

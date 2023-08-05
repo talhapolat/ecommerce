@@ -192,7 +192,7 @@ class ManageProductController extends Controller
 
         $brands = Brands::all();
 
-        //return $images;
+        //return $psuboptions;
 
 
 
@@ -257,6 +257,8 @@ class ManageProductController extends Controller
 
         $product_categories = $request->input('product_category');
 
+        DB::table('product_categories')->where('product_id', $product->id)->whereNotIn('category_id', $product_categories)->delete();
+
         if ($product_categories != null){
             foreach ($product_categories as $product_category){
                 DB::table('product_categories')->updateOrInsert([
@@ -268,6 +270,8 @@ class ManageProductController extends Controller
 
 
         $product_tags = $request->input('product_tag');
+
+        DB::table('product_tags')->where('product', $product->id)->whereNotIn('tag', $product_tags)->delete();
 
         if ($product_tags != null){
             foreach ($product_tags as $product_tag){
@@ -287,8 +291,6 @@ class ManageProductController extends Controller
             $optionscnt = count($options);
             $cnt = 0;
 
-            DB::table('product_options')->where('product_id', $product->id)->delete();
-
             while ($cnt < $optionscnt) {
                 $suboptionarray[$cnt] = Suboption::whereIn('id', $var)->where('option_id', $options[$cnt])->get();
                 $cnt++;
@@ -297,27 +299,29 @@ class ManageProductController extends Controller
             $cnt = 0;
             if ($optionscnt == 0)
                 info('No option');
-            elseif ($optionscnt == 1)
+            elseif ($optionscnt == 1){
+                DB::table('product_options')->where('product_id', $product->id)->where('suboption2', '!=', null)->delete();
+                DB::table('product_options')->where('product_id', $product->id)->whereNotIn('suboption1', $request->variations)->delete();
                 while ($cnt < count($suboptionarray[0])) {
-                    $optid = DB::table('product_options')->updateOrInsert([
-                        'product_id' => $product->id,
-                        'suboption1' => $suboptionarray[0][$cnt]['id']
-                    ], [
-                        'no' => $cnt
-                    ]);
-                    $cnt++;
+                        DB::table('product_options')->updateOrInsert(
+                            ['product_id' => $product->id, 'suboption1' => $suboptionarray[0][$cnt]['id']],
+                            ['no' => $cnt]
+                        );
+                        $cnt++;
                 }
+            }
             elseif ($optionscnt == 2) {
+                DB::table('product_options')->where('product_id', $product->id)->where('suboption2', null)->delete();
+                DB::table('product_options')->where('product_id', $product->id)->whereNotIn('suboption1', $request->variations)->delete();
+                DB::table('product_options')->where('product_id', $product->id)->whereNotIn('suboption2', $request->variations)->delete();
                 while ($cnt < count($suboptionarray[0])) {
                     $cntt = 0;
                     while ($cntt < count($suboptionarray[1])) {
-                        $optid = DB::table('product_options')->updateOrInsert([
-                            'product_id' => $product->id,
-                            'suboption1' => $suboptionarray[0][$cnt]['id'],
-                            'suboption2' => $suboptionarray[1][$cntt]['id']
-                        ], [
-                            'no' => $cntt
-                        ]);
+                        DB::table('product_options')
+                            ->updateOrInsert(
+                                ['product_id' => $product->id, 'suboption1' => $suboptionarray[0][$cnt]['id'], 'suboption2' => $suboptionarray[1][$cntt]['id']],
+                                ['no' => $cntt]
+                            );
                         $cntt++;
                     }
                     $cnt++;
@@ -332,17 +336,20 @@ class ManageProductController extends Controller
         $productmedias = ProductMedia::where('product_id', $product->id)->get('media_id')->toArray();
         $productimages = Images::whereIn('id', $productmedias)->get('id')->toArray();
 
-        DB::table('product_media')->where('product_id', $product->id)->delete();
+        //DB::table('product_media')->where('product_id', $product->id)->delete();
 
         if ($productmainoptions != null) {
             foreach ($productmainoptions as $productmainoption) {
                 foreach ($productimages as $productimage) {
-                    DB::table('product_media')->updateOrInsert([
-                        'product_id' => $product->id,
-                        'option_id' => $productmainoption["suboption1"],
-                        'media_id' => $productimage["id"],
-                        'no' => 1
-                    ]);
+                    if (!in_array($productmainoption["suboption1"], $psuboptions)) {
+                        DB::table('product_media')->updateOrInsert([
+                            'product_id' => $product->id,
+                            'option_id' => $productmainoption["suboption1"],
+                            'media_id' => $productimage["id"]
+                        ],
+                            ['no' => 1]
+                        );
+                    }
                 }
             }
         } else {
@@ -412,6 +419,27 @@ class ManageProductController extends Controller
         $option = Suboption::all()->where('id', $option)->first();
 
         return $option->title;
+    }
+
+    public static function deleteOptionImage(Request $request){
+        $img = ProductMedia::all()->where('product_id', $request->product_id)->where('option_id', $request->option_id)->where('media_id', $request->media_id)->first();
+
+        if ($img != null)
+        $img->delete();
+
+        return "ok";
+    }
+
+    public static function insertOptionImage(Request $request){
+        $img = ProductMedia::all()->where('product_id', $request->product_id)->where('media_id', $request->media_id)->first();
+
+        DB::table('product_media')->updateOrInsert([
+            'product_id' => $request->product_id,
+            'option_id' => $request->option_id,
+            'media_id' => $request->media_id
+        ], ['no' => $img->no, 'created_at' => now()]);
+
+        return "ok";
     }
 
 }

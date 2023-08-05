@@ -135,8 +135,12 @@ require_once app_path('func.php');
             <div class="col-md-6 col-lg-5 p-b-30">
                 <div class="p-r-50 p-t-5 p-lr-0-lg">
                     <h4 id="modelptitle" class="mtext-105 cl2 js-name-detail p-b-14">{{ $product->title }}</h4>
-
-                    <span id="modelpprice" class="mtext-106 cl2">{{ $product->price }}</span><span class="mtext-106 cl2">₺</span>
+                    @if($product->sale_price != null)
+                        <span class="mtext-105 cl2" style="text-decoration: line-through; color: #999999; font-size: 16px">{{ $product->price }}₺</span>
+                        <span id="modelpprice" class="mtext-106 cl2">{{ $product->sale_price }}</span><span class="mtext-106 cl2">₺</span>
+                    @else
+                        <span id="modelpprice" class="mtext-106 cl2">{{ $product->price }}</span><span class="mtext-106 cl2">₺</span>
+                    @endif
 
                     <p id="modelpdesc" class="stext-102 cl3 p-t-23">{{ $product->shortDesc }}</p>
 

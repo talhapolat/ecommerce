@@ -62,6 +62,8 @@ Route::post('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProd
 Route::post('manage/products/delete/{id}', 'App\Http\Controllers\Manage\ManageProductController@deleteproduct')->name('manageproductsdelete');
 Route::post('manage/product/getimage', 'App\Http\Controllers\Manage\ManageProductController@getimage')->name('productgetimage');
 Route::post('manage/image/delete', 'App\Http\Controllers\Manage\ManageProductController@deleteimage')->name('manageimagesdelete');
+Route::post('manage/products/deleteoptionimage', 'App\Http\Controllers\Manage\ManageProductController@deleteOptionImage')->name('manageoptionimagedelete');
+Route::post('manage/products/insertOptionImage', 'App\Http\Controllers\Manage\ManageProductController@insertOptionImage')->name('manageoptionimageinsert');
 
 Route::get('manage/categories', 'App\Http\Controllers\Manage\ManageCategoryController@index')->name('managecategories');
 Route::get('manage/categories/new', 'App\Http\Controllers\Manage\ManageCategoryController@newcategory')->name('managecategoriesnew');

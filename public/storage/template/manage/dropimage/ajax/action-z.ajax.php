@@ -64,13 +64,17 @@ if (!empty($_FILES['files'])) {
             $getOptions->execute([$product['id']]);
             $options = $getOptions->fetchAll();
 
+            $getImgOrder = $pdo->prepare("SELECT MAX(no) AS max_no FROM product_media WHERE product_id=?");
+            $getImgOrder->execute([$product['id']]);
+            $getOrder = $getImgOrder->fetch();
+
             if ($options != null) {
                 foreach ($options as $option) {
                     $dataa = array(
                         'product_id' => $product['id'],
                         'option_id' => $option['suboption1'],
                         'media_id' => $media['id'],
-                        'no' => $media['img_order']
+                        'no' => $media['img_order']+$getOrder['max_no']
                     );
                     $db->insert('product_media', $dataa);
                 }
@@ -78,7 +82,7 @@ if (!empty($_FILES['files'])) {
                 $dataa = array(
                     'product_id' => $product['id'],
                     'media_id' => $media['id'],
-                    'no' => $media['img_order']
+                    'no' => $media['img_order']+$getOrder['max_no']
                 );
                 $db->insert('product_media', $dataa);
             }
