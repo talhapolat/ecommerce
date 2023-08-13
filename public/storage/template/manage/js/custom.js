@@ -5,8 +5,8 @@ $(document).ready(function () {
 
         var product_title = document.getElementById('product-title').value;
         var product_type = document.getElementById('product-type').value;
-        var product_price = document.getElementById('product-price').value;
-        var product_sale_price = document.getElementById('product-sale-price').value;
+        var product_price = parseFloat(document.getElementById('product-price').value);
+        var product_sale_price = parseFloat(document.getElementById('product-sale-price').value);
 
         var variations = document.getElementById('product-variation').selectedOptions;
         var product_variation = Array.from(variations).map(({ value }) => value);
@@ -24,6 +24,19 @@ $(document).ready(function () {
         var product_keyword = document.getElementById('product-keyword').value;
         // var texteditor = document.getElementById('editor').text();
 
+        if (product_title === ''){
+            toastr.error('Ürün başlığı giriniz.');
+            return 'false';
+        } else if(product_price === ''){
+            toastr.error('Fiyat giriniz.');
+            return 'false';
+        } else if(product_slug === ''){
+            toastr.error('Slug giriniz.');
+            return 'false';
+        } else if(product_sale_price >= product_price){
+            toastr.error('İndirimli fiyat asıl fiyattan küçük olmalıdır.');
+            return 'false';
+        }
 
         $.ajaxSetup({
             headers: {
@@ -33,7 +46,7 @@ $(document).ready(function () {
 
         $.ajax({
             url: "/manage/products/create",
-            method: 'POST',
+            method: 'GET',
             data: {
                 product_title: product_title,
                 product_type : product_type,
@@ -51,6 +64,10 @@ $(document).ready(function () {
             success:function(response)
             {
                 // $(form).trigger("reset");
+
+                if (response === 'slugerror'){
+                    toastr.error('Bu slug başka üründe kullanılmış. Benzersiz olmalıdır.', product_slug);
+                }else{
                 toastr.success('Ürün oluşturuldu.', product_title, {
                     timeOut: 1000,
                     preventDuplicates: true,
@@ -61,6 +78,7 @@ $(document).ready(function () {
                     }
                 });
                 document.getElementById('add_file').click();
+            }
             },
             error: function(response) {
                 toastr.error('Ürün oluşturulurken hata.', product_title);
@@ -77,8 +95,9 @@ $(document).ready(function () {
 
         var product_title = document.getElementById('product-title').value;
         var product_type = document.getElementById('product-type').value;
-        var product_price = document.getElementById('product-price').value;
-        var product_sale_price = document.getElementById('product-sale-price').value;
+        var product_price = parseFloat(document.getElementById('product-price').value);
+        var product_sale_price = parseFloat(document.getElementById('product-sale-price').value);
+        var product_stock = document.getElementById('product_stock').value;
 
         var variations = document.getElementById('product-variation').selectedOptions;
         var product_variation = Array.from(variations).map(({ value }) => value);
@@ -109,13 +128,14 @@ $(document).ready(function () {
         });
 
         $.ajax({
-            url: "/manage/products/edit/"+product_id,
+            url: "/manage/products/edit/save/"+product_id,
             method: 'POST',
             data: {
                 product_title: product_title,
                 product_type : product_type,
                 product_price : product_price,
                 product_sale_price : product_sale_price,
+                product_stock : product_stock,
                 variations : product_variation,
                 editor : editor,
                 product_category : product_category,
@@ -134,6 +154,10 @@ $(document).ready(function () {
                     timeOut: 1000,
                     closeButton: true
                 })
+                if (response === true) {
+                    window.location.href = '/manage/products/edit/'+product_id;
+                }
+
             },
             error: function(response) {
                 alert("eroorrrr");
@@ -477,6 +501,52 @@ $(document).ready(function () {
         });
 
     });
+
+
+    $('#product_stock_update').on('click', function (e) {
+
+        const prodstock = [];
+        var ind = 0;
+        while (ind<=100) {
+            if (document.getElementById('prodoptionsqty['+ind+']') != null){
+                prodstock[ind] = document.getElementById('prodoptionsqty['+ind+']').value;
+                ind = ind+2;
+            } else
+                break;
+        }
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/product/stock/update",
+            method: 'POST',
+            data: {
+                prodoptionsqty: prodstock,
+                product_id: document.getElementById('product_stock_update').value
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Stok güncellendi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                // window.location.href = '/manage/settings'
+            },
+            error: function(response) {
+                toastr.error('Stok güncelllenirken hata.');
+            }
+        });
+
+    });
+
+
 
 
 

@@ -77,18 +77,31 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-6">
+                                <div class="col-5">
                                     <div class="mb-3">
                                         <label class="form-label" for="product-price">Satış Fiyatı (₺)</label>
                                         <input class="form-control" value="{{$product->price}}" id="product-price"
                                                type="number" placeholder="">
                                     </div>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-5">
                                     <div class="mb-3">
                                         <label class="form-label" for="product-sale-price">İndirimli Fiyat (₺)</label>
                                         <input class="form-control" value="{{$product->sale_price}}"
                                                id="product-sale-price" type="number">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="mb-3">
+                                        @if(sizeof($psuboptions) == 0)
+                                            <label class="form-label" for="product_stock">Stok</label>
+                                            <input class="form-control" value="{{$product->stock}}"
+                                                   id="product_stock" type="number">
+                                        @else
+                                            <label class="form-label" for="product_stock">Stok <a href="{{route('editproductsstock', $product->id)}}" style="font-size: 12px; color: darkblue">(düzenle)</a></label>
+                                            <input class="form-control" value="{{$stock}}"
+                                                   id="product_stock" type="number" disabled>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +143,7 @@
                                     <div class="gallery">
                                         <ul class="nav nav-pills" id="navpills">
                                             <?php
-                                                $optilist = [];
+                                            $optilist = [];
                                             //Fetch all images from database
 //                                            $images = $db->getAllRecords(TB_IMG,'*','order by img_order ASC');
                                             if (!empty($images)){
@@ -158,25 +171,27 @@
                                                     @php($isopt = false)
                                                     @foreach($images as $ky => $opti)
                                                         @if($images[$ky]['img_name'] == $row['img_name'] and $pou == $images[$ky]['option_id'])
-                                                            <a class="badge badge-info optionimagebutton" style="background-color: #677cdb;cursor: pointer;position: relative; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
-                                                            onclick="deleteOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
+                                                            <a class="badge badge-info optionimagebutton"
+                                                               style="background-color: #677cdb;cursor: pointer;position: relative; text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
+                                                               onclick="updateOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
                                                                     <?php
                                                                     $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
                                                                     ?>
                                                                     <?php echo $optionTitle ?>
                                                             </a>
-                                                        @php($isopt = true)
+                                                            @php($isopt = true)
                                                         @endif
                                                     @endforeach
-                                                        @if($isopt != true)
-                                                            <a class="badge badge-info optionimagebuttoninsert" style="background-color: #677cdb;opacity: 0.4;border:none; cursor: pointer;position: relative;  text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
-                                                               onclick="insertOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
-                                                                    <?php
-                                                                    $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
-                                                                    ?>
-                                                                    <?php echo $optionTitle ?>
-                                                            </a>
-                                                        @endif
+                                                    @if($isopt != true)
+                                                        <a class="badge badge-info optionimagebutton"
+                                                           style="background-color: #677cdb;opacity: 0.4;border:none; cursor: pointer;position: relative;  text-decoration: none; color: #ffffff; font-size: 14px; font-weight: lighter"
+                                                           onclick="updateOptionImage(<?= $product->id?>,<?= $pou?>,<?= $row->id?>)">
+                                                                <?php
+                                                                $optionTitle = App\Http\Controllers\Manage\ManageProductController::getOptionTitle($pou);
+                                                                ?>
+                                                                <?php echo $optionTitle ?>
+                                                        </a>
+                                                    @endif
                                                 @endforeach
 
                                             </li>
@@ -360,18 +375,23 @@
                         <div class="card-body">
                             {{--                            <h5>Açıklama</h5>--}}
                             <div class="row gx-5 bg-white pt-2">
-                                <div class="container-fluid text-right">
-
-                                    <button type="button" id="new-product-delete" value="{{$product->id}}"
-                                            class="btn btn-outline-danger">Sil
-                                    </button>
-                                    <button type="button" id="new-product-draft" class="btn btn-outline-info">Taslak
-                                        Olarak Kaydet
+                                <div class="container-fluid">
+                                    <button type="button" id="new-product-draft" class="btn btn-info"
+                                            onclick="window.location.href='/manage/products/stock/edit/{{$product->id}}';">
+                                        Stok
+                                        Ayarları
                                     </button>
                                     <button type="button" id="new-product-edit-save" value="{{$product->id}}"
-                                            class="btn btn-custom">Kaydet
+                                            class="btn btn-custom" style="float: right">Kaydet
                                     </button>
-
+                                    <button type="button" id="new-product-draft" class="btn btn-outline-info mr-1"
+                                            style="float: right">Taslak
+                                        Olarak Kaydet
+                                    </button>
+                                    <button type="button" id="new-product-delete" style="float: right"
+                                            value="{{$product->id}}"
+                                            class="btn btn-outline-danger mr-1">Sil
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -675,13 +695,13 @@
 </script>
 
 <script>
-    $(window).load(function(){
-        $(function() {
-            $(".optionimagebutton").click(function(){
-                $(this).css("opacity", "0.4");
-            });
-            $(".optionimagebuttoninsert").click(function(){
-                $(this).css("opacity", "1");
+    $(window).load(function () {
+        $(function () {
+            $(".optionimagebutton").click(function () {
+                if ($(this).css("opacity") === "1")
+                    $(this).css("opacity", "0.4");
+                else
+                    $(this).css("opacity", "1");
             });
         });
     });
@@ -734,6 +754,37 @@
                 product_id: $product,
                 option_id: $option,
                 media_id: $media,
+            },
+
+            success: function (response) {
+                toastr.success('Güncellendi.', {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+            },
+            error: function (response) {
+                toastr.error('Resimler yüklenirken hata.');
+            }
+        });
+
+    }
+
+    function updateOptionImage($product, $option, $media) {
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/products/updateOptionImage",
+            method: 'POST',
+            data: {
+                product_id: $product,
+                option_id: $option,
+                media_id: $media
             },
 
             success: function (response) {

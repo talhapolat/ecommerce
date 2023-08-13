@@ -58,6 +58,11 @@ class ManageProductController extends Controller
 //            'password' => 'required'
 //        ]);
 
+        $slugcontrol = Product::all()->where('slug', $request->input('product_slug'))->count();
+
+        if ($slugcontrol > 0){
+            return response()->json('slugerror');
+        }
 
         $newid = DB::table('products')->insertGetId([
             'title' => $request->input('product_title'),
@@ -140,8 +145,6 @@ class ManageProductController extends Controller
                 info('3 option');
         }
 
-
-
         return response()->json($newid);
 
     }
@@ -192,11 +195,13 @@ class ManageProductController extends Controller
 
         $brands = Brands::all();
 
+        $stock = ProductOption::all()->where('product_id', $product->id)->sum('qty');
+
         //return $psuboptions;
 
 
 
-        return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid', 'product_options_uniq'));
+        return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid', 'product_options_uniq', 'stock'));
 
     }
 
@@ -207,6 +212,10 @@ class ManageProductController extends Controller
         if ($product == null){
             return response()->json("Ürün bulunamadı");
         }
+
+        $firstproductoptioncount = ProductOption::all()->where('product_id', $product->id)->count();
+        if ($firstproductoptioncount > 0)
+        $firstproductoptionlastid = ProductOption::all()->where('product_id', $product->id)->last()->id;
 
         $product_media = ProductMedia::where('product_id', $id)->get('media_id');
 
@@ -247,6 +256,7 @@ class ManageProductController extends Controller
             'image' => $firstimg,
             'price' => $request->input('product_price'),
             'sale_price' => $request->input('product_sale_price'),
+            'stock' => $request->input('product_stock'),
             'longDesc' => $request->input('editor'),
             'slug' => $request->input('product_slug'),
             'brand_id' => $request->input('product_brand'),
@@ -257,29 +267,31 @@ class ManageProductController extends Controller
 
         $product_categories = $request->input('product_category');
 
-        DB::table('product_categories')->where('product_id', $product->id)->whereNotIn('category_id', $product_categories)->delete();
-
         if ($product_categories != null){
+            DB::table('product_categories')->where('product_id', $product->id)->whereNotIn('category_id', $product_categories)->delete();
             foreach ($product_categories as $product_category){
                 DB::table('product_categories')->updateOrInsert([
                     'product_id' => $product->id,
                     'category_id' => $product_category,
                 ]);
             }
+        } else {
+            DB::table('product_categories')->where('product_id', $product->id)->delete();
         }
 
 
         $product_tags = $request->input('product_tag');
 
-        DB::table('product_tags')->where('product', $product->id)->whereNotIn('tag', $product_tags)->delete();
-
         if ($product_tags != null){
+            DB::table('product_tags')->where('product', $product->id)->whereNotIn('tag', $product_tags)->delete();
             foreach ($product_tags as $product_tag){
                 DB::table('product_tags')->updateOrInsert([
                     'product' => $product->id,
                     'tag' => $product_tag,
                 ]);
             }
+        } else {
+            DB::table('product_tags')->where('product', $product->id)->delete();
         }
 
 
@@ -372,11 +384,35 @@ class ManageProductController extends Controller
             }
         }
 
+        $lastproductoptioncount = ProductOption::all()->where('product_id', $product->id)->count();
+        if ($lastproductoptioncount > 0)
+        $lastproductoptionlastid = ProductOption::all()->where('product_id', $product->id)->last()->id;
+
+        if ($firstproductoptioncount == $lastproductoptioncount){
+            if ($firstproductoptioncount != 0){
+                if ($firstproductoptionlastid == $lastproductoptionlastid){
+                    $refresh = false;
+                } else {
+                    $refresh  = true;
+                }
+            } else {
+                $refresh = false;
+            }
+        } else {
+            $refresh  = true;
+        }
+
+        if ($refresh == true){
+            $stock = ProductOption::all()->where('product_id', $product->id)->sum('qty');
+            $product->stock = $stock;
+            $product->save();
+        }
+
         //return $ptagsid;
 
         //return view('layouts.manage.manageproductsedit', compact('brands', 'product', 'images', 'options', 'suboptions', 'psuboptions', 'categories', 'pcategoriesid', 'pcategoriesidd', 'subcategories', 'tags', 'ptagsid'));
 
-        return response()->json('ok');
+        return response()->json($refresh);
 
     }
 
@@ -421,13 +457,22 @@ class ManageProductController extends Controller
         return $option->title;
     }
 
-    public static function deleteOptionImage(Request $request){
-        $img = ProductMedia::all()->where('product_id', $request->product_id)->where('option_id', $request->option_id)->where('media_id', $request->media_id)->first();
+    public static function updateOptionImage(Request $request){
 
-        if ($img != null)
-        $img->delete();
+            $img = ProductMedia::all()->where('product_id', $request->product_id)->where('option_id', $request->option_id)->where('media_id', $request->media_id)->first();
 
-        return "ok";
+            if ($img != null)
+                $img->delete();
+            else{
+                $img = ProductMedia::all()->where('product_id', $request->product_id)->where('media_id', $request->media_id)->first();
+
+                DB::table('product_media')->updateOrInsert([
+                    'product_id' => $request->product_id,
+                    'option_id' => $request->option_id,
+                    'media_id' => $request->media_id
+                ], ['no' => $img->no, 'created_at' => now()]);
+            }
+            return "ok";
     }
 
     public static function insertOptionImage(Request $request){
@@ -440,6 +485,57 @@ class ManageProductController extends Controller
         ], ['no' => $img->no, 'created_at' => now()]);
 
         return "ok";
+    }
+
+    public function editproductsstock($id){
+
+        $product = Product::all()->where('id', $id)->first();
+        $prodoptions = ProductOption::all()->where('product_id', $id)->all();
+
+        $prodoptionsarray = [];
+        $prodoptionsqtyarray = [];
+        $count = 0;
+        foreach ($prodoptions as $prod){
+            $option1 = Suboption::all()->where('id', $prod->suboption1)->first();
+            $option2 = Suboption::all()->where('id', $prod->suboption2)->first();
+            $prodoptionsarray[$count] = $option1->title;
+            $prodoptionsarray[$count+1] = $option2->title;
+            $prodoptionsqtyarray[$count] = $prod->qty;
+            $count = $count+2;
+        }
+
+
+
+        return view('layouts.manage.manageproductsstockedit', compact('product','prodoptions', 'prodoptionsarray', 'prodoptionsqtyarray'));
+    }
+
+    public function updateproductstock(Request $request){
+
+//        $c = 0;
+//        foreach ($request->input('prodoptionsqty') as $prodoption){
+//
+//            DB::table('product_options')->where('product_id',$request->input('product'))->first()->update([
+//                'qty' => 555
+//            ]);
+//            $c = $c+2;
+//        }
+
+        $product = Product::all()->where('id', $request->get('product_id'))->first();
+
+        $c = 0;
+        $prodoptions = ProductOption::all()->where('product_id',$product->id);
+
+        foreach ($prodoptions as $prodoption){
+            $prodoption->qty = $request->input('prodoptionsqty')[$c];
+            $prodoption->save();
+            $c = $c+2;
+        }
+
+        $stock = ProductOption::all()->where('product_id', $product->id)->sum('qty');
+        $product->stock = $stock;
+        $product->save();
+
+        return response()->json('oki');
     }
 
 }

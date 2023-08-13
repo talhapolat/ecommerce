@@ -261,9 +261,16 @@
                                 {{$product->title}}
                             </a>
 
+                            @if($product->sale_price != null)
+                                <div class="left">
+                                <span style="text-decoration: line-through" class="stext-105 cl3">{{$product->price}}<span>₺</span></span>
+                                <span style="font-weight: bold" class="stext-105 cl3">{{$product->sale_price}}<span>₺</span></span>
+                                </div>
+                            @else
                             <span class="stext-105 cl3">
 								{{$product->price}}<span>₺</span>
 							</span>
+                            @endif
                         </div>
 
                         {{--FAVORİ SİMGESİ--}}

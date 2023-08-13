@@ -67,7 +67,20 @@
                                                 <td>{{$product->price}}₺</td>
                                                 <td>@if ($product->sale_price == null) - @else
                                                     {{$product->sale_price}}₺ @endif </td>
-                                                <td>50</td>
+                                                <td>
+                                                    @switch($product->stock)
+                                                        @case(0)
+                                                            <a href="{{route('editproductsstock', $product->id)}}" style="color: red">{{$product->stock}} Adet</a>
+                                                            @break
+                                                        @case($product->stock <= 9)
+                                                            <a href="{{route('editproductsstock', $product->id)}}" style="color: darkorange">{{$product->stock}} Adet</a>
+                                                            @break
+                                                        @case($product->stock > 10)
+                                                            <a href="{{route('editproductsstock', $product->id)}}" style="color: #1eaa7c">{{$product->stock}} Adet</a>
+                                                            @break
+                                                    @endswitch
+
+                                                </td>
                                                 <td style="align-items: center; ">
                                                     @if($product->statu == 1)
                                                        <div class="" style="background-color: #1eaa7c; width: 9px; height: 9px; border-radius: 50%; display: inline-block"></div>
@@ -80,7 +93,7 @@
                                                 <td style="text-align: right">
                                                     <span><a href="{{route('manageproductsedit', $product->id)}}" style="color: #0b0b0b">Düzenle</a></span>
                                                     <span style="margin-left: 10px"></span>
-                                                    <button type="button" onclick="deleteProduct({{$product->id}})" class="btn btn-custom" >Sil</button>
+                                                    <button type="button" onclick="deleteProduct({{$product->id}})" class="btn btn-danger" >Sil</button>
                                                 </td>
                                             </tr>
 
@@ -120,7 +133,7 @@
                 <div class="container-fluid">
                     <div class="row gy-2">
                         <div class="col-sm-6 text-sm-start">
-                            <p class="mb-0">Your company &copy; 2017-2022</p>
+                            <p class="mb-0">Ahlat &copy; 2017-2022</p>
                         </div>
                         <div class="col-sm-6 text-sm-end">
                             <p class="mb-0">Version 2.1.0</p>

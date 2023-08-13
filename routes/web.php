@@ -48,22 +48,26 @@ Route::post('checkoutcontrol/{step}', 'App\Http\Controllers\OrderController@chec
 Route::get('checkout', 'App\Http\Controllers\OrderController@checkout')->name('checkout');
 Route::get('createorder', 'App\Http\Controllers\OrderController@createorder')->name('createorder');
 
-
-
 Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
 Route::get('manage/settings', 'App\Http\Controllers\Manage\ManageHomeController@settings')->name('managesettings');
 Route::post('manage/settings/update', 'App\Http\Controllers\Manage\ManageHomeController@updatesettings')->name('managesettingsupdate');
 
 Route::get('manage/products', 'App\Http\Controllers\Manage\ManageProductController@index')->name('manageproducts');
 Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductController@newproduct')->name('manageproductsnew');
-Route::post('manage/products/create', 'App\Http\Controllers\Manage\ManageProductController@createproduct')->name('manageproductscreate');
+
+Route::get('manage/products/create', 'App\Http\Controllers\Manage\ManageProductController@createproduct')->name('manageproductscreate');
+
 Route::get('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@editproduct')->name('manageproductsedit');
-Route::post('manage/products/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@updateproduct')->name('manageproductsupdate');
+Route::post('manage/products/edit/save/{id}', 'App\Http\Controllers\Manage\ManageProductController@updateproduct')->name('manageproductsupdate');
+
 Route::post('manage/products/delete/{id}', 'App\Http\Controllers\Manage\ManageProductController@deleteproduct')->name('manageproductsdelete');
 Route::post('manage/product/getimage', 'App\Http\Controllers\Manage\ManageProductController@getimage')->name('productgetimage');
 Route::post('manage/image/delete', 'App\Http\Controllers\Manage\ManageProductController@deleteimage')->name('manageimagesdelete');
 Route::post('manage/products/deleteoptionimage', 'App\Http\Controllers\Manage\ManageProductController@deleteOptionImage')->name('manageoptionimagedelete');
 Route::post('manage/products/insertOptionImage', 'App\Http\Controllers\Manage\ManageProductController@insertOptionImage')->name('manageoptionimageinsert');
+Route::post('manage/products/updateOptionImage', 'App\Http\Controllers\Manage\ManageProductController@updateOptionImage')->name('manageoptionimageupdate');
+Route::get('manage/products/stock/edit/{id}', 'App\Http\Controllers\Manage\ManageProductController@editproductsstock')->name('editproductsstock');
+Route::post('manage/product/stock/update', 'App\Http\Controllers\Manage\ManageProductController@updateproductstock')->name('managestockupdate');
 
 Route::get('manage/categories', 'App\Http\Controllers\Manage\ManageCategoryController@index')->name('managecategories');
 Route::get('manage/categories/new', 'App\Http\Controllers\Manage\ManageCategoryController@newcategory')->name('managecategoriesnew');

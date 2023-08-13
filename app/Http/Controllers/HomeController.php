@@ -166,7 +166,10 @@ class HomeController extends Controller
         $prod = Product::where('id', $request->input('pid'))->first();
 
         $modelproduct[0] = $prod->title;
-        $modelproduct[1] = $prod->price;
+        if ($prod->sale_price != null)
+            $modelproduct[1] = $prod->sale_price;
+        else
+            $modelproduct[1] = $prod->price;
         $modelproduct[2] = $prod->shortDesc;
         $modelproduct[3] = $prod->image;
         $modelproduct[4] = $prod->id;

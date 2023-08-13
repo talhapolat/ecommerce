@@ -295,7 +295,7 @@
 
                 for (i = 0; i < array.length; i++) {
                     var section = document.createElement("option");
-                    section.innerHTML = '<option value="' + "option" + '">' + array[i]["title"] + '</option>';
+                    section.innerHTML = array[i]["title"];
                     area.appendChild(section);
                 }
 
@@ -720,6 +720,10 @@
 
                     $('.js-modal1').addClass('opacity100');
 
+
+                    $(".slick3").slick('slickUnfilter');
+                    var inputValue = $('#selectoption1').val();
+                    $(".slick3").slick('slickFilter','.'+inputValue);
 
                 }
             });

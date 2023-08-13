@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index($slug){
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
-        $categories = Category::where('statu',1)->get();
+        $categories = Category::where('main_category_id', null)->where('statu',1)->get();
         $product = Product::where('slug', $slug)->first();
         $productcategories = ProductCategory::where('product_id', $product->id)->first();
         if ($productcategories != null){

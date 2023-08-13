@@ -29,17 +29,12 @@
             <li class="sidebar-item"><a class="sidebar-link" href="/manage/variations">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
-                    </svg>Ürün Varyasyonları </a></li>
+                    </svg>Ürün Varyantları </a></li>
 
             <li class="sidebar-item"><a class="sidebar-link" href="/manage/orders">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Siparişler </a></li>
-
-            <li class="sidebar-item"><a class="sidebar-link" href="/manage/stock">
-                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-                        <use xlink:href="#imac-screen-1"> </use>
-                    </svg>Stok Durumu </a></li>
 
             <li class="sidebar-item"><a class="sidebar-link" href="/manage/customers">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
