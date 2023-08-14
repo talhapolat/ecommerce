@@ -91,6 +91,5 @@ Route::get('manage/users', 'App\Http\Controllers\Manage\ManageUserController@ind
 Route::get('manage/users/{id}', 'App\Http\Controllers\Manage\ManageUserController@edituser')->name('manageusersedit');
 
 Route::get('manage/orders', 'App\Http\Controllers\Manage\ManageOrderController@orders')->name('manageorders');
-
 Route::get('manage/orders/{id}', 'App\Http\Controllers\Manage\ManageOrderController@editorder')->name('manageordersedit');
 
