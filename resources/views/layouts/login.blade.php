@@ -22,7 +22,7 @@
 @include('layouts.partials.header')
 
 
-<div class="container" style="margin-top: 150px; margin-bottom: 150px">
+<div class="container" style="margin-top: 7%; margin-bottom: 7%">
     <div class="row">
         <div class="col-md-4">
             <h3 class="mtext-111 cl2 p-b-16">
@@ -69,7 +69,7 @@
             </form>
         </div>
 
-        <div class="col-md-2"></div>
+        <div class="col-md-2"><br></div>
 
         <div class="col-md-6">
             <div class="how-bor1 ">

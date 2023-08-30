@@ -454,6 +454,64 @@ $(document).ready(function () {
     });
 
 
+    $('#payment-edit-save').on('click', function (e) {
+
+        var payment_id = document.getElementById('payment-edit-save').value;
+        var title = document.getElementById('title').value;
+        var payment_statu = document.getElementById('payment-statu').value;
+        var commission = document.getElementById('commission').value;
+        var price = document.getElementById('price').value;
+        if (document.getElementById('merchant-id') != null)
+        var merchant_id = document.getElementById('merchant-id').value;
+        else
+            merchant_id = null;
+        if (document.getElementById('merchant-key') != null)
+        var merchant_key = document.getElementById('merchant-key').value;
+        else
+            merchant_key = null;
+        if (document.getElementById('merchant-salt') != null)
+        var merchant_salt = document.getElementById('merchant-salt').value;
+        else
+            merchant_salt = null;
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $.ajax({
+            url: "/manage/payment/update",
+            method: 'POST',
+            data: {
+                payment_id: payment_id,
+                title: title,
+                payment_statu: payment_statu,
+                commission: commission,
+                price: price,
+                merchant_id: merchant_id,
+                merchant_key: merchant_key,
+                merchant_salt: merchant_salt
+            },
+
+            success:function(response)
+            {
+                // $(form).trigger("reset");
+                toastr.success('Ödeme yöntemi güncellendi.',response, {
+                    timeOut: 1000,
+                    preventDuplicates: true,
+                    positionClass: 'toast-top-right',
+                });
+                window.location.href = '/manage/payment/edit/'+payment_id
+            },
+            error: function(response) {
+                toastr.error('Ödeme yöntemi güncelllenirken hata.', response);
+            }
+        });
+
+    });
+
+
 
     $('#settings-update').on('click', function (e) {
 

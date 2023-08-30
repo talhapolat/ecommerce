@@ -53,9 +53,10 @@
                                             <th>Sipariş No</th>
                                             <th>Müşteri</th>
                                             <th>Toplam Tutar</th>
-                                            <th>Sipariş Tarihi</th>
+                                            <th>Ödeme Yöntemi</th>
                                             <th>Ödeme Durumu</th>
                                             <th>Sipariş Durumu</th>
+                                            <th>Sipariş Tarihi</th>
                                             <th style="text-align: right">İşlemler</th>
                                         </tr>
                                         </thead>
@@ -74,14 +75,21 @@
                                                     <span>{{$order->order_ship_email}}</span>
                                                 </td>
                                                 <td>
-                                                    <span>{{$order->order_amount}} ₺</span> <br>
+                                                    <span>{{$order->order_total_price}} ₺</span> <br>
 
                                                     <span>{{$ordersdscount[$order->order_number]}} ürün</span>
 
                                                 </td>
+
                                                 <td>
-                                                    {{date_format($order->created_at, "d/m/Y H:i")}}
+                                                    @if($order->order_payment_type != null)
+                                                        @php($pmethod = $order->order_payment_type)
+                                                        <span>{{$payment_methods->where('id', $pmethod)->first()->title}}</span>
+                                                    @else
+                                                        <span>-</span>
+                                                    @endif
                                                 </td>
+
                                                 <td>
                                                     @if($order->payment_statu == 0)
                                                         <span
@@ -92,7 +100,8 @@
                                                                 class="fa-regular fa-circle-check"></i> Ödeme Onaylandı</span>
                                                     @elseif($order->payment_statu == 2)
                                                         <span
-                                                            style="background-color: rgba(213,140,213,0.51); color: purple; padding: 5px 8px;border: 0px; border-radius: 4%"><i class="fa-solid fa-rotate-left"></i> İade Edildi</span>
+                                                            style="background-color: rgba(213,140,213,0.51); color: purple; padding: 5px 8px;border: 0px; border-radius: 4%"><i
+                                                                class="fa-solid fa-rotate-left"></i> İade Edildi</span>
                                                     @else
                                                         <span>Bilinmiyor</span>
                                                     @endif
@@ -103,7 +112,8 @@
                                                             style="background-color: #efedff; color: #83acff; padding: 5px 8px;border: 0px; border-radius: 4%">Sipariş Oluşturuldu</span>
                                                     @elseif($order->order_statu == 1)
                                                         <span
-                                                            style="background-color: #e7faee; color: #37c376; padding: 5px 8px;border: 0px; border-radius: 4%"><i class="fa-solid fa-truck-fast"></i> Gönderildi</span>
+                                                            style="background-color: #e7faee; color: #37c376; padding: 5px 8px;border: 0px; border-radius: 4%"><i
+                                                                class="fa-solid fa-truck-fast"></i> Gönderildi</span>
                                                     @elseif($order->order_statu == 2)
                                                         <span
                                                             style="background-color: #e7faee; color: #37c376; padding: 5px 8px;border: 0px; border-radius: 4%"> <i
@@ -115,6 +125,10 @@
                                                         <span>Bilinmiyor</span>
                                                     @endif
 
+                                                </td>
+
+                                                <td>
+                                                    {{date_format($order->created_at, "d/m/Y H:i")}}
                                                 </td>
 
                                                 <td style="text-align: right">

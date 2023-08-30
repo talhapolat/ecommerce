@@ -90,24 +90,25 @@
                     <div class="card mb-0" style="width: 80%; margin: auto">
                         <div class="card-body">
 
-                            <h5>Genel Ayarlar</h5>
+                            <img src="{{asset('storage')}}/payment/{{$method->image}}" style="height: 140px; width: auto;margin-bottom: 10px"
+                                 alt="...">
 
                             <div class="row pt-2">
                                 <div class="col-8">
                                     <div class="mb-3">
-                                        <label class="form-label" for="store-title">Mağaza Adı</label>
-                                        <input class="form-control" value="{{$settings[0]->value}}" id="store-title"
-                                               type="text" required>
+                                        <label class="form-label" for="title">Başlık</label>
+                                        <input class="form-control" value="{{$method->title}}" id="title"
+                                               type="text" name="title" required>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="store-statu">Mağaza Durumu</label>
+                                        <label class="form-label" for="payment-statu">Durum</label>
                                         <div data-test-hook="basic">
-                                            <select class="form-control" name="store-statu" id="store-statu">
-                                                <option @if($settings[3]->value == 1) selected @endif value="1">Aktif
+                                            <select class="form-control" name="payment-statu" id="payment-statu">
+                                                <option @if($method->statu == 1) selected @endif value="1">Aktif
                                                 </option>
-                                                <option @if($settings[3]->value == 2) selected @endif value="2">Pasif
+                                                <option @if($method->statu == 0) selected @endif value="0">Pasif
                                                 </option>
                                             </select>
                                         </div>
@@ -118,37 +119,25 @@
                             <div class="row pt-2">
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="language">Varsayılan Dil</label>
-                                        <div data-test-hook="basic">
-                                            <select class="form-control" name="language" id="language">
-                                                <option @if($settings[4]->value == 1) selected @endif value="1">Türkçe
-                                                </option>
-                                                <option @if($settings[4]->value == 2) selected @endif value="2">English
-                                                </option>
-                                            </select>
-                                        </div>
+                                        <label class="form-label" for="commission">Komisyon Oranı (%)</label>
+                                        <input class="form-control" value="{{$method->commission_rate}}" id="commission"
+                                               type="number" name="commission" required>
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="mb-3">
-                                        <label class="form-label" for="currency">Para Birimi</label>
-                                        <div data-test-hook="basic">
-                                            <select class="form-control" name="currency" id="currency">
-                                                <option @if($settings[5]->value == 1) selected @endif value="1">TL (₺)
-                                                </option>
-                                                <option @if($settings[5]->value == 2) selected @endif value="2">USD ($)
-                                                </option>
-                                            </select>
-                                        </div>
+                                        <label class="form-label" for="price">Ek Ücret (₺)</label>
+                                        <input class="form-control" value="{{$method->price}}" id="price"
+                                               type="number" name="price" required>
                                     </div>
                                 </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="phone">İletişim Numarası</label>
-                                        <input class="form-control" value="{{$settings[6]->value}}" id="phone"
-                                               type="text" required>
-                                    </div>
-                                </div>
+{{--                                <div class="col-4">--}}
+{{--                                    <div class="mb-3">--}}
+{{--                                        <label class="form-label" for="phone">İletişim Numarası</label>--}}
+{{--                                        <input class="form-control" value="{{$settings[6]->value}}" id="phone"--}}
+{{--                                               type="text" required>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
 
                         </div>
@@ -156,145 +145,32 @@
                 </div>
             </section>
 
+
+            @if($method->id == 3)
             <section class="pb-0">
                 <div class="container-fluid">
                     <div class="card mb-0" style="width: 80%; margin: auto">
                         <div class="card-body">
-
-                            <h5>Adres Bilgileri</h5>
-
-                            <div class="row pt-2">
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="address-name">Ad</label>
-                                        <input class="form-control" value="{{$settings[7]->value}}" id="address-name"
-                                               type="text" required>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="address-surname">Soyad</label>
-                                        <input class="form-control" value="{{$settings[8]->value}}" id="address-surname"
-                                               type="text" required>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="company-title">Şirket Unvanı</label>
-                                        <input class="form-control" value="{{$settings[9]->value}}" id="company-title"
-                                               type="text" required>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="row pt-2">
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="tax-number">Vergi Numarası</label>
-                                        <input class="form-control" value="{{$settings[10]->value}}" id="tax-number"
-                                               type="text" required>
+                                        <label class="form-label" for="merchant-id">Merchant Id</label>
+                                        <input class="form-control" value="{{$method->merchant_id}}" id="merchant-id"
+                                               type="text" name="merchant-id" required>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="tax-office">Vergi Dairesi</label>
-                                        <input class="form-control" value="{{$settings[11]->value}}" id="tax-office"
-                                               type="text" required>
+                                        <label class="form-label" for="merchant-key">Merchant Key</label>
+                                        <input class="form-control" value="{{$method->merchant_key}}" id="merchant-key"
+                                               type="text" name="merchant-key" required>
                                     </div>
                                 </div>
-
-                            </div>
-
-                            <div class="row pt-2">
-                                <div class="col-4">
+                                <div class="col-6">
                                     <div class="mb-3">
-                                        <label class="form-label" for="address-country">Ülke</label>
-                                        <div data-test-hook="basic">
-                                            <select class="form-control" name="address-country" id="address-country">
-                                                <option @if($settings[12]->value == 1) selected @endif value="1">Türkiye
-                                                </option>
-                                                <option @if($settings[12]->value == 2) selected @endif value="2">Almanya
-                                                </option>
-                                                <option @if($settings[12]->value == 3) selected @endif value="3">Rusya
-                                                </option>
-                                                <option @if($settings[12]->value == 4) selected @endif value="4">Amerika
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="address-city">Şehir</label>
-                                        <div data-test-hook="basic">
-                                            <select class="form-control" name="address-city" id="address-city">
-                                                <option @if($settings[13]->value == 1) selected @endif value="1">İstanbul
-                                                </option>
-                                                <option @if($settings[13]->value == 2) selected @endif value="2">Ankara
-                                                </option>
-                                                <option @if($settings[13]->value == 2) selected @endif value="2">İzmir
-                                                </option>
-                                                <option @if($settings[13]->value == 2) selected @endif value="2">Antalya
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="address-district">İlçe</label>
-                                        <div data-test-hook="basic">
-                                            <select class="form-control" name="address-district" id="address-district">
-                                                <option @if($settings[14]->value == 1) selected @endif value="1">Beyoğlu
-                                                </option>
-                                                <option @if($settings[14]->value == 2) selected @endif value="2">Şişli
-                                                </option>
-                                                <option @if($settings[14]->value == 2) selected @endif value="2">Beşiktaş
-                                                </option>
-                                                <option @if($settings[14]->value == 2) selected @endif value="2">Kadıköy
-                                                </option>
-                                                <option @if($settings[14]->value == 2) selected @endif value="2">Pendik
-                                                </option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row pt-2">
-                                <div class="col-8">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="full-address">Açık Adres</label>
-                                        <input class="form-control" value="{{$settings[15]->value}}" id="full-address"
-                                               type="text" required>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="mb-3">
-                                        <label class="form-label" for="postcode">Posta Kodu</label>
-                                        <input class="form-control" value="{{$settings[16]->value}}" id="postcode"
-                                               type="text" required>
-                                    </div>
-                                </div>
-
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-
-            <section class="pb-0">
-                <div class="container-fluid">
-                    <div class="card mb-0" style="width: 80%; margin: auto">
-                        <div class="card-body">
-                            <h5>Mağaza Açıklaması</h5>
-                            <div class="row gx-5 bg-white pt-2">
-                                <div class="container-fluid">
-                                    <div id="editor">
-                                        {!! $settings[1]->value !!}
+                                        <label class="form-label" for="merchant-salt">Merchant Salt</label>
+                                        <input class="form-control" value="{{$method->merchant_salt}}" id="merchant-salt"
+                                               type="text" name="merchant-salt" required>
                                     </div>
                                 </div>
                             </div>
@@ -302,28 +178,7 @@
                     </div>
                 </div>
             </section>
-
-            <section class="pb-0">
-                <div class="container-fluid">
-                    <div class="card mb-0" style="width: 80%; margin: auto">
-                        <div class="card-body">
-                            <h5>Logo Ayarları</h5>
-
-                            <div class="row">
-                                <div class="col-2 imgUp">
-                                    <div class="imagePreview"></div>
-                                    <label class="btn btn-custom">
-                                        Logo Yükle<input type="file" class="uploadFile img" value="Upload Photo" style="width: 0px;height: 0px;overflow: hidden;">
-                                    </label>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-                </div>
-            </section>
-
+            @endif
             <section class="pb-0 mb-4">
                 <div class="container-fluid">
                     <div class="card mb-0" style="width: 80%; margin: auto">
@@ -332,7 +187,7 @@
                             <div class="row gx-5 bg-white pt-2">
                                 <div class="container-fluid text-right">
 
-                                    <button type="button" id="settings-update"
+                                    <button type="button" value="{{$method->id}}" id="payment-edit-save"
                                             class="btn btn-custom">Kaydet
                                     </button>
 
@@ -542,7 +397,7 @@
 <script>
 
 
-    const choicesBasic3 = new Choices('#store-statu', {
+    const choicesBasic3 = new Choices('#payment-statu', {
         allowHTML: true,
         shouldSort: false,
         searchEnabled: false,
@@ -554,7 +409,7 @@
         searchEnabled: false,
     });
 
-    const choicesBasic5 = new Choices('#currency', {
+    const choicesBasic5 = new Choices('#price', {
         allowHTML: true,
         shouldSort: false,
         searchEnabled: false,
@@ -599,7 +454,7 @@
 
 </script>
 <script>
-    document.getElementById('managenavbar').children.item(7).classList.add('active');
+    document.getElementById('managenavbar').children.item(6).classList.add('active');
 </script>
 </body>
 </html>

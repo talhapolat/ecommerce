@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Orders;
 use App\Product;
 use App\Slider;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,21 @@ class LoginController extends Controller
         return view('layouts.account', compact('navigations', 'subnavigations', 'categories', 'user'));
 
     }
+
+    public function userorders() {
+
+        $navigations =  Navigation::where('parent',null)->get();
+        $subnavigations = Navigation::whereNotNull('parent')->get();
+        $categories = Category::where('main_category_id', null)->where('statu',1)->get();
+        $products = Product::all();
+        $user = User::all()->where('email', session('loginId'))->where('statu', 1)->first();
+
+        $orders = Orders::all()->where('user_id', $user->id);
+
+        return view('layouts.orders', compact('navigations', 'subnavigations', 'categories', 'user', 'orders'));
+    }
+
+
 
     public function logout(Request $request){
         Auth::logout();

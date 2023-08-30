@@ -208,7 +208,7 @@
 </body>
 
 <script>
-    document.getElementById('managenavbar').children.item(6).classList.add('active');
+    document.getElementById('managenavbar').children.item(5).classList.add('active');
 </script>
 
 

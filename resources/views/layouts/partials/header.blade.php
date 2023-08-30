@@ -186,9 +186,24 @@
             <li>
                 <div class="right-top-bar flex-w h-full">
 
-                    <a href="#" class="flex-c-m p-lr-10 trans-04">
-                        Hesabım
+                    <?php
+                    if (auth()->check()) {
+                        ?>
+                    <a href="/account" class="flex-c-m p-lr-10 trans-04">
+                        HESABIM
                     </a>
+                        <?php
+                    } else {
+                        ?>
+                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
+                        GİRİŞ
+                    </a>
+
+                    <a href="/register" class="flex-c-m trans-04 p-lr-25">
+                        KAYIT OL
+                    </a>
+                    <?php } ?>
+
 
                     <!-- <a href="#" class="flex-c-m p-lr-10 trans-04">
                         EN

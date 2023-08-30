@@ -680,9 +680,9 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                                         $ship_price = 0;
                                         @endphp
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="shiptype" value="{{$delivery->id}}" id="shiptype{{$delivery->id}}" @if(session('shiptype') == $delivery->id) checked @endif>
+                                            <input class="form-check-input" type="radio" name="shiptype" id="shiptype{{$delivery->id}}" value="{{$delivery->id}}" @if(session('shiptype') == $delivery->id) checked @endif>
                                             <label class="form-check-label" for="shiptype{{$delivery->id}}">
-                                                {{$delivery->delivery_title}} ({{$ship_price}}₺)
+                                                {{$delivery->delivery_title}} @if($ship_price == 0) (Ücretsiz) @else {{$ship_price}}₺ @endif
                                             </label>
                                         </div>
                                     @endforeach
@@ -706,7 +706,7 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                                 </h4>
                             </div>
                             <div class="col-xl-7 col-lg-8 col-md-8 col-sm-7 col-6-5">
-                                <h6>{{$delivery->delivery_title}} ({{$shipping_cost}}₺)</h6>
+                                <h6>{{$delivery->delivery_title}} @if($shipping_cost == 0) (Ücretsiz) @else {{$shipping_cost}}₺ @endif</h6>
                                                             </div>
                             <div class="col-xl-2 col-lg-1 col-md-1 col-sm-2 col-2-5">
                                 <span><a href="/checkout?step=2" style="color: black">Düzenle</a></span>
@@ -727,24 +727,46 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                             <div class="row">
                                 <div class="col-12 p-t-15" >
 
-                                    <div class="form-container" >
-                                        <div class="field-container">
-                                            <label class="paylabel" for="name">Kart Üzerindeki İsim</label>
-                                            <input class="payinput" id="name" maxlength="20" type="text">
+                                    @foreach($payment_methods as $method)
+
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="paymenttype" value="{{$method->id}}" id="paymenttype{{$method->id}}" @if(session('shiptype') == $delivery->id) checked @endif>
+                                            <label class="form-check-label" for="paymenttype{{$method->id}}">
+                                                {{$method->title}}
+
+                                                @if($method->commission_rate > 0 and $method->price == 0)
+                                                    <a style="font-size: 12px">(%{{$method->commission_rate}} ek masraf)</a>
+                                                @elseif($method->commission_rate > 0 and $method->price > 0)
+                                                    <a style="font-size: 12px">(%{{$method->commission_rate}} + {{$method->price}}₺ ek masraf)</a>
+                                                @elseif($method->commission_rate == 0 and $method->price > 0)
+                                                    <a style="font-size: 12px">({{$method->price}}₺ ek masraf)</a>
+                                                @endif
+                                            </label>
                                         </div>
-                                        <div class="field-container">
-                                            <label class="paylabel" for="cardnumber">Kart Numarası</label>
-                                            <input class="payinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">
-                                        </div>
-                                        <div class="field-container">
-                                            <label class="paylabel" for="expirationdate">Geçerlilik Tarihi (ay/yıl)</label>
-                                            <input class="payinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">
-                                        </div>
-                                        <div class="field-container">
-                                            <label class="paylabel" for="securitycode">CVC</label>
-                                            <input class="payinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
-                                        </div>
-                                    </div>
+
+                                    @endforeach
+
+
+
+
+{{--                                    <div class="form-container" >--}}
+{{--                                        <div class="field-container">--}}
+{{--                                            <label class="paylabel" for="name">Kart Üzerindeki İsim</label>--}}
+{{--                                            <input class="payinput" id="name" maxlength="20" type="text">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="field-container">--}}
+{{--                                            <label class="paylabel" for="cardnumber">Kart Numarası</label>--}}
+{{--                                            <input class="payinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="field-container">--}}
+{{--                                            <label class="paylabel" for="expirationdate">Geçerlilik Tarihi (ay/yıl)</label>--}}
+{{--                                            <input class="payinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="field-container">--}}
+{{--                                            <label class="paylabel" for="securitycode">CVC</label>--}}
+{{--                                            <input class="payinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
                                 </div>
                             </div>

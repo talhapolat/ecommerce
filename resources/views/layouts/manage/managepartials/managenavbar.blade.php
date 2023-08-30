@@ -36,25 +36,25 @@
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Siparişler </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="/manage/customers">
-                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-                        <use xlink:href="#imac-screen-1"> </use>
-                    </svg>Müşteriler </a></li>
+{{--            <li class="sidebar-item"><a class="sidebar-link" href="/manage/customers">--}}
+{{--                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">--}}
+{{--                        <use xlink:href="#imac-screen-1"> </use>--}}
+{{--                    </svg>Müşteriler </a></li>--}}
 
             <li class="sidebar-item"><a class="sidebar-link" href="/manage/users">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
                         <use xlink:href="#imac-screen-1"> </use>
                     </svg>Kullanıcılar </a></li>
 
-            <li class="sidebar-item"><a class="sidebar-link" href="/manage/campaigns">
-                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-                        <use xlink:href="#imac-screen-1"> </use>
-                    </svg>Kampanyalar </a></li>
+{{--            <li class="sidebar-item"><a class="sidebar-link" href="/manage/campaigns">--}}
+{{--                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">--}}
+{{--                        <use xlink:href="#imac-screen-1"> </use>--}}
+{{--                    </svg>Kampanyalar </a></li>--}}
 
-            <li class="sidebar-item"><a class="sidebar-link" href="/manage/transfer">
-                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">
-                        <use xlink:href="#imac-screen-1"> </use>
-                    </svg>Transfer </a></li>
+{{--            <li class="sidebar-item"><a class="sidebar-link" href="/manage/transfer">--}}
+{{--                    <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">--}}
+{{--                        <use xlink:href="#imac-screen-1"> </use>--}}
+{{--                    </svg>Transfer </a></li>--}}
 
             <li class="sidebar-item"><a class="sidebar-link" href="/manage/payment">
                     <svg class="svg-icon svg-icon-sm svg-icon-heavy me-xl-2">

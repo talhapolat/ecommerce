@@ -24,6 +24,9 @@ Route::get('register', 'App\Http\Controllers\LoginController@register')->name('r
 Route::post('signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
 Route::post('signin', 'App\Http\Controllers\LoginController@signin')->name('signin');
 Route::get('account', 'App\Http\Controllers\LoginController@useraccount')->name('useraccount');
+Route::get('orders', 'App\Http\Controllers\LoginController@userorders')->name('userorders');
+
+
 Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('userlogout');
 Route::get('collection/{collection_slug}', 'App\Http\Controllers\HomeController@collection')->name('collection');
 Route::get('collections', 'App\Http\Controllers\HomeController@collections')->name('collections');
@@ -47,10 +50,16 @@ Route::post('updatecart', 'App\Http\Controllers\CartController@updatecart')->nam
 Route::post('checkoutcontrol/{step}', 'App\Http\Controllers\OrderController@checkoutcontrol')->name('checkoutcontrol');
 Route::get('checkout', 'App\Http\Controllers\OrderController@checkout')->name('checkout');
 Route::get('createorder', 'App\Http\Controllers\OrderController@createorder')->name('createorder');
+Route::get('checkout/{id}', 'App\Http\Controllers\OrderController@checkoutpaytr')->name('checkoutpaytr');
 
 Route::get('manage', 'App\Http\Controllers\Manage\ManageHomeController@index')->name('managehome');
 Route::get('manage/settings', 'App\Http\Controllers\Manage\ManageHomeController@settings')->name('managesettings');
 Route::post('manage/settings/update', 'App\Http\Controllers\Manage\ManageHomeController@updatesettings')->name('managesettingsupdate');
+
+Route::get('manage/payment', 'App\Http\Controllers\Manage\ManageHomeController@paymentmethods')->name('managepaymentmethods');
+Route::get('manage/payment/edit/{id}', 'App\Http\Controllers\Manage\ManageHomeController@paymentmethodsedit')->name('managepaymentmethodsedit');
+Route::post('manage/payment/update', 'App\Http\Controllers\Manage\ManageHomeController@paymentmethodsupdate')->name('managepaymentmethodsupdate');
+
 
 Route::get('manage/products', 'App\Http\Controllers\Manage\ManageProductController@index')->name('manageproducts');
 Route::get('manage/products/new', 'App\Http\Controllers\Manage\ManageProductController@newproduct')->name('manageproductsnew');

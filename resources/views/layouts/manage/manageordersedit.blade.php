@@ -145,6 +145,10 @@
                                         <h5>Sipariş Özeti</h5>
                                         <div class="pt-2">
                                             {{date_format($order->created_at, "d/m/Y, H:i")}}
+                                            <br>
+                                            <a>{{$payment_method_title}}</a>
+                                            <br>
+                                            <a>{{$delivery_type_title}}</a>
                                             <hr style="border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
                                                 <p class="float-start">Ara Toplam</p>
@@ -152,13 +156,18 @@
                                             </div>
                                             <hr style="margin-top: 0;border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
-                                                <p class="float-start">Vergiler</p>
-                                                <p class="float-right">₺ @if($order->order_tax == null) 0.00 @else {{$order->order_tax}} @endif</p>
+                                                <p class="float-start">Teslimat</p>
+                                                <p class="float-right">₺ @if($order->order_delivery_cost == null) 0.00 @else {{$order->order_delivery_cost}} @endif</p>
+                                            </div>
+                                            <hr style="margin-top: 0;border-width: 1px!important; border-color: #7f979b">
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="float-start">Ödeme Komisyonu</p>
+                                                <p class="float-right">₺ @if($order->order_payment_cost == null) 0.00 @else {{$order->order_payment_cost}} @endif</p>
                                             </div>
                                             <hr style="margin-top: 0;border-width: 1px!important; border-color: #7f979b">
                                             <div class="d-flex justify-content-between" >
                                                 <p class="float-start">Toplam</p>
-                                                <p class="float-right">₺ {{$order->order_amount}}</p>
+                                                <p class="float-right">₺ {{$order->order_total_price}}</p>
                                             </div>
                                         </div>
                                     </div>

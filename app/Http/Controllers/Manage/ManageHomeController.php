@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manage;
 
 use App\Http\Controllers\Controller;
+use App\Models\payment_methods;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use TCG\Voyager\Models\Setting;
@@ -81,6 +82,43 @@ class ManageHomeController extends Controller
         return response()->json('ok');
 
 
+
+    }
+
+    public function paymentmethods(){
+
+        $payment_methods = payment_methods::all();
+
+        return view('layouts.manage.managepaymentmethods', compact('payment_methods'));
+
+    }
+
+    public function paymentmethodsedit($id){
+
+        $method = payment_methods::all()->where('id', $id)->first();
+
+        return view('layouts.manage.managepaymentmethodsedit', compact('method'));
+
+    }
+
+    public function paymentmethodsupdate(Request $request){
+
+        $payment = payment_methods::all()->where('id', $request->input('payment_id'))->first();
+
+        if ($payment != null) {
+            DB::table('payment_methods')->where('id', $request->input('payment_id'))->update([
+                'title' => $request->input('title'),
+                'statu' => $request->input('payment_statu'),
+                'commission_rate' => $request->input('commission'),
+                'price' => $request->input('price'),
+                'merchant_id' => $request->input('merchant_id'),
+                'merchant_key' => $request->input('merchant_key'),
+                'merchant_salt' => $request->input('merchant_salt'),
+                'updated_at' => now()
+            ]);
+        }
+
+        return response()->json($request->input('title'));
 
     }
 }
