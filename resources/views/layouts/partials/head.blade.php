@@ -5,12 +5,12 @@
 <meta name="Robots" content="index, follow">
 <meta name="googlebot" content="index, follow">
 <meta name="revisit-after" content="7 Days">
-<title> BAŞLIK </title>
+<title> COZA STORE </title>
 <meta name="description" content=" AÇIKLAMA ">
 <meta name="keywords" content=" SEO KEY ">
 <!-- <script type="text/javascript" src="/Assets/js/style.js"></script> -->
 <!--===============================================================================================-->
-<!-- <link rel="icon" type="image/png" href="/images/icons/favicon.png" />
+<link rel="icon" type="image/png" href="{{asset('storage/template/images/icons/favicon.png')}}"
  --><!--===============================================================================================-->
 <link rel="preload" as="style" onload="this.rel='stylesheet'" type="text/css" href={{asset('storage/template/vendor/bootstrap/css/bootstrap.min.css')}}>
 
