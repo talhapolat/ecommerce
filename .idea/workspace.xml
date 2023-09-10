@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d4020bb-9dd6-4c4a-970c-26248bfb0eda" name="Changes" comment="Yönetim sistemi güncellendi.">
-      <change afterPath="$PROJECT_DIR$/app/Models/Wishlist.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/coupons.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/myaddresses.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/wishlist.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OrderController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/cartdetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/checkout.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/checkout.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/orders.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/orders.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/accountsidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/accountsidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/jsassets.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/partials/modalproduct.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/productdetail.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -313,6 +296,9 @@
       <workItem from="1693771520443" duration="690000" />
       <workItem from="1694244989885" duration="25618000" />
       <workItem from="1694298845965" duration="1268000" />
+      <workItem from="1694333346837" duration="669000" />
+      <workItem from="1694340366425" duration="663000" />
+      <workItem from="1694373461221" duration="621000" />
     </task>
     <task id="LOCAL-00001" summary="start project">
       <created>1663967528096</created>
@@ -594,7 +580,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693771612012</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Yönetim sistemi güncellendi.">
+      <created>1694333424034</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1694333424034</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
