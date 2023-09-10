@@ -8,6 +8,7 @@ use App\Models\Deliveries;
 use App\Models\Orders;
 use App\Models\payment_methods;
 use App\Models\User;
+use App\Models\UserAddress;
 use App\Navigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -18,13 +19,24 @@ class OrderController extends Controller
     {
 
         if ($step == 1) {
-            session()->put('addressname', $request->input('addressname'));
-            session()->put('addresssurname', $request->input('addresssurname'));
-            session()->put('addressemail', $request->input('addressemail'));
-            session()->put('addressphone', $request->input('addressphone'));
-            session()->put('addresscity', $request->input('addresscity'));
-            session()->put('addressdistrict', $request->input('addressdistrict'));
-            session()->put('address', $request->input('address'));
+            if (session('uaddress') != null) {
+                $saddress = UserAddress::where('id', session()->get('uaddress'))->first();
+                session()->put('addressname', $saddress->name);
+                session()->put('addresssurname', $saddress->surname);
+                session()->put('addressemail', $saddress->email);
+                session()->put('addressphone', $saddress->phone);
+                session()->put('addresscity', $saddress->city);
+                session()->put('addressdistrict', $saddress->state);
+                session()->put('address', $saddress->address);
+            } else {
+                session()->put('addressname', $request->input('addressname'));
+                session()->put('addresssurname', $request->input('addresssurname'));
+                session()->put('addressemail', $request->input('addressemail'));
+                session()->put('addressphone', $request->input('addressphone'));
+                session()->put('addresscity', $request->input('addresscity'));
+                session()->put('addressdistrict', $request->input('addressdistrict'));
+                session()->put('address', $request->input('address'));
+            }
         } elseif ($step == 2) {
             session()->put('shiptype', $request->input('shiptype'));
         } elseif ($step == 3) {

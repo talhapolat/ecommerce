@@ -25,6 +25,12 @@ Route::post('signup', 'App\Http\Controllers\LoginController@signup')->name('sign
 Route::post('signin', 'App\Http\Controllers\LoginController@signin')->name('signin');
 Route::get('account', 'App\Http\Controllers\LoginController@useraccount')->name('useraccount');
 Route::get('orders', 'App\Http\Controllers\LoginController@userorders')->name('userorders');
+Route::get('wishlist', 'App\Http\Controllers\LoginController@userwishlist')->name('userwishlist');
+Route::post('wishlist/add', 'App\Http\Controllers\LoginController@userwishlistadd')->name('userwishlistadd');
+Route::post('wishlist/delete', 'App\Http\Controllers\LoginController@userwishlistdelete')->name('userwishlistdelete');
+Route::get('coupons', 'App\Http\Controllers\LoginController@usercoupons')->name('usercoupons');
+Route::get('myaddresses', 'App\Http\Controllers\LoginController@useraddresses')->name('useraddresses');
+Route::get('myaddresses/new', 'App\Http\Controllers\LoginController@useraddressesnew')->name('useraddressesnew');
 
 
 Route::get('logout', 'App\Http\Controllers\LoginController@logout')->name('userlogout');

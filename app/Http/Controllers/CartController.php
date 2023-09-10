@@ -3,18 +3,32 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Models\User;
+use App\Models\UserAddress;
 use App\Navigation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use MongoDB\Driver\Session;
 
 class CartController extends Controller
 {
 
-    public function index(){
+    public function index(Request $request){
         $navigations =  Navigation::where('parent',null)->get();
         $subnavigations = Navigation::whereNotNull('parent')->get();
         $categories = Category::where('statu',1)->get();
 
-        return view('layouts.cartdetail', compact('navigations', 'subnavigations', 'categories'));
+        if (Auth::check()){
+            $user = User::where('email', session('loginId'))->first();
+            $userAddress = UserAddress::where('user', $user->id)->get();
+            if ($request->input('uaddress')){
+                session()->put('uaddress', $request->input('uaddress'));
+            }
+        } else {
+            $userAddress = null;
+        }
+
+        return view('layouts.cartdetail', compact('navigations', 'subnavigations', 'categories', 'userAddress'));
     }
 
 

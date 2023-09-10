@@ -106,25 +106,27 @@
                         </div>
 
                         <!--  -->
-                        <div class="flex-w flex-m p-t-40">
-                            <div id="favoritebuttons" class="flex-m bor9 p-r-10 m-r-11">
-                                <a href="#" data-id="" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="">
-                                    <i class="zmdi zmdi-favorite"></i>
-                                </a>
-                            </div>
+{{--                        <div class="flex-w flex-m p-t-40">--}}
+{{--                            <div id="favoritebuttons" class="flex-m bor9 p-r-10 m-r-11">--}}
+{{--                                <a href="#" data-id="" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="">--}}
+{{--                                    <i class="zmdi zmdi-favorite"></i>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
 
-                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </a>
+{{--                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">--}}
+{{--                                <i class="fab fa-facebook-f"></i>--}}
+{{--                            </a>--}}
 
-                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-                                <i class="fab fa-twitter"></i>
-                            </a>
+{{--                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">--}}
+{{--                                <i class="fab fa-twitter"></i>--}}
+{{--                            </a>--}}
 
-                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-                                <i class="fab fa-google-plus"></i>
-                            </a>
-                        </div>
+{{--                            <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">--}}
+{{--                                <i class="fab fa-google-plus"></i>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+
+
                     </div>
                 </div>
             </div>

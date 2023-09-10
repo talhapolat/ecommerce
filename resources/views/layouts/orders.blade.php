@@ -89,7 +89,11 @@
                                                                         STANDART</small>
                                                                 @endif
                                                             </div>
+                                                            <br>
+                                                            <small class="stext-105 cl4"
+                                                                   style="font-size:11px">{{$orderp->product_price}}₺</small>
                                                         </div>
+
                                                     @endforeach
 
                                                 </div>
@@ -103,15 +107,23 @@
                                                     <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;">
                                                         Durumu: <span style="color: green">Teslim Edildi</span>
                                                     </h5>
+                                                    @if($order->order_delivery_cost > 0)
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                        Teslimat Ücreti: {{$order->order_delivery_cost}}₺</h5>
+                                                    @endif
+                                                    @if($order->order_payment_cost > 0)
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                        Ödeme Komisyonu: {{$order->order_payment_cost}}₺</h5>
+                                                    @endif
                                                     <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
                                                         Toplam Tutar: {{$order->order_total_price}}₺</h5>
-                                                    <button type="submit" class="btn"
-                                                            style="background-color: #116c7f; color: #fff; border: none; width: 100%; height: 40px">
-                                                        <h5 class="mtext-111"
-                                                            style="font-size: 15px; color: #fff">
-                                                            Sipariş Detayı
-                                                        </h5>
-                                                    </button>
+{{--                                                    <button type="submit" class="btn"--}}
+{{--                                                            style="background-color: #116c7f; color: #fff; border: none; width: 100%; height: 40px">--}}
+{{--                                                        <h5 class="mtext-111"--}}
+{{--                                                            style="font-size: 15px; color: #fff">--}}
+{{--                                                            Sipariş Detayı--}}
+{{--                                                        </h5>--}}
+{{--                                                    </button>--}}
 
                                                 </div>
                                             </div>

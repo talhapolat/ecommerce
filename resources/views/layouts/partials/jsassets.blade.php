@@ -148,38 +148,47 @@
         // var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 
         $(this).on('click', function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
             var nameProduct = document.getElementById("modelptitle").innerHTML;
             var pid = $(this).attr('data-id');
 
             if ($(this).hasClass('js-addwish-detail')) {
                 $.ajax({
                     type: "POST",
-                    url: '../app/addList.php',
+                    url: '../wishlist/add',
                     data: ({
                         id: pid
                     }),
                     success:function(result) {
+                        swal(nameProduct, "Favorilere Eklendi", "success");
+
+                        var cn = parseInt(document.getElementById("wishnoti").getAttribute("data-notify"));
+                        document.getElementById("wishnoti").setAttribute("data-notify", cn + 1);
 
                     }
                 });
-
-                swal(nameProduct, "Listenize Eklendi !", "success");
 
                 $(this).addClass('js-addedwish-detail');
                 $(this).removeClass('js-addwish-detail');
             } else {
                 $.ajax({
                     type: "POST",
-                    url: '../app/removeList.php',
+                    url: '../wishlist/delete',
                     data: ({
                         id: pid
                     }),
                     success:function(result) {
+                        swal(nameProduct, "Favorilerden Çıkartıldı", "success");
 
+                        var cn = parseInt(document.getElementById("wishnoti").getAttribute("data-notify"));
+                        document.getElementById("wishnoti").setAttribute("data-notify", cn - 1);
                     }
                 });
-
-                swal(nameProduct, "Listenizden Çıkartıldı !", "success");
 
                 $(this).addClass('js-addwish-detail');
                 $(this).removeClass('js-addedwish-detail');
@@ -194,13 +203,38 @@
         // var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
 
         $(this).on('click', function(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             var nameProduct = document.getElementById("modelptitle").innerHTML;
             var pid = $(this).attr('data-id');
 
-            if ($(this).hasClass('js-addwish-detail')) {
+            if ($(this).hasClass('js-addedwish-detail')) {
                 $.ajax({
                     type: "POST",
-                    url: '../app/addList.php',
+                    url: '../wishlist/delete',
+                    data: ({
+                        id: pid
+                    }),
+                    success:function(result) {
+                        swal(nameProduct, "Favorilerden Çıkartıldı", "success");
+
+                        var cn = parseInt(document.getElementById("wishnoti").getAttribute("data-notify"));
+                        document.getElementById("wishnoti").setAttribute("data-notify", cn - 1);
+                    }
+                });
+
+                $(this).addClass('js-addwish-detail');
+                $(this).removeClass('js-addedwish-detail');
+
+
+
+            } else {
+                $.ajax({
+                    type: "POST",
+                    url: '../wishlist/add',
                     data: ({
                         id: pid
                     }),
@@ -213,21 +247,8 @@
                 $(this).addClass('js-addedwish-detail');
                 $(this).removeClass('js-addwish-detail');
 
-            } else {
-                $.ajax({
-                    type: "POST",
-                    url: '../app/removeList.php',
-                    data: ({
-                        id: pid
-                    }),
-                    success:function(result) {
-
-                    }
-                });
-                swal(nameProduct, "Listenizden Çıkartıldı !", "success");
-
-                $(this).addClass('js-addwish-detail');
-                $(this).removeClass('js-addedwish-detail');
+                var cn = parseInt(document.getElementById("wishnoti").getAttribute("data-notify"));
+                document.getElementById("wishnoti").setAttribute("data-notify", cn + 1);
 
             }
 
@@ -459,21 +480,27 @@
 
 
     $('#newaddress').on('click',function(){
+        $.ajaxSetup({
+            headers:{
+                'X-CSRF-TOKEN':$('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
-            type: 'POST',
-            url: 'newaddresscont.php',
+            type: 'GET',
+            url: '{{route('useraddressesnew')}}',
             data: ({
                 name: document.getElementById("name").value,
-                username: document.getElementById("username").value,
-                usersurname: document.getElementById("usersurname").value,
-                city: document.getElementById("city").value,
-                state: document.getElementById("state").value,
-                userphone: document.getElementById("userphone").value,
+                addressname: document.getElementById("addressname").value,
+                addresssurname: document.getElementById("addresssurname").value,
+                addresscity: document.getElementById("addresscity").value,
+                addressdistrict: document.getElementById("addressdistrict").value,
+                addressphone: document.getElementById("addressphone").value,
+                addressemail: document.getElementById("addressemail").value,
                 address: document.getElementById("address").value,
             }),
 
             success:function(result) {
-
+                window.location.href = '/basket';
             }
         });
 

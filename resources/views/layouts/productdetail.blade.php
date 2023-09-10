@@ -263,31 +263,34 @@ require_once app_path('func.php');
                     </div>
 
 
-{{--                    <div class="flex-w  p-t-40 ">--}}
-{{--                        <div class="flex-m bor9 p-r-10 m-r-11">--}}
-{{--                            <?php if ($isFav): ?>--}}
-{{--                            <a href="#" data-id="<?= $product["id"] ?>" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addedwish-detail tooltip100" data-tooltip="Favorilere Ekle">--}}
-{{--                                <i class="zmdi zmdi-favorite"></i>--}}
-{{--                            </a>--}}
-{{--                            <?php else: ?>--}}
-{{--                            <a href="#" data-id="<?= $product["id"] ?>" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Favorilere Ekle">--}}
-{{--                                <i class="zmdi zmdi-favorite"></i>--}}
-{{--                            </a>--}}
-{{--                            <?php endif ?>--}}
-{{--                        </div>--}}
+                    <div class="flex-w  p-t-40 ">
+                        <div class="flex-m bor9 p-r-10 m-r-11">
+                            @if($isWish)
+                            <a href="#" data-id="{{$product->id}}" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addedwish-detail tooltip100" data-tooltip="Favorilere Ekle">
+                                <i class="zmdi zmdi-favorite"></i>
+                            </a>
+                            @else
+                            <a href="#" data-id="{{$product->id}}" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Favorilere Ekle">
+                                <i class="zmdi zmdi-favorite"></i>
+                            </a>
+                            @endif
+                        </div>
 
-{{--                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">--}}
-{{--                            <i class="fab fa-facebook-f"></i>--}}
-{{--                        </a>--}}
+                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
 
-{{--                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">--}}
-{{--                            <i class="fab fa-twitter"></i>--}}
-{{--                        </a>--}}
+                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
 
-{{--                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">--}}
-{{--                            <i class="fab fa-google-plus"></i>--}}
-{{--                        </a>--}}
-{{--                    </div>--}}
+                        <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </div>
+
+
+
 {{--                    <?php if (isset($product["brand_id"])): ?>--}}
 {{--                    <?php--}}
 {{--                    $brandQuery = $dbConnect->prepare("SELECT * FROM brand WHERE id = ?");--}}

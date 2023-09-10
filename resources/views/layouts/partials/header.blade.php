@@ -130,9 +130,11 @@
 //
 //                        ?>
 
-                        <a href="/favorites" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="99">
+                        @if(auth()->check())
+                        <a href="/wishlist" id="wishnoti" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="{{session('wishcount')}}">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
+                        @endif
                     </div>
 
 
@@ -234,9 +236,9 @@
                 <a href="/products?type=new">Yeni Sezon</a>
             </li>
 
-            <li>
-                <a href="/about">Hakkımızda</a>
-            </li>
+{{--            <li>--}}
+{{--                <a href="/about">Hakkımızda</a>--}}
+{{--            </li>--}}
 
             <li>
                 <a href="/contact">İletişim</a>

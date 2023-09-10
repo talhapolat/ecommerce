@@ -14,7 +14,7 @@ if (!isset($user)) {
 if ($carttotal <= $delivery->delivery_limit_1)
     $shipping_cost = $delivery->delivery_price_1;
 elseif ($carttotal > $delivery->delivery_limit_1 && $carttotal <= $delivery->delivery_limit_2)
-    $shipping_cost =  $delivery->delivery_price_2;
+    $shipping_cost = $delivery->delivery_price_2;
 elseif ($carttotal > $delivery->delivery_limit_2)
     $shipping_cost = 0;
 
@@ -26,7 +26,8 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 <head>
     @include('layouts.partials.head')
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 
 </head>
 
@@ -116,7 +117,7 @@ elseif ($carttotal > $delivery->delivery_limit_2)
         border-radius: 22px;
     }
 
-    #generatecard{
+    #generatecard {
         cursor: pointer;
         float: right;
         font-size: 12px;
@@ -125,7 +126,7 @@ elseif ($carttotal > $delivery->delivery_limit_2)
         background-color: #909090;
         border-radius: 4px;
         cursor: pointer;
-        float:right;
+        float: right;
     }
 
     /* CHANGEABLE CARD ELEMENTS */
@@ -404,11 +405,16 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 
 
                             <?php if (!isset($_SESSION["useremail"])) { ?>
-                        <p class="stext-111 cl6 p-t-2" style="text-align:justify">
-                            <a href="/login">Giriş</a> yaparak kayıtlı adreslerinizi görebilir, yeni adres kaydedebilir
-                            ve
-                            zaman kazanabilirsiniz.
-                        </p>
+
+
+                        @if(!auth()->check())
+                            <p class="stext-111 cl6 p-t-2" style="text-align:justify">
+                                <a href="/login">Giriş</a> yaparak kayıtlı adreslerinizi görebilir, yeni adres
+                                kaydedebilir
+                                ve
+                                zaman kazanabilirsiniz.
+                            </p>
+                        @endif
 
 
                         <div class="p-b-15 p-t-15">
@@ -670,19 +676,25 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 
                                     @foreach($deliveries as $delivery)
                                         @php
-                                        $total_price = $carttotal + $shipping_cost - $discount;
+                                            $total_price = $carttotal + $shipping_cost - $discount;
 
-                                        if ($total_price <= $delivery->delivery_limit_1)
-                                            $ship_price = $delivery->delivery_price_1;
-                                        elseif ($total_price > $delivery->delivery_limit_1 && $total_price <= $delivery->delivery_limit_2)
-                                        $ship_price =  $delivery->delivery_price_2;
-                                        elseif ($total_price > $delivery->delivery_limit_2)
-                                        $ship_price = 0;
+                                            if ($total_price <= $delivery->delivery_limit_1)
+                                                $ship_price = $delivery->delivery_price_1;
+                                            elseif ($total_price > $delivery->delivery_limit_1 && $total_price <= $delivery->delivery_limit_2)
+                                            $ship_price =  $delivery->delivery_price_2;
+                                            elseif ($total_price > $delivery->delivery_limit_2)
+                                            $ship_price = 0;
                                         @endphp
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="shiptype" id="shiptype{{$delivery->id}}" value="{{$delivery->id}}" @if(session('shiptype') == $delivery->id) checked @endif>
+                                            <input class="form-check-input" type="radio" name="shiptype"
+                                                   id="shiptype{{$delivery->id}}" value="{{$delivery->id}}"
+                                                   @if(session('shiptype') == $delivery->id) checked @endif>
                                             <label class="form-check-label" for="shiptype{{$delivery->id}}">
-                                                {{$delivery->delivery_title}} @if($ship_price == 0) (Ücretsiz) @else {{$ship_price}}₺ @endif
+                                                {{$delivery->delivery_title}} @if($ship_price == 0)
+                                                    (Ücretsiz)
+                                                @else
+                                                    {{$ship_price}}₺
+                                                @endif
                                             </label>
                                         </div>
                                     @endforeach
@@ -706,8 +718,12 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                                 </h4>
                             </div>
                             <div class="col-xl-7 col-lg-8 col-md-8 col-sm-7 col-6-5">
-                                <h6>{{$delivery->delivery_title}} @if($shipping_cost == 0) (Ücretsiz) @else {{$shipping_cost}}₺ @endif</h6>
-                                                            </div>
+                                <h6>{{$delivery->delivery_title}} @if($shipping_cost == 0)
+                                        (Ücretsiz)
+                                    @else
+                                        {{$shipping_cost}}₺
+                                    @endif</h6>
+                            </div>
                             <div class="col-xl-2 col-lg-1 col-md-1 col-sm-2 col-2-5">
                                 <span><a href="/checkout?step=2" style="color: black">Düzenle</a></span>
                             </div>
@@ -725,19 +741,23 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 											ÖDEME YÖNTEMİNİ SEÇİNİZ
 										</span>
                             <div class="row">
-                                <div class="col-12 p-t-15" >
+                                <div class="col-12 p-t-15">
 
                                     @foreach($payment_methods as $method)
 
                                         <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="paymenttype" value="{{$method->id}}" id="paymenttype{{$method->id}}" @if(session('shiptype') == $delivery->id) checked @endif>
+                                            <input class="form-check-input" type="radio" name="paymenttype"
+                                                   value="{{$method->id}}" id="paymenttype{{$method->id}}"
+                                                   @if(session('shiptype') == $delivery->id) checked @endif>
                                             <label class="form-check-label" for="paymenttype{{$method->id}}">
                                                 {{$method->title}}
 
                                                 @if($method->commission_rate > 0 and $method->price == 0)
-                                                    <a style="font-size: 12px">(%{{$method->commission_rate}} ek masraf)</a>
+                                                    <a style="font-size: 12px">(%{{$method->commission_rate}} ek
+                                                        masraf)</a>
                                                 @elseif($method->commission_rate > 0 and $method->price > 0)
-                                                    <a style="font-size: 12px">(%{{$method->commission_rate}} + {{$method->price}}₺ ek masraf)</a>
+                                                    <a style="font-size: 12px">(%{{$method->commission_rate}}
+                                                        + {{$method->price}}₺ ek masraf)</a>
                                                 @elseif($method->commission_rate == 0 and $method->price > 0)
                                                     <a style="font-size: 12px">({{$method->price}}₺ ek masraf)</a>
                                                 @endif
@@ -749,24 +769,24 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 
 
 
-{{--                                    <div class="form-container" >--}}
-{{--                                        <div class="field-container">--}}
-{{--                                            <label class="paylabel" for="name">Kart Üzerindeki İsim</label>--}}
-{{--                                            <input class="payinput" id="name" maxlength="20" type="text">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="field-container">--}}
-{{--                                            <label class="paylabel" for="cardnumber">Kart Numarası</label>--}}
-{{--                                            <input class="payinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="field-container">--}}
-{{--                                            <label class="paylabel" for="expirationdate">Geçerlilik Tarihi (ay/yıl)</label>--}}
-{{--                                            <input class="payinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="field-container">--}}
-{{--                                            <label class="paylabel" for="securitycode">CVC</label>--}}
-{{--                                            <input class="payinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                    {{--                                    <div class="form-container" >--}}
+                                    {{--                                        <div class="field-container">--}}
+                                    {{--                                            <label class="paylabel" for="name">Kart Üzerindeki İsim</label>--}}
+                                    {{--                                            <input class="payinput" id="name" maxlength="20" type="text">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                        <div class="field-container">--}}
+                                    {{--                                            <label class="paylabel" for="cardnumber">Kart Numarası</label>--}}
+                                    {{--                                            <input class="payinput" id="cardnumber" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                        <div class="field-container">--}}
+                                    {{--                                            <label class="paylabel" for="expirationdate">Geçerlilik Tarihi (ay/yıl)</label>--}}
+                                    {{--                                            <input class="payinput" id="expirationdate" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                        <div class="field-container">--}}
+                                    {{--                                            <label class="paylabel" for="securitycode">CVC</label>--}}
+                                    {{--                                            <input class="payinput" id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">--}}
+                                    {{--                                        </div>--}}
+                                    {{--                                    </div>--}}
 
                                 </div>
                             </div>
@@ -807,7 +827,6 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                 </h4>
                 <?php else: ?>
                 <div class="wrap-table-shopping-cart">
-
 
 
                     <table class="table-shopping-cart" style="min-width: 400px!important">
@@ -930,11 +949,14 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                 <div class="accordion accordion-flush" id="accordionFlushExample">
                     <div class="accordion-item">
                         <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
                                 Sipariş Özeti
                             </button>
                         </h2>
-                        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div id="flush-collapseOne" class="accordion-collapse collapse"
+                             data-bs-parent="#accordionFlushExample">
                             <div class="">
                                 <div class="m-l-25 m-r--38 m-lr-0-xl">
                                     <?php if ($carttotal == 0): ?>
@@ -943,7 +965,6 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                                     </h4>
                                     <?php else: ?>
                                     <div class="wrap-table-shopping-cart">
-
 
 
                                         <table class="table-shopping-cart" style="min-width: 400px!important">
@@ -986,7 +1007,9 @@ elseif ($carttotal > $delivery->delivery_limit_2)
                                                     </td>
                                                     {{--                                <td class="column-3"><?= $pcart['price'] ?>₺</td>--}}
                                                     <td class="text-center"><?= session('qty')[$key]['qty'] ?></td>
-                                                    <td class="column-5"><?= $pcart['price'] * session('qty')[$key]['qty'] ?>₺</td>
+                                                    <td class="column-5"><?= $pcart['price'] * session('qty')[$key]['qty'] ?>
+                                                        ₺
+                                                    </td>
                                                 </tr>
 
                                                     <?php
@@ -1067,7 +1090,6 @@ elseif ($carttotal > $delivery->delivery_limit_2)
     </div>
 </div>
 <!-- </form> -->
-
 
 
 <br><br>
@@ -1285,7 +1307,6 @@ elseif ($carttotal > $delivery->delivery_limit_2)
         });
 
 
-
 //Generate random card number from list of known test numbers
         const randomCard = function () {
             let testCards = [
@@ -1378,7 +1399,9 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 
 @include('layouts.partials.jsassets')
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
 
 </body>
 

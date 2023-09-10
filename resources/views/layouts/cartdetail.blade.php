@@ -150,16 +150,14 @@ if ($carttotal - $discount >= 200) {
                         </tr>
 
 
-
-
-                        <?php
+                            <?php
 
                         if (sizeof(session('cart')) > 0) {
 
-                        ?>
+                            ?>
                         <form action="updatecart" method="POST" name="updateCart" id="updateCart">
                             @csrf
-                            <?php
+                                <?php
 
                             foreach (session('cart') as $key => $pcart) { ?>
 
@@ -171,13 +169,13 @@ if ($carttotal - $discount >= 200) {
                                 </td>
                                 <td class="column-2" style="min-width: 200px"><?= $pcart['title'] ?> <br>
                                     <small>
-                                        <?php if ($pcart['option1'] != null and $pcart['option1'] != "0") {
+                                            <?php if ($pcart['option1'] != null and $pcart['option1'] != "0") {
                                             echo $pcart['option1'];
                                         }
-                                        if ($pcart['option2'] != null and $pcart['option2'] != "0") {
-                                            echo " | " . $pcart['option2'];
-                                        }
-                                        ?>
+                                            if ($pcart['option2'] != null and $pcart['option2'] != "0") {
+                                                echo " | " . $pcart['option2'];
+                                            }
+                                            ?>
                                     </small>
                                 </td>
                                 <td class="column-3"><?= $pcart['price'] ?>₺</td>
@@ -187,26 +185,28 @@ if ($carttotal - $discount >= 200) {
                                             <i class="fs-16 zmdi zmdi-minus"></i>
                                         </div>
 
-                                        <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product[]" id="num-product" value="<?= session('qty')[$key]['qty'] ?>">
+                                        <input class="mtext-104 cl3 txt-center num-product" type="number"
+                                               name="num-product[]" id="num-product"
+                                               value="<?= session('qty')[$key]['qty'] ?>">
 
                                         <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                             <i class="fs-16 zmdi zmdi-plus"></i>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="column-5"><?= $pcart['price']*session('qty')[$key]['qty'] ?>₺</td>
+                                <td class="column-5"><?= $pcart['price'] * session('qty')[$key]['qty'] ?>₺</td>
                             </tr>
 
-                            <?php
+                                <?php
 
                             }
-                            ?>
-                            <?php
-                            ?>
+                                ?>
+                                <?php
+                                ?>
                         </form>
-                        <?php
+                            <?php
                         }
-                        ?>
+                            ?>
 
                     </table>
 
@@ -214,26 +214,32 @@ if ($carttotal - $discount >= 200) {
 
                 <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
                     <div class="flex-w flex-m m-tb-5">
-                        <?php if (isset($_SESSION['ccode']) and $discount > 0):
-                        $couponQuery = $dbConnect->prepare("SELECT * FROM coupons WHERE ccode = ?");
-                        $couponQuery->execute([$_SESSION["ccode"]]);
-                        $couponNum = $couponQuery->rowCount();
-                        $coupon = $couponQuery->fetch(PDO::FETCH_ASSOC);
-                        ?>
-                        <h5 class="stext-101"><a href="/App/couponController.php?cancelCoupon=1"><i class="fas fa-times" style="color:red"></i></a> <?= $_SESSION['ccode'] ?> </h5>
+                            <?php if (isset($_SESSION['ccode']) and $discount > 0):
+                            $couponQuery = $dbConnect->prepare("SELECT * FROM coupons WHERE ccode = ?");
+                            $couponQuery->execute([$_SESSION["ccode"]]);
+                            $couponNum = $couponQuery->rowCount();
+                            $coupon = $couponQuery->fetch(PDO::FETCH_ASSOC);
+                            ?>
+                        <h5 class="stext-101"><a href="/App/couponController.php?cancelCoupon=1"><i class="fas fa-times"
+                                                                                                    style="color:red"></i></a> <?= $_SESSION['ccode'] ?>
+                        </h5>
                         <h5 class="stext-101 ml-1"> - <?= $coupon['title'] ?></h5>
 
 
                         <?php else: ?>
-                        <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-tb-5" style="width: 48%" type="text" id="couponcode" name="coupon" placeholder="Kupon Kodu">
+                        <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-tb-5" style="width: 48%" type="text"
+                               id="couponcode" name="coupon" placeholder="Kupon Kodu">
                         <div style="width: 2%"></div>
 
-                        <?php if (isset($user)): ?>
-                        <div class="flex-c-m stext-101 cl2 size-117 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5" onclick="submitCouponForm()" style="width: 48%; text-align: right;float: right;">
+                            <?php if (isset($user)): ?>
+                        <div class="flex-c-m stext-101 cl2 size-117 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5"
+                             onclick="submitCouponForm()" style="width: 48%; text-align: right;float: right;">
                             Uygula
                         </div>
                         <?php else: ?>
-                        <div class="flex-c-m stext-101 cl2 size-117 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5 signup" style="width: 48%; text-align: right;float: right;">
+                        <div
+                            class="flex-c-m stext-101 cl2 size-117 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5 signup"
+                            style="width: 48%; text-align: right;float: right;">
                             Uygula
                         </div>
                         <?php endif ?>
@@ -242,17 +248,14 @@ if ($carttotal - $discount >= 200) {
                         <?php endif ?>
                     </div>
 
-                    <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10" onclick="submitDetailsForm()">
+                    <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10"
+                         onclick="submitDetailsForm()">
                         Sepeti Güncelle
                     </div>
 
 
-
-
-
-
                 </div>
-                <?php if (isset($error)): ?>
+                    <?php if (isset($error)): ?>
                 <small><?= $error ?></small>
                 <?php endif ?>
                 <?php endif ?>
@@ -283,230 +286,253 @@ if ($carttotal - $discount >= 200) {
                         </div>
                     </div>
 
-                    <?php if ($discount > 0): ?>
-                    <div class="flex-w flex-t bor12 p-b-13 p-t-13">
-                        <div class="size-208">
+                    @if($discount > 0)
+                        <div class="flex-w flex-t bor12 p-b-13 p-t-13">
+                            <div class="size-208">
 										<span class="stext-110 cl2" style="color:red">
 											İndirim:
 										</span>
-                        </div>
+                            </div>
 
-                        <div class="size-209" style="text-align: right;">
+                            <div class="size-209" style="text-align: right;">
 										<span class="mtext-110 cl2">
 											<?= $_SESSION['discount'] ?>₺
 										</span>
+                            </div>
                         </div>
-                    </div>
-                    <?php endif ?>
+                    @endif
 
 
+                    @if($carttotal == 0)
 
-                    <?php if ($carttotal == 0): ?>
 
+                    @else
 
-							<?php else: ?>
-
-                    <div class="flex-w flex-t  p-b-23 p-t-13">
-                        <div class="size-208">
+                        <div class="flex-w flex-t  p-b-23 p-t-13">
+                            <div class="size-208">
 										<span class="stext-110 cl2">
 											Gönderim:
 										</span>
-                        </div>
+                            </div>
 
-                        <div class="size-209" style="text-align: right;">
+                            <div class="size-209" style="text-align: right;">
 										<span class="mtext-110 cl2">
-											<?= $shipping_cost ?>₺
+											{{$shipping_cost}}₺
 										</span>
+                            </div>
                         </div>
-                    </div>
 
-                    <?php if (!isset($_SESSION["useremail"])) { ?>
-                    <p class="stext-111 cl6 p-t-2" style="text-align:justify">
-                        <a href="/login">Giriş</a> yaparak kayıtlı adreslerinizi görebilir, yeni adres kaydedebilir ve zaman kazanabilirsiniz.
-                    </p>
+                        @if(!auth()->check())
+                            <p class="stext-111 cl6 p-t-2" style="text-align:justify">
+                                <a href="/login">Giriş</a> yaparak kayıtlı adreslerinizi görebilir, yeni adres
+                                kaydedebilir
+                                ve zaman kazanabilirsiniz.
+                            </p>
 
 
-                    <div class="p-b-15 p-t-15 bor12">
+                            <div class="p-b-15 p-t-15 bor12">
 										<span class="stext-112 cl8">
 											ADRES BİLGİLERİ
 										</span>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressname" placeholder="Ad" required value="{{session('addressname')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressname"
+                                           placeholder="Ad" required value="{{session('addressname')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresssurname" placeholder="Soyad" required value="{{session('addresssurname')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresssurname"
+                                           placeholder="Soyad" required value="{{session('addresssurname')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="addressemail" placeholder="E-posta" required value="{{session('addressemail')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email" name="addressemail"
+                                           placeholder="E-posta" required value="{{session('addressemail')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressphone" placeholder="Telefon" required value="{{session('addressphone')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressphone"
+                                           placeholder="Telefon" required value="{{session('addressphone')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresscity" placeholder="Şehir" required value="{{session('addresscity')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addresscity"
+                                           placeholder="Şehir" required value="{{session('addresscity')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="addressdistrict" placeholder="İlçe" required value="{{session('addressdistrict')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                           name="addressdistrict"
+                                           placeholder="İlçe" required value="{{session('addressdistrict')}}">
+                                </div>
 
-                        <div class="bor8 bg0 m-b-12">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" placeholder="Adresiniz" required value="{{session('address')}}">
-                        </div>
+                                <div class="bor8 bg0 m-b-12">
+                                    <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address"
+                                           placeholder="Adresiniz" required value="{{session('address')}}">
+                                </div>
 
 
-
-                        <!--
-                        <div class="flex-w">
-                            <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                Update Totals
+                                <!--
+                                <div class="flex-w">
+                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+                                        Update Totals
+                                    </div>
+                                </div> -->
                             </div>
-                        </div> -->
-                    </div>
 
-                    <?php
-                    } else {
+                        @else
 
-                    $addressQuery = $dbConnect->prepare("SELECT * FROM address WHERE user = ?");
-                    $addressQuery->execute([$id]);
-                    $addressNum = $addressQuery->rowCount();
-                    $addresses = $addressQuery->fetchAll(PDO::FETCH_ASSOC);
-
-                    if ($addressNum > 0) { ?>
-                    <span class="stext-110 cl2">
+                            @if(count($userAddress) > 0 and request()->input('newadd') != true)
+                                <span class="stext-110 cl2">
 										Hangi adresinize gönderelim?
 									</span>
-                    <a href="/newAddress?back=basket" style="color: black; margin-left: 5px; float: right;"><i class="fas fa-plus"></i> Yeni Adres</a>
+                                <a href="/basket?newadd=true" style="color: black; margin-left: 5px; float: right;"><i
+                                        class="fas fa-plus"></i> Yeni Adres</a>
 
-                    <?php
 
-                    if (isset($_GET["uaddress"])) {
-                    $addressQ = $dbConnect->prepare("SELECT * FROM address WHERE user = ? and id = ?");
-                    $addressQ->execute([$id, $_GET["uaddress"]]);
-                    $addressN = $addressQ->rowCount();
-                    $ads = $addressQ->fetch(PDO::FETCH_ASSOC);
-                    if ($addressN == 0) {
-                        header("Location:/");
-                    }
-                    ?>
+                                {{--                    if (isset($_GET["uaddress"])) {--}}
+                                {{--                    $addressQ = $dbConnect->prepare("SELECT * FROM address WHERE user = ? and id = ?");--}}
+                                {{--                    $addressQ->execute([$id, $_GET["uaddress"]]);--}}
+                                {{--                    $addressN = $addressQ->rowCount();--}}
+                                {{--                    $ads = $addressQ->fetch(PDO::FETCH_ASSOC);--}}
+                                {{--                    if ($addressN == 0) {--}}
+                                {{--                        header("Location:/");--}}
+                                {{--                    }--}}
+                                {{--                    ?>--}}
 
-                    <div class="card mt-1" style="cursor: pointer;">
-                        <div class="card-body" style="padding: 5px!important">
-                            <h6 class="mtext-111 cl2 p-b-8" style="font-size: 14px"><?= $ads["title"] ?> </h6>
-                            <h6 class="card-text" style="font-size: 14px"><?= $ads["name"] ?> <?= $ads["surname"] ?> - <?= $ads["phone"] ?></h6>
-                            <p class="card-text" style="font-size: 14px"><?= $ads["address"] ?> <?= $ads["state"] ?> <?= $ads["city"] ?></p>
-                        </div>
-                    </div>
-                    <input type="hidden" name="uaddress" value="<?= $_GET["uaddress"] ?> ">
-                    <a href="/basket" style="color: black; margin-top: 15px"><i class="fas fa-exchange-alt"></i> Değiştir </a>
+                                {{--                    <div class="card mt-1" style="cursor: pointer;">--}}
+                                {{--                        <div class="card-body" style="padding: 5px!important">--}}
+                                {{--                            <h6 class="mtext-111 cl2 p-b-8" style="font-size: 14px"><?= $ads["title"] ?> </h6>--}}
+                                {{--                            <h6 class="card-text" style="font-size: 14px"><?= $ads["name"] ?> <?= $ads["surname"] ?> - <?= $ads["phone"] ?></h6>--}}
+                                {{--                            <p class="card-text" style="font-size: 14px"><?= $ads["address"] ?> <?= $ads["state"] ?> <?= $ads["city"] ?></p>--}}
+                                {{--                        </div>--}}
+                                {{--                    </div>--}}
+                                {{--                    <input type="hidden" name="uaddress" value="<?= $_GET["uaddress"] ?> ">--}}
+                                {{--                    <a href="/basket" style="color: black; margin-top: 15px"><i class="fas fa-exchange-alt"></i> Değiştir </a>--}}
 
-                    <?php
-                    }else{
-                    foreach ($addresses as $key => $address) { ?>
-                    <a href="?uaddress=<?= $address["id"] ?>" style="text-decoration: none!important; color: black">
-                        <div class="card mt-1" style="cursor: pointer;">
-                            <div class="card-body" style="padding: 5px!important">
-                                <h6 class="mtext-111 cl2 p-b-8" style="font-size: 14px"><?= $address["title"] ?> </h6>
-                                <h6 class="card-text" style="font-size: 14px"><?= $address["name"] ?> <?= $address["surname"] ?> - <?= $address["phone"] ?></h6>
-                                <p class="card-text" style="font-size: 14px"><?= $address["address"] ?> <?= $address["state"] ?> <?= $address["city"] ?></p>
 
-                            </div>
-                        </div>
-                    </a>
 
-                    <?php
-                    }
-                    }
+                                @foreach ($userAddress as $key => $address)
+                                    <a href="?uaddress={{$address->id}}"
+                                       style="text-decoration: none!important; color: black">
+                                        <div class="card mt-1" style="cursor: pointer;">
+                                            <div class="card-body" style="padding: 5px!important">
+                                                <h6 class="mtext-111 cl2 p-b-8"
+                                                    style="font-size: 14px">{{$address->title}} </h6>
+                                                <h6 class="card-text"
+                                                    style="font-size: 14px">{{$address->name}} {{$address->surname}}
+                                                    - {{$address->phone}}</h6>
+                                                <p class="card-text"
+                                                   style="font-size: 14px">{{$address->address}} {{$address->state}}
+                                                    , {{$address->city}}</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                @endforeach
 
-                    ?>
+                            @else
 
-                    <?php
-                    } else { ?>
+                                @if(request()->input('newadd') == true)
+                                    <a href="/basket" style="color: black; margin-left: 5px;"><i
+                                            class="fas fa-arrow-left"></i> Geri</a>
+                                @endif
 
-                    <div class="p-b-15 p-t-15 bor12">
+                                <div class="p-b-15 p-t-15 bor12">
 										<span class="stext-112 cl8">
 											ADRES BİLGİLERİ
 										</span>
 
-                        <form id="newaddressform" action="newaddresscont.php" method="POST">
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="name" id="name" placeholder="Adres Başlığı">
-                            </div>
+                                    <form id="newaddressform" action="{{route('useraddressesnew')}}" method="POST">
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="name" id="name" placeholder="Adres Başlığı">
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="username" id="username" placeholder="Ad" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="addressname" id="addressname" placeholder="Ad" required>
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="usersurname" id="usersurname" placeholder="Soyad" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="addresssurname" id="addresssurname" placeholder="Soyad"
+                                                   required>
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="userphone" id="userphone" placeholder="Telefon" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="addressphone" id="addressphone" placeholder="Telefon" required>
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="city" id="city" placeholder="Şehir" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="email"
+                                                   name="addressemail" id="addressemail" placeholder="E-posta Adresi"
+                                                   required>
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="state" id="state" placeholder="İlçe" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="addresscity" id="addresscity" placeholder="Şehir" required>
+                                        </div>
 
-                            <div class="bor8 bg0 m-b-12">
-                                <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text" name="address" id="address" placeholder="Adresiniz" required>
-                            </div>
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="addressdistrict" id="addressdistrict" placeholder="İlçe"
+                                                   required>
+                                        </div>
 
-                            <div class="flex-w">
-                                <div id="newaddress" class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                    Adresi Kaydet
+                                        <div class="bor8 bg0 m-b-12">
+                                            <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
+                                                   name="address" id="address" placeholder="Adresiniz" required>
+                                        </div>
+
+                                        <div class="flex-w">
+                                            <div id="newaddress"
+                                                 class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
+                                                Adresi Kaydett
+                                            </div>
+                                        </div>
+                                    </form>
+
                                 </div>
-                            </div>
-                        </form>
 
-                    </div>
+                            @endif
 
-                    <?php
-                    }
-
-                    } ?>
-
-                    <div class="flex-w flex-t p-t-27 p-b-33">
-                        <div class="size-208">
+                            <div class="flex-w flex-t p-t-27 p-b-33">
+                                <div class="size-208">
 									<span class="mtext-101 cl2">
 										Toplam:
 									</span>
-                        </div>
+                                </div>
 
-                        <div class="size-209 p-t-1" style="text-align: right;">
+                                <div class="size-209 p-t-1" style="text-align: right;">
 									<span class="mtext-110 cl2">
-										<?= $carttotal + $shipping_cost - $discount ?>₺
+										{{$carttotal + $shipping_cost - $discount}}₺
 									</span>
-                        </div>
-                    </div>
+                                </div>
+                            </div>
 
-                    <?php if (isset($_GET["uaddress"]) || !isset($_SESSION["useremail"])) { ?>
-                    <button type="submit" class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-4" >
-                        Ödemeye Geç
-                    </button>
-                    <?php
-                    } else { ?>
-                    <button type="button" class="btn flex-c-m stext-101 cl0 size-116 bg3 bor14  p-lr-15 trans-04 pointer mb-4" disabled>
-                        Ödemeye Geç
-                    </button>
-                    <?php
-                    } ?>
+                            @if(request()->input('newadd') != true)
+                                <button type="submit"
+                                        class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-4">
+                                    Ödemeye Geç
+                                </button>
+                            @else
+                                <button type="button"
+                                        class="btn flex-c-m stext-101 cl0 size-116 bg3 bor14  p-lr-15 trans-04 pointer mb-4"
+                                        disabled>
+                                    Ödemeye Geç
+                                </button>
+                            @endif
 
-                    <?php endif ?>
+                        @endif
+                    @endif
 
                 </div>
             </form>
         </div>
+
+
     </div>
 </div>
 <!-- </form> -->
@@ -541,6 +567,4 @@ if ($carttotal - $discount >= 200) {
 </body>
 
 </html>
-<?php
-//$dbConnect = null;
-?>
+

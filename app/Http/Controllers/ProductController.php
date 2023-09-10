@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Gallery;
+use App\Models\Wishlist;
 use App\Navigation;
 use App\Option;
 use App\Product;
@@ -11,7 +12,9 @@ use App\ProductCategory;
 use App\ProductMedia;
 use App\ProductOption;
 use App\Suboption;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProductController extends Controller
@@ -84,7 +87,14 @@ class ProductController extends Controller
                 ->get();
         }
 
+        $isWish = 0;
+        if (Auth::user()){
+            $user = \App\Models\User::all()->where('email', session('loginId'))->first();
+            $wish = Wishlist::all()->where('user',$user->id)->where('product', $product->id);
+            if (count($wish) > 0)
+            $isWish = 1;
+        }
 
-        return view('layouts.productdetail', compact('categories','product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations', 'product_media'));
+        return view('layouts.productdetail', compact('categories','product', 'productcategories', 'productcategory', 'galleries', 'suboption1_mainoptions', 'suboption2_mainoptions', 'suboptions1', 'suboptions2', 'navigations', 'subnavigations', 'product_media', 'isWish'));
     }
 }
