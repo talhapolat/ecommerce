@@ -161,37 +161,38 @@ class OrderController extends Controller
         ####################### DÜZENLEMESİ ZORUNLU ALANLAR #######################
         #
         ## API Entegrasyon Bilgileri - Mağaza paneline giriş yaparak BİLGİ sayfasından alabilirsiniz.
-        $merchant_id = $paytr->merchant_id;
-        $merchant_key = $paytr->merchant_key;
-        $merchant_salt = $paytr->merchant_salt;
+        $merchant_id = "231581";
+        $merchant_key = "8nJZrAxdCGuHfMQ7";
+        $merchant_salt = "oKEK4Y8ix9nsR7uQ";
+
         #
         ## Müşterinizin sitenizde kayıtlı veya form vasıtasıyla aldığınız eposta adresi
-        $email = session('addressemail');
+        $email = "deneme@gmail.com";
         #
         ## Tahsil edilecek tutar.
-        $payment_amount = $order->order_total_price; //9.99 için 9.99 * 100 = 999 gönderilmelidir.
+        $payment_amount = $order->order_total_price*100; //9.99 için 9.99 * 100 = 999 gönderilmelidir.
         #
         ## Sipariş numarası: Her işlemde benzersiz olmalıdır!! Bu bilgi bildirim sayfanıza yapılacak bildirimde geri gönderilir.
         $merchant_oid = $order->order_number;
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız ad ve soyad bilgisi
-        $user_name = session('addressname') . ' ' . session('addresssurname');
+        $user_name = "Talha Polat";
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız adres bilgisi
-        $user_address = session('address');
+        $user_address = "Kaptanpaşa";
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız telefon bilgisi
-        $user_phone = session('addressphone');
+        $user_phone = "5316543210";
         #
         ## Başarılı ödeme sonrası müşterinizin yönlendirileceği sayfa
         ## !!! Bu sayfa siparişi onaylayacağınız sayfa değildir! Yalnızca müşterinizi bilgilendireceğiniz sayfadır!
         ## !!! Siparişi onaylayacağız sayfa "Bildirim URL" sayfasıdır (Bakınız: 2.ADIM Klasörü).
-        $merchant_ok_url = "/payment_success";
+        $merchant_ok_url = "http://localhost:8000/payment_success";
         #
         ## Ödeme sürecinde beklenmedik bir hata oluşması durumunda müşterinizin yönlendirileceği sayfa
         ## !!! Bu sayfa siparişi iptal edeceğiniz sayfa değildir! Yalnızca müşterinizi bilgilendireceğiniz sayfadır!
         ## !!! Siparişi iptal edeceğiniz sayfa "Bildirim URL" sayfasıdır (Bakınız: 2.ADIM Klasörü).
-        $merchant_fail_url = "/payment_fail";
+        $merchant_fail_url = "http://localhost:8000/payment_fail";
         #
         ## Müşterinin sepet/sipariş içeriği
         $user_basket = "Giyim";
@@ -217,7 +218,7 @@ class OrderController extends Controller
 
         ## !!! Eğer bu örnek kodu sunucuda değil local makinanızda çalıştırıyorsanız
         ## buraya dış ip adresinizi (https://www.whatismyip.com/) yazmalısınız. Aksi halde geçersiz paytr_token hatası alırsınız.
-        $user_ip = $ip;
+        $user_ip = "20.125.115.106";
         ##
 
         ## İşlem zaman aşımı süresi - dakika cinsinden
@@ -271,7 +272,7 @@ class OrderController extends Controller
 
         // XXX: DİKKAT: lokal makinanızda "SSL certificate problem: unable to get local issuer certificate" uyarısı alırsanız eğer
         // aşağıdaki kodu açıp deneyebilirsiniz. ANCAK, güvenlik nedeniyle sunucunuzda (gerçek ortamınızda) bu kodun kapalı kalması çok önemlidir!
-        // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
 
         $result = @curl_exec($ch);
 
