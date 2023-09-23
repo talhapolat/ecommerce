@@ -62,11 +62,16 @@
 
                                         </div>
 
-                                        <div class="block2-txt flex-w flex-t p-t-14">
-                                            <div class="block2-txt-child1 flex-col-l ">
-                                                <a href="/product/{{$product->slug}}" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-                                                    {{$product->title}}
-                                                </a>
+                                        <div class="block2-txt p-t-14">
+                                            <div class=" ">
+                                                <div class="right" style="width: 100%">
+                                                        <a href="/product/{{$product->slug}}" id="modelptitle" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+                                                            {{$product->title}}
+                                                        </a>
+                                                    <a href="#" data-id="{{$product->id}}" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-tb-2 js-addedwish-detail tooltip100" data-tooltip="Favorilere Ekle" style="float: right">
+                                                        <i class="zmdi zmdi-favorite"></i>
+                                                    </a>
+                                                </div>
 
                                                 @if($product->sale_price != null)
                                                     <div class="left">
@@ -112,7 +117,9 @@
 
                                         </div>
                                     </div>
+
                                 </div>
+
                             @endforeach
 
 

@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-require_once("../app/func.php");
+require_once(base_path()."/app/func.php");
 
 $carttotal = session('carttotal');
 $discount = 0;
@@ -504,7 +504,7 @@ elseif ($carttotal > $delivery->delivery_limit_2)
 
                         if ($addressNum > 0) { ?>
                         <span class="stext-110 cl2">
-										Hangi adresinize gönderelim?
+										Hangi adresinize gönderelim?d
 									</span>
                         <a href="/newAddress?back=basket" style="color: black; margin-left: 5px; float: right;"><i
                                 class="fas fa-plus"></i> Yeni Adres</a>

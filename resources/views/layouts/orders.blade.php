@@ -57,7 +57,7 @@
                                 <div class="card mt-2">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-md-9 col-xs">
+                                            <div class="col-md-8 col-xs">
                                                 <div class="row ">
 
                                                     @php($ordersp = \App\Models\OrderDetails::all()->where('order_id', $order->id))
@@ -99,23 +99,34 @@
                                                 </div>
 
                                             </div>
-                                            <div class="col-md-3 col-xs">
+                                            <div class="col-md-4 col-xs">
                                                 <div style="float: right;">
 
-                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
                                                         Sipariş Tarihi: {{$order->created_at}}</h5>
-                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;">
-                                                        Durumu: <span style="color: green">Teslim Edildi</span>
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
+                                                        Sipariş No: #{{$order->order_number}}</h5>
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
+                                                        Durumu:
+                                                        @if($order->payment_statu == 0)
+                                                            <span style="color: #d48d06">Ödeme Bekleniyor</span>
+                                                        @elseif($order->payment_statu == 1 and $order->order_statu == 0)
+                                                            <span style="color: green">Sipariş Hazırlanıyor</span>
+                                                        @elseif($order->payment_statu == 1 and $order->order_statu == 1)
+                                                            <span style="color: green">Kargoya Verildi</span>
+                                                        @elseif($order->payment_statu == 1 and $order->order_statu == 2)
+                                                            <span style="color: green">Teslim Edildi</span>
+                                                        @endif
                                                     </h5>
                                                     @if($order->order_delivery_cost > 0)
-                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
                                                         Teslimat Ücreti: {{$order->order_delivery_cost}}₺</h5>
                                                     @endif
                                                     @if($order->order_payment_cost > 0)
-                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
                                                         Ödeme Komisyonu: {{$order->order_payment_cost}}₺</h5>
                                                     @endif
-                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px">
+                                                    <h5 class="mtext-111 cl2 p-b-8" style="font-size: 13px;font-family: Poppins-Regular">
                                                         Toplam Tutar: {{$order->order_total_price}}₺</h5>
 {{--                                                    <button type="submit" class="btn"--}}
 {{--                                                            style="background-color: #116c7f; color: #fff; border: none; width: 100%; height: 40px">--}}
@@ -124,6 +135,8 @@
 {{--                                                            Sipariş Detayı--}}
 {{--                                                        </h5>--}}
 {{--                                                    </button>--}}
+
+                                                    <a href="" style="color: black; font-size: 13px">Sipariş Detayı</a>
 
                                                 </div>
                                             </div>

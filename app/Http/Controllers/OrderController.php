@@ -161,13 +161,13 @@ class OrderController extends Controller
         ####################### DÜZENLEMESİ ZORUNLU ALANLAR #######################
         #
         ## API Entegrasyon Bilgileri - Mağaza paneline giriş yaparak BİLGİ sayfasından alabilirsiniz.
-        $merchant_id = "231581";
-        $merchant_key = "8nJZrAxdCGuHfMQ7";
-        $merchant_salt = "oKEK4Y8ix9nsR7uQ";
+        $merchant_id = $paytr->merchant_id;
+        $merchant_key = $paytr->merchant_key;
+        $merchant_salt = $paytr->merchant_salt;
 
         #
         ## Müşterinizin sitenizde kayıtlı veya form vasıtasıyla aldığınız eposta adresi
-        $email = "deneme@gmail.com";
+        $email = session('addressemail');
         #
         ## Tahsil edilecek tutar.
         $payment_amount = $order->order_total_price*100; //9.99 için 9.99 * 100 = 999 gönderilmelidir.
@@ -176,13 +176,13 @@ class OrderController extends Controller
         $merchant_oid = $order->order_number;
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız ad ve soyad bilgisi
-        $user_name = "Talha Polat";
+        $user_name = session('addressname') . " " . session('addresssurname');
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız adres bilgisi
-        $user_address = "Kaptanpaşa";
+        $user_address = session('addressdistrict') . " " . session('address') . " " . session('addresscity');
         #
         ## Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız telefon bilgisi
-        $user_phone = "5316543210";
+        $user_phone = session('addressphone');
         #
         ## Başarılı ödeme sonrası müşterinizin yönlendirileceği sayfa
         ## !!! Bu sayfa siparişi onaylayacağınız sayfa değildir! Yalnızca müşterinizi bilgilendireceğiniz sayfadır!

@@ -163,10 +163,11 @@ class LoginController extends Controller
         $categories = Category::where('main_category_id', null)->where('statu',1)->get();
         $products = Product::all();
         $user = User::all()->where('email', session('loginId'))->where('statu', 1)->first();
+        $addresses = UserAddress::where('user', $user->id)->get();
 
         $orders = Orders::all()->where('user_id', $user->id);
 
-        return view('layouts.myaddresses', compact('navigations', 'subnavigations', 'categories', 'user', 'orders'));
+        return view('layouts.myaddresses', compact('navigations', 'subnavigations', 'categories', 'user', 'orders', 'addresses'));
     }
 
     public function useraddressesnew(Request $request) {

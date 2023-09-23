@@ -24,12 +24,12 @@ Route::get('register', 'App\Http\Controllers\LoginController@register')->name('r
 Route::post('signup', 'App\Http\Controllers\LoginController@signup')->name('signup');
 Route::post('signin', 'App\Http\Controllers\LoginController@signin')->name('signin');
 Route::get('account', 'App\Http\Controllers\LoginController@useraccount')->name('useraccount');
-Route::get('orders', 'App\Http\Controllers\LoginController@userorders')->name('userorders');
-Route::get('wishlist', 'App\Http\Controllers\LoginController@userwishlist')->name('userwishlist');
+Route::get('account/orders', 'App\Http\Controllers\LoginController@userorders')->name('userorders');
+Route::get('account/wishlist', 'App\Http\Controllers\LoginController@userwishlist')->name('userwishlist');
 Route::post('wishlist/add', 'App\Http\Controllers\LoginController@userwishlistadd')->name('userwishlistadd');
 Route::post('wishlist/delete', 'App\Http\Controllers\LoginController@userwishlistdelete')->name('userwishlistdelete');
-Route::get('coupons', 'App\Http\Controllers\LoginController@usercoupons')->name('usercoupons');
-Route::get('myaddresses', 'App\Http\Controllers\LoginController@useraddresses')->name('useraddresses');
+Route::get('account/coupons', 'App\Http\Controllers\LoginController@usercoupons')->name('usercoupons');
+Route::get('account/address', 'App\Http\Controllers\LoginController@useraddresses')->name('useraddresses');
 Route::get('myaddresses/new', 'App\Http\Controllers\LoginController@useraddressesnew')->name('useraddressesnew');
 
 

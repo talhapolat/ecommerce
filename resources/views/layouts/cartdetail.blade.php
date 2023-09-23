@@ -1,7 +1,7 @@
 <?php
 session_start();
 ob_start();
-require_once("../app/func.php");
+require_once(base_path()."/app/func.php");
 
 $carttotal = session('carttotal');
 $discount = 0;
@@ -372,12 +372,12 @@ if ($carttotal - $discount >= 200) {
                                 </div>
 
 
-                                <!--
-                                <div class="flex-w">
-                                    <div class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                        Update Totals
-                                    </div>
-                                </div> -->
+
+                                <button type="submit"
+                                        class="btn flex-c-m stext-101 cl0 size-116 bg3 bor14  p-lr-15 trans-04 pointer mb-4"
+                                        >
+                                    Ödemeye Geç
+                                </button>
                             </div>
 
                         @else
@@ -415,18 +415,21 @@ if ($carttotal - $discount >= 200) {
                                 @foreach ($userAddress as $key => $address)
                                     <a href="?uaddress={{$address->id}}"
                                        style="text-decoration: none!important; color: black">
-                                        <div class="card mt-1" style="cursor: pointer;">
-                                            <div class="card-body" style="padding: 5px!important">
-                                                <h6 class="mtext-111 cl2 p-b-8"
-                                                    style="font-size: 14px">{{$address->title}} </h6>
-                                                <h6 class="card-text"
-                                                    style="font-size: 14px">{{$address->name}} {{$address->surname}}
-                                                    - {{$address->phone}}</h6>
-                                                <p class="card-text"
-                                                   style="font-size: 14px">{{$address->address}} {{$address->state}}
-                                                    , {{$address->city}}</p>
-                                            </div>
-                                        </div>
+                                        @if(session('uaddress') == $address->id)
+                                            <div class="card mt-1" style="cursor: pointer; border: solid 1px">
+                                                @else
+                                                    <div class="card mt-1" style="cursor: pointer;">
+                                                        @endif
+                                                        <div class="card-body" style="padding: 5px!important">
+                                                            <h6 class="mtext-111 cl2 p-b-8"
+                                                                style="font-size: 14px">{{$address->title}} </h6>
+                                                            <h6 class="card-text"
+                                                                style="font-size: 14px">{{$address->name}} {{$address->surname}}
+                                                                - {{$address->phone}}</h6>
+                                                            <p class="card-text"
+                                                               style="font-size: 14px">{{$address->address}} {{$address->state}}, {{$address->city}}</p>
+                                                        </div>
+                                                    </div>
                                     </a>
                                 @endforeach
 
@@ -445,7 +448,7 @@ if ($carttotal - $discount >= 200) {
                                     <form id="newaddressform" action="{{route('useraddressesnew')}}" method="POST">
                                         <div class="bor8 bg0 m-b-12">
                                             <input class="stext-111 cl8 plh3 size-111 p-lr-15" type="text"
-                                                   name="name" id="name" placeholder="Adres Başlığı">
+                                                   name="name" id="name" placeholder="Adres Başlığı" required>
                                         </div>
 
                                         <div class="bor8 bg0 m-b-12">
@@ -487,10 +490,10 @@ if ($carttotal - $discount >= 200) {
                                         </div>
 
                                         <div class="flex-w">
-                                            <div id="newaddress"
+                                            <button id="newaddress"
                                                  class="flex-c-m stext-101 cl2 size-115 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer">
-                                                Adresi Kaydett
-                                            </div>
+                                                Adresi Kaydet
+                                            </button>
                                         </div>
                                     </form>
 
@@ -513,10 +516,18 @@ if ($carttotal - $discount >= 200) {
                             </div>
 
                             @if(request()->input('newadd') != true)
+                                    @if(session('uaddress') != null)
                                 <button type="submit"
                                         class="flex-c-m stext-101 cl0 size-116 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer mb-4">
                                     Ödemeye Geç
                                 </button>
+                                    @else
+                                        <button type="button"
+                                                class="btn flex-c-m stext-101 cl0 size-116 bg3 bor14  p-lr-15 trans-04 pointer mb-4"
+                                                disabled>
+                                            Ödemeye Geç
+                                        </button>
+                                    @endif
                             @else
                                 <button type="button"
                                         class="btn flex-c-m stext-101 cl0 size-116 bg3 bor14  p-lr-15 trans-04 pointer mb-4"

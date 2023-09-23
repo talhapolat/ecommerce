@@ -5,6 +5,7 @@
     @include('layouts.partials.head')
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body class="animsition">
@@ -44,14 +45,32 @@
                                 Adreslerim
                             </h5>
 
-                            @if($orders == null)
+                            @if($addresses == null)
                                 <div class="card mb-2">
                                     <div class="card-body">
                                         Henüz kayıtlı bir adresin yok.
                                     </div>
                                 </div>
+                            @else
+                                @foreach ($addresses as $address)
+                                    <div class="card mb-2">
+                                        <div class="card-body" style="font-family: Poppins-Regular">
+                                            <h5 class="mtext-111 cl2 p-b-8" style="font-size: 15px">
+                                                {{$address->title}}
+                                            </h5>
+                                            <h6>{{$address->name}} {{$address->surname}}</h6>
+                                            <a style="font-size: 12px">{{$address->phone}}</a> <br>
+                                            <a>{{$address->address}}</a> <br>
+                                            <a style="font-size: 12px">{{$address->city}} / </a>
+                                            <a style="font-size: 12px;">{{$address->state}}</a>
+                                            <a href="#"><i class="fa fa-x"
+                                                                  style="float: right;font-size: 18px; color: black"></i></a>
+                                            <a href="#"><i class="fa fa-edit mr-2 "
+                                                                  style="float: right;font-size: 18px; color: black"></i></a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             @endif
-
                         </div>
                     </div>
                 </div>

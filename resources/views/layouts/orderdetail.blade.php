@@ -46,7 +46,7 @@
 
                             @if(!isset($coupons))
                                 <div class="mt-2">
-                                        Henüz hesabına tanımlı bir kuponun bulunmuyor.
+                                    Henüz hesabına tanımlı bir kuposdfnun bulunmuyor.
                                 </div>
                             @endif
 

@@ -14,17 +14,17 @@
                     <?php
                     if (auth()->check()) {
                     ?>
-                    <a href="/account" class="flex-c-m trans-04 p-lr-25">
+                    <a href="{{route('useraccount')}}" class="flex-c-m trans-04 p-lr-25">
                         HESABIM
                     </a>
                     <?php
                     } else {
                     ?>
-                    <a href="/login" class="flex-c-m trans-04 p-lr-25">
+                    <a href="{{route('login')}}" class="flex-c-m trans-04 p-lr-25">
                         GİRİŞ
                     </a>
 
-                    <a href="/register" class="flex-c-m trans-04 p-lr-25">
+                    <a href="{{route('register')}}" class="flex-c-m trans-04 p-lr-25">
                         KAYIT OL
                     </a>
                 <?php } ?>
@@ -131,7 +131,7 @@
 //                        ?>
 
                         @if(auth()->check())
-                        <a href="/wishlist" id="wishnoti" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="{{session('wishcount')}}">
+                        <a href="{{route('userwishlist')}}" id="wishnoti" class="dis-block icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="{{session('wishcount')}}">
                             <i class="zmdi zmdi-favorite-outline"></i>
                         </a>
                         @endif

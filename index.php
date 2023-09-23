@@ -1,5 +1,0 @@
-talha
-polat
-hahaha
-
-kkkkk

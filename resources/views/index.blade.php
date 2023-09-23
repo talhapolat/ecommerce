@@ -1,5 +1,6 @@
 @php
-    require_once("../app/func.php");
+    require_once(base_path()."/app/func.php");
+    ;
     //session(['modalproductg' => '5']);
 @endphp
 
